@@ -1,0 +1,44 @@
+.layout-home{
+    
+    &__nav{
+        height: 61px;
+        width: 100%;
+        background: #B58900; 
+        display: flex;
+        &--menu{
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            a{
+                color: #ffffff;
+                font-family: Montserrat;
+                img{
+                    object-fit: cover; 
+                    height: 40px;
+                    margin-top: -9%;
+                }
+            }
+        }
+        &--search{
+            width: 30%;
+            display: flex;
+            justify-content: flex-end;
+            padding: 1%;
+            .search{
+                width: 200px;
+                border-radius: 18px;
+                height: 37px;
+            }
+            .ant-input-affix-wrapper .ant-input:not(:last-child) {
+                padding-right: 30px;
+                background-color: rgb(48, 58, 58);
+                color: #ffffff;
+                
+            }
+            .ant-input-search-icon {
+                color: #fff;
+            }
+        }
+    }
+}

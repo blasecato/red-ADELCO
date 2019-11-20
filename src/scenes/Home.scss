@@ -7,39 +7,5 @@
             object-fit: cover;
         }
     }
-    &__nav{
-        height: 61px;
-        width: 100%;
-        background: #B58900; 
-        display: flex;
-        &--menu{
-            width: 70%;
-            display: flex;
-            justify-content: space-between;
-            padding: 2%;
-            a{
-                color: #ffffff;
-                font-family: Montserrat;
-            }
-        }
-        &--search{
-            width: 30%;
-            display: flex;
-            justify-content: flex-end;
-            padding: 1%;
-            .search{
-                width: 200px;
-                border-radius: 18px;
-                height: 37px;
-            }
-            .ant-input-affix-wrapper .ant-input:not(:last-child) {
-                padding-right: 30px;
-                background-color: rgb(48, 58, 58);
-                color: #ffffff;
-                .ant-input-search-icon {
-                    color: #fff;
-                }
-            }
-        }
-    }
+    
 }
