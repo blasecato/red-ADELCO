@@ -1,3 +1,9 @@
 @import "../../scenes/Home.scss";
 
-@import "../../scenes/Users/Users.scss"
+@import "../../scenes/Users/Users.scss",
+        "../../scenes/Users/QueryUser/QueryUser.scss",
+        "../../scenes/Users/Profile/Profile.scss",
+        "../../scenes/Users/DeleteUpdateUser/DeleteUpdateUser.scss",
+        "../../scenes/Users/RegisterUser/RegisterUser.scss";
+
+@import "../../scenes/Coberturas/Coberturas.scss";

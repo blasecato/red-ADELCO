@@ -1,3 +1,65 @@
 .users{
-    
+    background: #ffffff;
+    &--title{
+        padding: 1%;
+        h1{
+            font-size:50px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            color: #B58900;
+        }
+    }
+    &__content-cards{
+        width: 100%;
+        padding: 2% 5%;
+        display: flex;
+        justify-content: space-around;
+        &--card{
+            width: 22%;
+            border-radius: 15px;
+
+            .ant-card-body {
+                background: #efefef;
+            }
+            .ant-card-cover  {
+                img{
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    background: rgba(0, 0,0,0.1);
+                }
+                
+            }
+            .ant-btn {
+                left: 91px;
+                margin-top: -53%;
+                height: 56px;
+                width: 56px;
+                position: absolute;
+
+                span{
+                    margin-top: 12px;
+                }
+
+                &-primary{
+                    background-color: #B58900;
+                    border-color: #B58900;
+                }
+            }
+            .ant-card-meta {
+                margin-top: 10px;
+            }
+        }
+        &--card:hover{
+            transition: all .8s;
+            width: 25%;
+            .ant-btn {
+                left: 110px;
+                margin-top: -45%;
+                background: rgb(199, 160, 43);
+                border-color: #B58900;
+            }
+        }
+    }
 }

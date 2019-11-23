@@ -1,0 +1,30 @@
+.queryuser{
+    &__content{
+        padding: 1% 5%;
+        .ant-card{
+            border-radius: 20px;
+            &-head {
+                background: #B58900;
+                border-radius: 10px 10px 0px 0px;
+                &-title{
+                    color: #ffffff;
+                    font-size: 25px;
+                }
+            }
+            &-body{
+                padding: 0%;
+            }
+            .ant-table-header-column{
+                color: #303a3a;
+                font-size: 15px;
+                font-weight: 600;
+            }
+            .ant-tag-blue {
+                color: #415618;
+                background: rgb(251, 235, 186);
+                border-color: #B58900;
+            }
+        }
+        
+    }
+}

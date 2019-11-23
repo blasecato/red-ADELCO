@@ -1,0 +1,24 @@
+.ModalDeleteUser{
+    button{
+        background: rgb(100, 28, 0);
+        color: #ffffff;
+    }
+   
+}
+.ant-modal{
+    .title{
+        color: #ffffff;
+    }
+    &-header{
+        background: #B58900 !important;
+        color: #ffffff !important;
+    }
+    &-close-x{
+            color: #ffffff;
+
+    }
+    .ant-btn-primary {
+        background: rgb(100, 28, 0);
+        border-color: rgb(100, 28, 0);
+    }
+}
