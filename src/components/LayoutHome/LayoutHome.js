@@ -17,6 +17,8 @@ class LayoutHome extends React.Component {
                         <a class="layout-home__nav__index" href="/users">USUARIOS</a>
                         <a class="layout-home__nav__index" href="/coberturas">COBERTURAS</a>
                         <a class="layout-home__nav__index" href="">CULTIVOS</a>
+                        <a class="layout-home__nav__index" href="/infraestructura">INFRAESTRUCTURA</a>
+                        <a class="layout-home__nav__index" href="/organizaciones">ORGANIZACIONES</a>
                     </div>
                     <div className="layout-home__nav--search">
                         <Search className="search"

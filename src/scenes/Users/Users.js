@@ -60,6 +60,7 @@ class Users extends React.Component {
                             </Button>
                         </Card>
                     </div>
+                    <div className="mesage"><span>¡</span>Aqui puedes gestionar un usuario, puedes Consultarlos, Registrarlos, Actualizarlos, Y Eliminarlos con tan solo dar click sobre la opcion que desees<span>!</span></div>
 
             </div>
         );

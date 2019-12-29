@@ -11,6 +11,8 @@ import RegisterUser from "../src/scenes/Users/RegisterUser/RegisterUser";
 import Profile from "../src/scenes/Users/Profile/Profile";
 import Coberturas from "../src/scenes/Coberturas/Coberturas";
 import CadenasProductivas from "../src/scenes/CadenasProductivas/CadenasProductivas";
+import Infraestructura from "../src/scenes/Infraestructura/Infraestructura";
+import Organizaciones from "../src/scenes/Organizaciones/Organizaciones";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/coberturas/" component={Coberturas} /> 
         <Route path="/registeruser/" component={RegisterUser} /> 
         <Route path="/cadenasproductivas/" component={CadenasProductivas} /> 
+        <Route path="/infraestructura/" component={Infraestructura} /> 
+        <Route path="/organizaciones/" component={Organizaciones} /> 
       </Router>
     </div>
   );

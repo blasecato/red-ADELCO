@@ -41,12 +41,12 @@ class Home extends React.Component {
                     onSlideChanged={this.onSlideChanged}
                     mouseTrackingEnabled
                 >
-                    <div>hola1</div>
-                    <div>hola2</div>
-                    <div>hola3</div>
-                    <div>hola4</div>
-                    <div>hola5</div>
-                    <div>hola6</div>
+                    <div className="card">hola1</div>
+                    <div className="card">hola2</div>
+                    <div className="card">hola3</div>
+                    <div className="card">hola4</div>
+                    <div className="card">hola5</div>
+                    <div className="card">hola6</div>
                 </AliceCarousel>
             </div>
         );
