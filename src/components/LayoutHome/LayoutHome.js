@@ -13,10 +13,10 @@ class LayoutHome extends React.Component {
                 <nav class="layout-home__nav">
                     <div className="layout-home__nav--menu">
                         <a class="layout-home__nav__index" href="/home"><img src={Logo}></img></a>
-                        <a class="layout-home__nav__index" href="/login">CADENAS PRODUCTIVAS</a>
+                        <a class="layout-home__nav__index" href="/cadenasproductivas">CADENAS PRODUCTIVAS</a>
                         <a class="layout-home__nav__index" href="/users">USUARIOS</a>
                         <a class="layout-home__nav__index" href="/coberturas">COBERTURAS</a>
-                        <a class="layout-home__nav__index" href="">AYUDA</a>
+                        <a class="layout-home__nav__index" href="">CULTIVOS</a>
                     </div>
                     <div className="layout-home__nav--search">
                         <Search className="search"

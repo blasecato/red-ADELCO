@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Form, Icon, Input, Button, Select, Radio, DatePicker } from 'antd';
+import { Upload, message,Avatar, Form, Icon, Input, Button, Select, Radio, DatePicker } from 'antd';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
@@ -19,6 +19,24 @@ function handleChange(value) {
     console.log(`selected ${value}`);
 }
 const dateFormat = 'YYYY-MM-DD';
+
+const props = {
+    name: 'file',
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    headers: {
+      authorization: 'authorization-text',
+    },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+  };
 
 class RegisterUser extends React.Component {
     state = {
@@ -64,7 +82,10 @@ class RegisterUser extends React.Component {
                         <div className="registeruser--form__content-1">
                             <div className="registeruser--form__content-1--left">
                                 <Avatar size={300} icon="user" />
-                                <Button><Icon type="camera" />Subir Foto</Button>
+                                <Upload {...props}>
+                                    <Button><Icon type="upload" />Subir Foto</Button>
+                                </Upload>
+                                
                             </div>
                             <div className="registeruser--form__content-1--rigth">
                                 <div className="registeruser--form__content-1--rigth--title">
@@ -119,7 +140,7 @@ class RegisterUser extends React.Component {
                                         </div>
                                     </Form.Item>
                                     <Form.Item className="item">
-                                        <label>Entidad</label>
+                                        <label>Organizacion</label>
                                         <div className="select-content">
                                             <Select className="select" defaultValue="1">
                                                 <Option value="1">Ninguna</Option>

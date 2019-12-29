@@ -7,9 +7,10 @@ import Login from "../src/scenes/Login/Login";
 import Users from "../src/scenes/Users/Users";
 import QueryUser from "../src/scenes/Users/QueryUser/QueryUser";
 import DeleteUpdateUser from "../src/scenes/Users/DeleteUpdateUser/DeleteUpdateUser";
+import RegisterUser from "../src/scenes/Users/RegisterUser/RegisterUser";
 import Profile from "../src/scenes/Users/Profile/Profile";
 import Coberturas from "../src/scenes/Coberturas/Coberturas";
-import RegisterUser from "../src/scenes/Users/RegisterUser/RegisterUser";
+import CadenasProductivas from "../src/scenes/CadenasProductivas/CadenasProductivas";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/profile/" component={Profile} /> 
         <Route path="/coberturas/" component={Coberturas} /> 
         <Route path="/registeruser/" component={RegisterUser} /> 
+        <Route path="/cadenasproductivas/" component={CadenasProductivas} /> 
       </Router>
     </div>
   );
