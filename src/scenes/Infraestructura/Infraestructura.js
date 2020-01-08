@@ -4,10 +4,10 @@ import { Card,Button } from 'antd';
 
 import LayoutHome from "../../components/LayoutHome/LayoutHome";
 
-import usernew from "../../assets/image/usernew.jpg";
-import queryuser from "../../assets/image/queryuser.jpg";
-import deleteuser from "../../assets/image/deleteuser.jpg";
-import updateuser from "../../assets/image/updateuser.jpg";
+import usernew from "../../assets/image/img/infra_reg.jpg";
+import queryuser from "../../assets/image/img/infra_con.jpg";
+import deleteuser from "../../assets/image/img/infra_dele.jpg";
+import updateuser from "../../assets/image/img/infra_upda.jpg";
 
 const { Meta } = Card;
 

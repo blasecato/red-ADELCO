@@ -3,10 +3,10 @@ import { Card,Button } from 'antd';
 
 import LayoutHome from "../../components/LayoutHome/LayoutHome";
 
-import usernew from "../../assets/image/usernew.jpg";
-import queryuser from "../../assets/image/queryuser.jpg";
-import deleteuser from "../../assets/image/deleteuser.jpg";
-import updateuser from "../../assets/image/updateuser.jpg";
+import usernew from "../../assets/image/img/org2.jpg";
+import queryuser from "../../assets/image/img/org1.jpg";
+import deleteuser from "../../assets/image/img/org3.jpg";
+import updateuser from "../../assets/image/img/org4.jpg";
 
 const { Meta } = Card;
 
@@ -54,7 +54,7 @@ class Organizaciones extends React.Component{
                             hoverable
                             cover={<a href="/deleteupdateuser"><img alt="example" src={deleteuser} /></a>}
                         >
-                            <Meta title="Eliminar Organizaciones" description="Elimina Organizaciones ¡AQUI!" />
+                            <Meta title="Eliminar Organizaciones" description="Elimina las Organizaciones ¡AQUI!" />
                             <Button href="/deleteupdateuser" type="primary" shape="circle">
                                 IR
                             </Button>
