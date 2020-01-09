@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 import { Card,Button } from 'antd';
 
@@ -9,7 +10,7 @@ import queryuser from "../../assets/image/img/infra_con.jpg";
 import deleteuser from "../../assets/image/img/infra_dele.jpg";
 import updateuser from "../../assets/image/img/infra_upda.jpg";
 
-const { Meta } = Card;
+const { Meta } = Card; 
 
 class Infraestructura extends React.Component{
     render(){
@@ -26,9 +27,9 @@ class Infraestructura extends React.Component{
                     cover={<a href="/registeruser"><img alt="example" src={usernew} /></a>}
                 >
                     <Meta title="Registrar Infraestructuras" description="Registra nuevas Infraestructuras ¡AQUI!" />
-                    <Button href="/registeruser" type="primary" shape="circle">
+                    <Link className="btn" to="/tipo" type="primary" shape="circle">
                         IR
-                    </Button>
+                    </Link>
                 </Card>
                 <Card
                     className="users__content-cards--card"

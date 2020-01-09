@@ -13,6 +13,7 @@ import Coberturas from "../src/scenes/Coberturas/Coberturas";
 import CadenasProductivas from "../src/scenes/CadenasProductivas/CadenasProductivas";
 import Infraestructura from "../src/scenes/Infraestructura/Infraestructura";
 import Organizaciones from "../src/scenes/Organizaciones/Organizaciones";
+import Tipo from "../src/scenes/Infraestructura/Tipo/Tipo";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/cadenasproductivas/" component={CadenasProductivas} /> 
         <Route path="/infraestructura/" component={Infraestructura} /> 
         <Route path="/organizaciones/" component={Organizaciones} /> 
+        <Route path="/tipo/" component={Tipo} /> 
       </Router>
     </div>
   );
