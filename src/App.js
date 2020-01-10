@@ -14,6 +14,7 @@ import CadenasProductivas from "../src/scenes/CadenasProductivas/CadenasProducti
 import Infraestructura from "../src/scenes/Infraestructura/Infraestructura";
 import Organizaciones from "../src/scenes/Organizaciones/Organizaciones";
 import Tipo from "../src/scenes/Infraestructura/Tipo/Tipo";
+import TipoCadena from "../src/scenes/CadenasProductivas/tipo/TipoCadena";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/infraestructura/" component={Infraestructura} /> 
         <Route path="/organizaciones/" component={Organizaciones} /> 
         <Route path="/tipo/" component={Tipo} /> 
+        <Route path="/tipocadena/" component={TipoCadena} /> 
       </Router>
     </div>
   );

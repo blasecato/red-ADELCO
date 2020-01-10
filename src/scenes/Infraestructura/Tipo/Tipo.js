@@ -51,7 +51,7 @@ class Tipo extends React.Component {
                     </Link>
                 </Card>
             </div>
-            <div className="mesage"><span className="cron">¡</span>Aqui puedes gestionar Infraestructuras, puedes Consultarlas, Registrarlas, Actualizarlas, Y Eliminarlas con tan solo dar click sobre la opcion que desees<span className="cron">!</span></div>
+            <div className="mesage"><span className="cron">¡</span>Aqui puedes Escoger que tipo de infraestructura vas a registrar<span className="cron">!</span></div>
 
     </div>
         );

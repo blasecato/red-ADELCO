@@ -47,7 +47,7 @@ class Home extends React.Component {
                             startIndex={currentIndex}
                             slideToIndex={currentIndex}
                             dotsDisabled={false}
-                            buttonsDisabled={true}
+                            buttonsDisabled={false}
                             duration={400}
                             onSlideChanged={this.onSlideChanged}
                             mouseTrackingEnabled

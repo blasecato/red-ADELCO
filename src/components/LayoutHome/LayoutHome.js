@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button,Input } from 'antd';
+import { Link } from 'react-router-dom';
 
 import Logo from "../../assets/image/redlogo.png";
 
@@ -12,13 +13,13 @@ class LayoutHome extends React.Component {
 
                 <nav class="layout-home__nav">
                     <div className="layout-home__nav--menu">
-                        <a class="layout-home__nav__index" href="/home"><img src={Logo}></img></a>
-                        <a class="layout-home__nav__index" href="/cadenasproductivas">CADENAS PRODUCTIVAS</a>
-                        <a class="layout-home__nav__index" href="/users">USUARIOS</a>
-                        <a class="layout-home__nav__index" href="/coberturas">COBERTURAS</a>
-                        {/* <a class="layout-home__nav__index" href="">CULTIVOS</a> */}
-                        <a class="layout-home__nav__index" href="/infraestructura">INFRAESTRUCTURA</a>
-                        <a class="layout-home__nav__index" href="/organizaciones">ORGANIZACIONES</a>
+                        <Link class="layout-home__nav__index" to="/home"><img src={Logo}></img></Link>
+                        <Link class="layout-home__nav__index" to="/cadenasproductivas">CADENAS PRODUCTIVAS</Link>
+                        <Link class="layout-home__nav__index" to="/users">USUARIOS</Link>
+                        <Link class="layout-home__nav__index" to="/coberturas">COBERTURAS</Link>
+                        {/* <a class="layout-home__nav__index" to="">CULTIVOS</a> */}
+                        <Link class="layout-home__nav__index" to="/infraestructura">INFRAESTRUCTURA</Link>
+                        <Link class="layout-home__nav__index" to="/organizaciones">ORGANIZACIONES</Link>
                     </div>
                     <div className="layout-home__nav--search">
                         <Search className="search"

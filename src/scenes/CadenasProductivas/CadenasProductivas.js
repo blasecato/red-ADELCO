@@ -5,10 +5,15 @@ import { Card, Button } from 'antd';
 
 import LayoutHome from "../../components/LayoutHome/LayoutHome";
 
-import usernew from "../../assets/image/usernew.jpg";
-import queryuser from "../../assets/image/queryuser.jpg";
-import deleteuser from "../../assets/image/deleteuser.jpg";
-import updateuser from "../../assets/image/updateuser.jpg";
+import usernew from "../../assets/image/mas.png";
+import queryuser from "../../assets/image/bus.png";
+import deleteuser from "../../assets/image/menos.png";
+import updateuser from "../../assets/image/act.webp";
+
+// import usernew from "../../assets/image/img/cafe.jpg";
+// import queryuser from "../../assets/image/img/caña.jpg";
+// import deleteuser from "../../assets/image/img/cacao.jpg";
+// import updateuser from "../../assets/image/img/canan.jpg";
 
 const { Meta } = Card;
 
@@ -24,42 +29,42 @@ class CadenasProductivas extends React.Component {
                     <Card
                         className="users__content-cards--card"
                         hoverable
-                        cover={<a href="/registeruser"><img alt="example" src={usernew} /></a>}
+                        cover={<Link to="/registeruser"><img alt="example" src={usernew} /></Link>}
                     >
                         <Meta title="Registrar Cadenas Productivas" description="Registra nuevas Cadenas Productivas" />
-                        <Button href="/registeruser" type="primary" shape="circle">
+                        <Link className="btn" to="/tipocadena" type="primary" shape="circle">
                             IR
-                    </Button>
+                        </Link>
                     </Card>
                     <Card
                         className="users__content-cards--card"
                         hoverable
-                        cover={<a href="/queryuser"><img alt="example" src={queryuser} /></a>}
+                        cover={<Link to="/queryuser"><img alt="example" src={queryuser} /></Link>}
                     >
                         <Meta title="Consultar Cadenas Productivas" description="Consulta Informacion de Cadenas Productivas" />
-                        <Button href="/queryuser" type="primary" shape="circle">
+                        <Link className="btn" to="/tipocadena" type="primary" shape="circle">
                             IR
-                    </Button>
+                        </Link>
                     </Card>
                     <Card
                         className="users__content-cards--card"
                         hoverable
-                        cover={<a href="/deleteupdateuser"><img alt="example" src={updateuser} /></a>}
+                        cover={<Link to="/deleteupdateuser"><img alt="example" src={updateuser} /></Link>}
                     >
                         <Meta title="Actualizar Cadenas Productivas" description="Actualiza informacion de Cadenas Productivas" />
-                        <Button href="/deleteupdateuser" type="primary" shape="circle">
+                        <Link className="btn" to="/tipocadena" type="primary" shape="circle">
                             IR
-                    </Button>
+                        </Link>
                     </Card>
                     <Card
                         className="users__content-cards--card"
                         hoverable
-                        cover={<a href="/deleteupdateuser"><img alt="example" src={deleteuser} /></a>}
+                        cover={<Link to="/deleteupdateuser"><img alt="example" src={deleteuser} /></Link>}
                     >
                         <Meta title="Eliminar Cadenas Productivas" description="Elimina Cadenas Productivas ¡AQUI!" />
-                        <Button href="/deleteupdateuser" type="primary" shape="circle">
+                        <Link className="btn" to="/tipocadena" type="primary" shape="circle">
                             IR
-                    </Button>
+                        </Link>
                     </Card>
                 </div>
                 <div className="mesage"><span>¡</span>Aqui puedes gestionar Cadenas Productivas, puedes Consultarlas, Registrarlas, Actualizarlas, Y Eliminarlas con tan solo dar click sobre la opcion que desees<span>!</span></div>
