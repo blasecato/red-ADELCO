@@ -23,30 +23,30 @@ class Tipo extends React.Component {
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a href="/registeruser"><img alt="example" src={comun} /></a>}
+                    cover={<a to="/registerinfra"><img alt="example" src={comun} /></a>}
                 >
                     <Meta title="Tipo Comunitaria" description="Tipo de infraestructura comjunitaria"/>
-                    <Link className="btn btn--cron" href="/registeruser" type="primary" shape="circle">
+                    <Link className="btn btn--cron" to="/registerinfra" type="primary" shape="circle">
                         IR
                     </Link>
                 </Card>
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a href="/queryuser"><img alt="example" src={vial} /></a>}
+                    cover={<a to="/registerinfra"><img alt="example" src={vial} /></a>}
                 >
                     <Meta title="Tipo Vial" description="Tipo de infraestructura Vial ¡AQUI!" />
-                    <Link className="btn btn--cron" href="/queryuser" type="primary" shape="circle">
+                    <Link className="btn btn--cron" to="/registerinfra" type="primary" shape="circle">
                         IR
                     </Link>
                 </Card>
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a href="/deleteupdateuser"><img alt="example" src={produc} /></a>}
+                    cover={<a to="/registerinfra"><img alt="example" src={produc} /></a>}
                 >
                     <Meta title="Tipo Productiva" description="Tipo de infraestructura Productiva" />
-                    <Link className="btn btn--cron" href="/deleteupdateuser" type="primary" shape="circle">
+                    <Link className="btn btn--cron" to="/registerinfra" type="primary" shape="circle">
                         IR
                     </Link>
                 </Card>

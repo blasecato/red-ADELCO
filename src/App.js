@@ -15,6 +15,8 @@ import Infraestructura from "../src/scenes/Infraestructura/Infraestructura";
 import Organizaciones from "../src/scenes/Organizaciones/Organizaciones";
 import Tipo from "../src/scenes/Infraestructura/Tipo/Tipo";
 import TipoCadena from "../src/scenes/CadenasProductivas/tipo/TipoCadena";
+import RegisterOrg from "../src/scenes/Organizaciones/components/RegisterOrg/RegisterOrg";
+import RegisterInfra from "../src/scenes/Infraestructura/components/RegisterInfra/RegisterInfra";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
         <Route path="/organizaciones/" component={Organizaciones} /> 
         <Route path="/tipo/" component={Tipo} /> 
         <Route path="/tipocadena/" component={TipoCadena} /> 
+        <Route path="/registerorg/" component={RegisterOrg} />
+        <Route path="/registerinfra/" component={RegisterInfra} />
       </Router>
     </div>
   );

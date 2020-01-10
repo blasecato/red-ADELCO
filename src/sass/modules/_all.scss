@@ -11,7 +11,9 @@
 @import "../../scenes/CadenasProductivas/CadenasProductivas.scss",
         "../../scenes/CadenasProductivas/tipo/TipoCadena.scss";
 
-@import "../../scenes/Organizaciones/Organizaciones.scss";
+@import "../../scenes/Organizaciones/Organizaciones.scss",
+        "../../scenes/Organizaciones/components/RegisterOrg/RegisterOrg.scss";
 
 @import "../../scenes/Infraestructura/Infraestructura.scss",
-        "../../scenes/Infraestructura/Tipo/Tipo.scss";
+        "../../scenes/Infraestructura/Tipo/Tipo.scss",
+        "../../scenes/Infraestructura/components/RegisterInfra/RegisterInfra.scss";

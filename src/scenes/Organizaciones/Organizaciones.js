@@ -1,5 +1,6 @@
 import React from "react";
 import { Card,Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 import LayoutHome from "../../components/LayoutHome/LayoutHome";
 
@@ -22,42 +23,42 @@ class Organizaciones extends React.Component{
                         <Card
                             className="users__content-cards--card"
                             hoverable
-                            cover={<a href="/registeruser"><img alt="example" src={usernew} /></a>}
+                            cover={<Link to="/registerorg"><img alt="example" src={usernew} /></Link>}
                         >
                             <Meta title="Registrar Organizaciones" description="Registra nuevas Organizaciones ¡AQUI!" />
-                            <Button href="/registeruser" type="primary" shape="circle">
+                            <Link className="btn" to="/registerorg" type="primary" shape="circle">
                                 IR
-                            </Button>
+                            </Link>
                         </Card>
                         <Card
                             className="users__content-cards--card"
                             hoverable
-                            cover={<a href="/queryuser"><img alt="example" src={queryuser} /></a>}
+                            cover={<Link to="/queryuser"><img alt="example" src={queryuser} /></Link>}
                         >
                             <Meta title="Consultar Organizaciones" description="Consulta Informacion de las Organizaciones ¡AQUI!" />
-                            <Button href="/queryuser" type="primary" shape="circle">
+                            <Link className="btn" to="/queryuser" type="primary" shape="circle">
                                 IR
-                            </Button>
+                            </Link>
                         </Card>
                         <Card
                             className="users__content-cards--card"
                             hoverable
-                            cover={<a href="/deleteupdateuser"><img alt="example" src={updateuser} /></a>}
+                            cover={<Link to="/deleteupdateuser"><img alt="example" src={updateuser} /></Link>}
                         >
                             <Meta title="Actualizar Organizaciones" description="Actualiza informacion de las Organizaciones ¡AQUI!" />
-                            <Button href="/deleteupdateuser" type="primary" shape="circle">
+                            <Link className="btn" to="/deleteupdateuser" type="primary" shape="circle">
                                 IR
-                            </Button>
+                            </Link>
                         </Card>
                         <Card
                             className="users__content-cards--card"
                             hoverable
-                            cover={<a href="/deleteupdateuser"><img alt="example" src={deleteuser} /></a>}
+                            cover={<Link to="/deleteupdateuser"><img alt="example" src={deleteuser} /></Link>}
                         >
                             <Meta title="Eliminar Organizaciones" description="Elimina las Organizaciones ¡AQUI!" />
-                            <Button href="/deleteupdateuser" type="primary" shape="circle">
+                            <Link className="btn" to="/deleteupdateuser" type="primary" shape="circle">
                                 IR
-                            </Button>
+                            </Link>
                         </Card>
                     </div>
                     <div className="mesage"><span>¡</span>Aqui puedes gestionar Organizaciones, puedes Consultarlas, Registrarlas, Actualizarlas, Y Eliminarlas con tan solo dar click sobre la opcion que desees<span>!</span></div>
