@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import LayoutHome from "../../components/LayoutHome/LayoutHome";
 
@@ -8,7 +9,7 @@ render(){
         <div className="login">
             <LayoutHome></LayoutHome>
             <h1>hola login</h1>
-            <a class="home__nav__index" href="/home">home</a>
+            <Link class="home__nav__index" href="/home">home</Link>
         </div>
     );
 

@@ -23,7 +23,7 @@ class Tipo extends React.Component {
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a to="/registerinfra"><img alt="example" src={comun} /></a>}
+                    cover={<Link to="/registerinfra"><img alt="example" src={comun} /></Link>}
                 >
                     <Meta title="Tipo Comunitaria" description="Tipo de infraestructura comjunitaria"/>
                     <Link className="btn btn--cron" to="/registerinfra" type="primary" shape="circle">
@@ -33,7 +33,7 @@ class Tipo extends React.Component {
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a to="/registerinfra"><img alt="example" src={vial} /></a>}
+                    cover={<Link to="/registerinfra"><img alt="example" src={vial} /></Link>}
                 >
                     <Meta title="Tipo Vial" description="Tipo de infraestructura Vial ¡AQUI!" />
                     <Link className="btn btn--cron" to="/registerinfra" type="primary" shape="circle">
@@ -43,7 +43,7 @@ class Tipo extends React.Component {
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a to="/registerinfra"><img alt="example" src={produc} /></a>}
+                    cover={<Link to="/registerinfra"><img alt="example" src={produc} /></Link>}
                 >
                     <Meta title="Tipo Productiva" description="Tipo de infraestructura Productiva" />
                     <Link className="btn btn--cron" to="/registerinfra" type="primary" shape="circle">

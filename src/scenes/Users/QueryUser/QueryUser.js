@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Divider, Tag,Card } from 'antd';
 import { Input } from 'antd';
+import { Link } from 'react-router-dom';
 
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 
@@ -72,7 +73,7 @@ class QueryUser extends React.Component {
                         key="action"
                         render={(text, record) => (
                             <span>
-                            <a href="/profile">Ver Mas</a>
+                            <Link href="/profile">Ver Mas</Link>
                             </span>
                         )}
                         />

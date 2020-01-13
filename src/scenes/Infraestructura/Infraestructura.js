@@ -24,7 +24,7 @@ class Infraestructura extends React.Component{
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a href="/registeruser"><img alt="example" src={usernew} /></a>}
+                    cover={<Link href="/registeruser"><img alt="example" src={usernew} /></Link>}
                 >
                     <Meta title="Registrar Infraestructuras" description="Registra nuevas Infraestructuras ¡AQUI!" />
                     <Link className="btn" to="/tipo" type="primary" shape="circle">
@@ -34,7 +34,7 @@ class Infraestructura extends React.Component{
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a href="/queryuser"><img alt="example" src={queryuser} /></a>}
+                    cover={<Link href="/queryuser"><img alt="example" src={queryuser} /></Link>}
                 >
                     <Meta title="Consultar Infraestructuras" description="Consulta Informacion de Infraestructuras ¡AQUI!" />
                     <Button href="/queryuser" type="primary" shape="circle">
@@ -44,7 +44,7 @@ class Infraestructura extends React.Component{
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a href="/deleteupdateuser"><img alt="example" src={updateuser} /></a>}
+                    cover={<Link href="/deleteupdateuser"><img alt="example" src={updateuser} /></Link>}
                 >
                     <Meta title="Actualizar Infraestructuras" description="Actualiza informacion de Infraestructuras ¡AQUI!" />
                     <Button href="/deleteupdateuser" type="primary" shape="circle">
@@ -54,7 +54,7 @@ class Infraestructura extends React.Component{
                 <Card
                     className="users__content-cards--card"
                     hoverable
-                    cover={<a href="/deleteupdateuser"><img alt="example" src={deleteuser} /></a>}
+                    cover={<Link href="/deleteupdateuser"><img alt="example" src={deleteuser} /></Link>}
                 >
                     <Meta title="Eliminar Infraestructuras" description="Elimina Infraestructuras ¡AQUI!" />
                     <Button href="/deleteupdateuser" type="primary" shape="circle">

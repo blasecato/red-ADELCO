@@ -17,7 +17,6 @@ class LayoutHome extends React.Component {
                         <Link class="layout-home__nav__index" to="/cadenasproductivas">CADENAS PRODUCTIVAS</Link>
                         <Link class="layout-home__nav__index" to="/users">USUARIOS</Link>
                         <Link class="layout-home__nav__index" to="/coberturas">COBERTURAS</Link>
-                        {/* <a class="layout-home__nav__index" to="">CULTIVOS</a> */}
                         <Link class="layout-home__nav__index" to="/infraestructura">INFRAESTRUCTURA</Link>
                         <Link class="layout-home__nav__index" to="/organizaciones">ORGANIZACIONES</Link>
                     </div>
