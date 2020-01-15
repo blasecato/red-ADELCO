@@ -29,7 +29,7 @@ class CadenasProductivas extends React.Component {
                     <Card
                         className="users__content-cards--card"
                         hoverable
-                        cover={<Link to="/registeruser"><img alt="example" src={usernew} /></Link>}
+                        cover={<Link to="/tipocadena"><img alt="example" src={usernew} /></Link>}
                     >
                         <Meta title="Registrar Cadenas Productivas" description="Registra nuevas Cadenas Productivas" />
                         <Link className="btn" to="/tipocadena" type="primary" shape="circle">
@@ -39,7 +39,7 @@ class CadenasProductivas extends React.Component {
                     <Card
                         className="users__content-cards--card"
                         hoverable
-                        cover={<Link to="/queryuser"><img alt="example" src={queryuser} /></Link>}
+                        cover={<Link to="/tipocadena"><img alt="example" src={queryuser} /></Link>}
                     >
                         <Meta title="Consultar Cadenas Productivas" description="Consulta Informacion de Cadenas Productivas" />
                         <Link className="btn" to="/tipocadena" type="primary" shape="circle">
@@ -49,7 +49,7 @@ class CadenasProductivas extends React.Component {
                     <Card
                         className="users__content-cards--card"
                         hoverable
-                        cover={<Link to="/deleteupdateuser"><img alt="example" src={updateuser} /></Link>}
+                        cover={<Link to="/tipocadena"><img alt="example" src={updateuser} /></Link>}
                     >
                         <Meta title="Actualizar Cadenas Productivas" description="Actualiza informacion de Cadenas Productivas" />
                         <Link className="btn" to="/tipocadena" type="primary" shape="circle">
@@ -59,7 +59,7 @@ class CadenasProductivas extends React.Component {
                     <Card
                         className="users__content-cards--card"
                         hoverable
-                        cover={<Link to="/deleteupdateuser"><img alt="example" src={deleteuser} /></Link>}
+                        cover={<Link to="/tipocadena"><img alt="example" src={deleteuser} /></Link>}
                     >
                         <Meta title="Eliminar Cadenas Productivas" description="Elimina Cadenas Productivas ¡AQUI!" />
                         <Link className="btn" to="/tipocadena" type="primary" shape="circle">

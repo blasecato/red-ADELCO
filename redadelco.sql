@@ -268,3 +268,14 @@ create table convenio(
 	foreign key (id_ente_convenio) references ente_convenio(id) on delete cascade,
 	primary key (id)
 );
+
+
+create table indicadores(
+	id int(45) not null AUTO_INCREMENT,
+	nombre varchar(45) not null,
+	objetivo varchar(45),
+	meta int(45),
+	observacion varchar(45),
+	fuente_verificacion varchar(45),
+	primary key (id)
+);
