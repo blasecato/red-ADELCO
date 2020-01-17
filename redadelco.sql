@@ -277,5 +277,6 @@ create table indicadores(
 	meta int(45),
 	observacion varchar(45),
 	fuente_verificacion varchar(45),
+	archivo varchar(45),
 	primary key (id)
 );
