@@ -75,7 +75,7 @@ class Indicadores extends React.Component {
                                         <div className="content-card">
                                             <h1 className="content-title">Observaciones</h1>
                                             <p>{data.observacion}</p>
-                                            <Button type="primary"><Icon type="edit" /> Editar</Button>
+                                            {/* <Button type="primary"><Icon type="edit" /> Editar</Button> */}
                                         </div>
                                         <div className="content-card">
                                             <h1 className="content-title">Fuentes de Verificacion</h1>
