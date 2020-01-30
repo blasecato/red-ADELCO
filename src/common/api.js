@@ -1,8 +1,11 @@
+//api es la configuracion fecht de resivir servicios del backend
+
+//url del servidor que nutre los servicios al frontend
 const apiUrl='http://localhost:3001'
 
 export class Api {
 
-
+//metodo post registro de datos
     post(url, data, header) {
       let dataBody = JSON.stringify(data);
   
@@ -15,7 +18,7 @@ export class Api {
         body: dataBody
       })
     }
-  
+  //metodo put actualizacion de datos
     put(url, data, header) {
       let isFormData = data instanceof FormData;
   
@@ -31,7 +34,7 @@ export class Api {
       })
     }
   
-  
+  //metodo get consulta de datos
     get(url, params) {
       url = new URL(`${apiUrl}${url}`);
       if (params)

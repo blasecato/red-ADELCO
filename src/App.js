@@ -18,6 +18,7 @@ import TipoCadena from "../src/scenes/CadenasProductivas/tipo/TipoCadena";
 import RegisterOrg from "../src/scenes/Organizaciones/components/RegisterOrg/RegisterOrg";
 import RegisterInfra from "../src/scenes/Infraestructura/components/RegisterInfra/RegisterInfra";
 import Indicadores from "../src/scenes/Indicadores/Indicadores";
+import RegisterChain  from "../src/scenes/CadenasProductivas/RegisterChain/RegisterChain";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/registerorg/" component={RegisterOrg} />
         <Route path="/registerinfra/" component={RegisterInfra} />
         <Route path="/indicadores/" component={Indicadores} />
+        <Route path="/registrarcadenasproductivas/" component={RegisterChain} />
       </Router>
     </div>
   );

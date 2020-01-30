@@ -10,7 +10,7 @@ class LayoutHome extends React.Component {
     render() {
         return (
             <div className="layout-home">
-
+                {/* este es el layout o cabeera de cada vista del sistema es el flujo de los links */}
                 <nav class="layout-home__nav">
                     <div className="layout-home__nav--menu">
                         <Link class="layout-home__nav__index" to="/home"><img src={Logo}></img></Link>
