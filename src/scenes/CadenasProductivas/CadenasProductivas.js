@@ -10,13 +10,8 @@ import queryuser from "../../assets/image/bus.png";
 import deleteuser from "../../assets/image/menos.png";
 import updateuser from "../../assets/image/act.webp";
 
-// import usernew from "../../assets/image/img/cafe.jpg";
-// import queryuser from "../../assets/image/img/caña.jpg";
-// import deleteuser from "../../assets/image/img/cacao.jpg";
-// import updateuser from "../../assets/image/img/canan.jpg";
-
 const { Meta } = Card;
-
+// clase de cadenas productivas la cual exporta un formulario
 class CadenasProductivas extends React.Component {
     render() {
         return (
@@ -26,6 +21,7 @@ class CadenasProductivas extends React.Component {
                     <h1>Gestionar Cadenas Productivas</h1>
                 </div>
                 <div className="users__content-cards">
+                    {/* listado de las opciones disponibles */}
                     <Card
                         className="users__content-cards--card"
                         hoverable

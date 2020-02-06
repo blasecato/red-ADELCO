@@ -101,7 +101,11 @@ create table parentesco(
 	nombre varchar(45),
 	primary key (id)
 );
-
+create table cargo_org (
+	id int(145) not null AUTO_INCREMENT,
+	nombre varchar(45),
+	primary key (id)
+);
 
 
 create table productores(
@@ -135,7 +139,9 @@ create table productores(
 );
 
 ALTER TABLE productores ADD FOREIGN KEY (id_productor) REFERENCES productores(id);
- 
+ALTER TABLE productores ADD FOREIGN KEY (id_cargo_org) REFERENCES cargo(id);
+
+
 ALTER TABLE productores CHANGE fecha_nacimiento edad int(20);
 
 create table acepta(

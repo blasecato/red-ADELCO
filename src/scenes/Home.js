@@ -17,8 +17,9 @@ import img5 from "../assets/image/img/img5.jpg";
 import img6 from "../assets/image/img/img6.jpg";
 
 const { Search } = Input;
-
+// vista de inicio
 class Home extends React.Component {
+    // constructor para porder constrolar el caroucel 
     constructor(props) {
         super(props);
         this.state = {
@@ -42,6 +43,7 @@ class Home extends React.Component {
                 <LayoutHome></LayoutHome>
                 <div className="caroucel" >
                     <div className="caroucel-content">
+                        {/* caroucel de imagenes */}
                         <AliceCarousel
                             responsive={responsive}
                             startIndex={currentIndex}

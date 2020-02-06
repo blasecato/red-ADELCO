@@ -20,7 +20,7 @@ import RegisterInfra from "../src/scenes/Infraestructura/components/RegisterInfr
 import Indicadores from "../src/scenes/Indicadores/Indicadores";
 import RegisterChain  from "../src/scenes/CadenasProductivas/RegisterChain/RegisterChain";
 
-
+//rutas deacceso de la aplicacion arriba importamos los componentes y los llamamos dandole una url
 function App() {
   return (
     <div className="App">

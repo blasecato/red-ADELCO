@@ -9,6 +9,7 @@ class Coberturas extends React.Component {
         return (
             <div >
                 <LayoutHome></LayoutHome>
+                {/* imagen de las coberturas del proyecto */}
                 <div className="coberturas">
                     <img src={Cobertura}></img>
                 </div>
