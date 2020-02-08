@@ -4,11 +4,8 @@ import { indicators } from "./IndicadoresActions"
 
 
 function* Indicators() {
-  console.log('saga')
   const response = yield Api.get('/indicadores')
   const payload = yield response.json();
-  console.log('response', response)
-  console.log('payload', payload)
   if (response.ok) {
     yield put(indicators.getIndicatorsResponse(payload));
   } else {

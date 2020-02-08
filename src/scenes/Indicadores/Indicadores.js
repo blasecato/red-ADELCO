@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Collapse, Upload, message, Button, Icon } from 'antd';
-import { getIndicadores } from "../../services/indicadores/indicadores";
 import LayoutHome from "../../components/LayoutHome/LayoutHome";
 import { useDispatch, useSelector } from 'react-redux';
 
