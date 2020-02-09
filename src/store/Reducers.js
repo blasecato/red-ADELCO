@@ -1,15 +1,14 @@
 import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import reducerIndicator from '../services/indicadores/IndicadoresReducer';
-
-/** axample reducer*/
-//import reducerAuth from '../services/Auth/AuthReducer';
+import reducerAuth from '../services/Auth/AuthReducer';
 
 
 const appReducer = history =>
   combineReducers({
     router: connectRouter(history),
     indicator: reducerIndicator,
+    auth: reducerAuth,
   });
 
 const rootReducer = history => {
