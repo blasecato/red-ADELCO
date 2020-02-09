@@ -1,8 +1,30 @@
 import React from "react";
-import { Button, Input } from "antd";
+import { Button, Input, Icon } from "antd";
 import { Link } from "react-router-dom";
+import { Menu, Dropdown } from 'antd';
+
 
 import Logo from "../../assets/image/redlogo.png";
+
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        1st menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+        2nd menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <Link className="layout-home__nav__index" to="/indicadores">
+        INDICADORES
+      </Link>
+    </Menu.Item>
+  </Menu>
+);
 
 const { Search } = Input;
 
@@ -13,7 +35,7 @@ class LayoutHome extends React.Component {
         <nav className="layout-home__nav">
           <div className="layout-home__nav--menu">
             <Link className="layout-home__nav__index" to="/home">
-              <img src={Logo}></img>
+              <Icon className="icon" type="home" />
             </Link>
             <Link className="layout-home__nav__index" to="/cadenasproductivas">
               COMPONENTE PRODUCTIVAS
@@ -30,6 +52,11 @@ class LayoutHome extends React.Component {
             <Link className="layout-home__nav__index" to="/users">
               USUARIOS
             </Link>
+            <Dropdown overlay={menu}>
+              <a className="ant-dropdown-link" href="#">
+                MAS OPCIONES <Icon type="down" />
+              </a>
+            </Dropdown>
             {/* <Link className="layout-home__nav__index" to="/indicadores">INDICADORES</Link> */}
           </div>
         </nav>

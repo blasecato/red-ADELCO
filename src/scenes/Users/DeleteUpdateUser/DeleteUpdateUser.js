@@ -59,7 +59,7 @@ class DeleteUpdateUser extends React.Component {
                         key="tags"
                         render={(text, record) => (
                             <span>
-                                <Button className="update" href="/profile"><Icon type="edit" />Actualizar</Button>
+                                <Button className="update" href="/update"><Icon type="edit" />Actualizar</Button>
                             </span>
                         )}
                         />

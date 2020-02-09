@@ -47,9 +47,9 @@ create table vereda(
 create table finca(
 	id int(145) not null AUTO_INCREMENT ,
 	nombre LONGTEXT,
-    cant_hectareas float not null,
-    direccion LONGTEXT not null,
-    id_vereda int(145) not null,
+    cant_hectareas float,
+    direccion LONGTEXT,
+    id_vereda int(145),
     foreign key (id_vereda) references vereda(id) on delete cascade,
 	primary key (id)
 );
@@ -70,30 +70,66 @@ create table organizacion(
 create table diagnostico(
 	id int(145) not null AUTO_INCREMENT ,
 	nombre LONGTEXT,
-    fecha date not null,
-    hora_inicio time not null,
-    hora_fin time not null,
-    imagen LONGTEXT not null,
-    id_finca int(145) not null,
+    fecha date,
+    hora_inicio time,
+    hora_fin time,
+    imagen LONGTEXT,
+    id_finca int(145),
     foreign key (id_finca) references finca(id) on delete cascade,
 	primary key (id)
 );
 
-create table productores(
+-- table of zona (tabla que indica en que sona se encuentra hubicado un productro /rurar o urbana )
+create table zona(
 	id int(145) not null AUTO_INCREMENT,
+	nombre varchar(45),
+	primary key (id)
+);
+create table discapacidad(
+	id int(145) not null AUTO_INCREMENT,
+	nombre varchar(45),
+	primary key (id)
+);
+
+create table conflicto(
+	id int(145) not null AUTO_INCREMENT,
+	nombre varchar(45),
+	primary key (id)
+);
+create table parentesco(
+	id int(145) not null AUTO_INCREMENT,
+	nombre varchar(45),
+	primary key (id)
+);
+create table cargo_org (
+	id int(145) not null AUTO_INCREMENT,
+	nombre varchar(45),
+	primary key (id)
+);
+
+
+create table productores(
+	id varchar(145) not null,
 	nombres LONGTEXT not null,
 	apellidos LONGTEXT not null,
 	dni int(145) not null,
 	fecha_nacimiento date not null,
 	telefono int(145) not null,
-	victima int(145) not null,
+	id_productor varchar(45),
 
-	id_genero int(145) not null,
-	id_organizacion int(145) not null,
-	id_finca int(145) not null,
-	id_etnia int(145) not null,
-	id_parentesco int(145) not null,
+	id_conflicto int(145),
+	id_genero int(145),
+	id_organizacion int(145),
+	id_finca int(145),
+	id_etnia int(145),
+	id_parentesco int(145),
+	id_discapacitado int(145),
+	id_zona int(45),
 
+
+	foreign key (id_conflicto) references conflicto(id) on delete cascade,
+	foreign key (id_parentesco) references parentesco(id) on delete cascade,
+	foreign key (id_discapacitado) references discapacidad(id) on delete cascade,
 	foreign key (id_genero) references genero(id) on delete cascade,
 	foreign key (id_organizacion) references organizacion(id) on delete cascade,
 	foreign key (id_finca) references finca(id) on delete cascade,
@@ -102,25 +138,29 @@ create table productores(
 
 );
 
-ALTER TABLE productores ADD FOREIGN KEY (id_parentesco) REFERENCES productores(id);
+ALTER TABLE productores ADD FOREIGN KEY (id_productor) REFERENCES productores(id);
+ALTER TABLE productores ADD FOREIGN KEY (id_cargo_org) REFERENCES cargo(id);
+
+
+ALTER TABLE productores CHANGE fecha_nacimiento edad int(20);
 
 create table acepta(
 	id int(145) not null AUTO_INCREMENT,
-	nombre LONGTEXT not null,
-	image LONGTEXT not null,
-	fecha_acepta date not null,
+	nombre LONGTEXT,
+	image LONGTEXT,
+	fecha_acepta date,
 	primary key (id)
 );
 
 create table cultivo(
 	id int(145) not null AUTO_INCREMENT,
-	nombre LONGTEXT not null,
-	hectareas float not null,
-	fecha_inicio date not null,
+	nombre LONGTEXT,
+	hectareas float,
+	fecha_inicio date,
 
-	id_linea_productiva int(145) not null,
-	id_productor int(145) not null,
-	id_acepta int(145) not null,
+	id_linea_productiva int(145),
+	id_productor varchar(45),
+	id_acepta int(145),
 
 	foreign key (id_linea_productiva) references linea_productiva(id) on delete cascade,
 	foreign key (id_productor) references productores(id) on delete cascade,
@@ -130,15 +170,15 @@ create table cultivo(
 
 create table revision_visita(
 	id int(145) not null AUTO_INCREMENT,
-	nombre LONGTEXT not null,
-	fecha_visita date not null,
-	hora_inicio time not null,
-	hora_fin time not null,
-	situcacion_encontrada LONGTEXT not null,
-	recomendaciones LONGTEXT not null,
-	observacion LONGTEXT not null,
-	anexos LONGTEXT not null,
-	imagen LONGTEXT not null,
+	nombre LONGTEXT,
+	fecha_visita date,
+	hora_inicio time,
+	hora_fin time,
+	situcacion_encontrada LONGTEXT,
+	recomendaciones LONGTEXT,
+	observacion LONGTEXT,
+	anexos LONGTEXT,
+	imagen LONGTEXT,
 
 	id_cultivo int(145) not null,
 
@@ -148,25 +188,25 @@ create table revision_visita(
 
 create table tipo_beneficio(
 	id int(145) not null AUTO_INCREMENT,
-	nombre LONGTEXT not null,
+	nombre LONGTEXT,
 	primary key (id)
 );
 
 create table beneficio(
 	id int(145) not null AUTO_INCREMENT,
-	nombre LONGTEXT not null,
-	intencidad int(145) not null,
-	id_tipo_beneficio int(145) not null,
+	nombre LONGTEXT,
+	intencidad int(145),
+	id_tipo_beneficio int(145),
 	foreign key (id_tipo_beneficio) references tipo_beneficio(id) on delete cascade,
 	primary key (id)
 );
 
 create table productores_beneficio(
 	id int(145) not null AUTO_INCREMENT,
-	fecha_inicio datetime not null,
-	fecha_fin datetime not null,
-	id_productor int(145) not null,
-	id_beneficio int(145) not null,
+	fecha_inicio datetime,
+	fecha_fin datetime,
+	id_productor varchar(45),
+	id_beneficio int(145),
 
 	foreign key (id_productor) references productores(id) on delete cascade,
 	foreign key (id_beneficio) references beneficio(id) on delete cascade,
@@ -176,16 +216,16 @@ create table productores_beneficio(
 
 create table tipo_herramienta(
 	id int(145) not null AUTO_INCREMENT,
-	nombre LONGTEXT not null,
-	precio float not null,
-	marca LONGTEXT not null,
+	nombre LONGTEXT,
+	precio float,
+	marca LONGTEXT,
 	primary key (id)
 );
 
 create table herramienta(
 	id int(145) not null AUTO_INCREMENT,
-	descripcion varchar(100) not null,
-	id_tipo_herramienta int(145) not null,
+	descripcion varchar(100),
+	id_tipo_herramienta int(145),
 
 	foreign key (id_tipo_herramienta) references tipo_herramienta(id) on delete cascade,
 
@@ -194,15 +234,15 @@ create table herramienta(
 
 create table kit(
 	id int(145) not null AUTO_INCREMENT,
-	nombre LONGTEXT not null,
-	image_acta LONGTEXT not null,
+	nombre LONGTEXT,
+	image_acta LONGTEXT,
 	primary key (id)
 );
 
 create table kit_herramienta(
 	id int(145) not null AUTO_INCREMENT,
-	id_kit int(145) not null,
-	id_herramienta int(145) not null,
+	id_kit int(145),
+	id_herramienta int(145),
 
 	foreign key (id_kit) references kit(id) on delete cascade,
 	foreign key (id_herramienta) references herramienta(id) on delete cascade,
@@ -212,8 +252,8 @@ create table kit_herramienta(
 
 create table kit_user(
 	id int(145) not null AUTO_INCREMENT,
-	id_kit_herramienta int(145) not null,
-	id_productor int(145) not null,
+	id_kit_herramienta int(145),
+	id_productor varchar(45),
 
 	foreign key (id_kit_herramienta) references kit_herramienta(id) on delete cascade,
 	foreign key (id_productor) references productores(id) on delete cascade,
@@ -286,4 +326,25 @@ create table indicadores(
 	id_objetivo int(145),
 	foreign key (id_objetivo) references objetivo(id) on delete cascade,
 	primary key (id)
+);
+
+create table user_login(
+	dni int(145) not null,
+	nombre varchar(145) not null,
+	user varchar(145) not null, 
+	password varchar(145) not null,
+	cargo varchar(145) not null,
+	primary key (dni)
+);
+
+create table productor_org (
+	id int(145) not null AUTO_INCREMENT,
+	id_productor int(145) not null,
+	id_organizacion int(145) not null,
+	id_cargo_org int(145),
+	foreign key (id_productor) references productores(dni) on delete cascade,
+	foreign key (id_productor) references productores(dni) on delete cascade,
+	foreign key (id_productor) references productores(dni) on delete cascade,
+	primary key (id)
+
 );

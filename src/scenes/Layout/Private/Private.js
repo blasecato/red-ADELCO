@@ -18,6 +18,8 @@ import RegisterInfra from '../../Infraestructura/components/RegisterInfra/Regist
 import { Indicadores } from '../../Indicadores/Indicadores';
 import { useDispatch, useSelector } from 'react-redux';
 import { indicators as indicatorAcctions } from '../../../services/indicadores/IndicadoresActions'
+import RegisterChain from "../../../scenes/CadenasProductivas/RegisterChain/RegisterChain";
+import { SelectComponent } from "../../../components/User/SelectComponent";
 
 export const Private = () => {
 
@@ -46,6 +48,8 @@ export const Private = () => {
         <Route path="/registerorg/" component={RegisterOrg} />
         <Route path="/registerinfra/" component={RegisterInfra} />
         <Route path="/indicadores/" component={Indicadores} />
+        <Route path="/registrarcadenasproductivas/" component={RegisterChain} />
+        <Route path="/update/" component={SelectComponent} />
       </Router>
     </div>
   );

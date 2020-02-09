@@ -32,7 +32,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-export const Indicadores = () => {
+export  const Indicadores = () => {
 
     const dispatch = useDispatch()
 

@@ -1,21 +1,25 @@
 import React from "react";
 
+//importacion de imagenes requeridas en este componente
 import img from "../../assets/image/img/don.jpg";
-
 import face from "../../assets/image/face.png";
 import inst from "../../assets/image/inst.png";
 import you from "../../assets/image/you.png";
 import twi from "../../assets/image/twi.png";
 
+
+//componente de footer
 class Footer extends React.Component{
     render(){
         return(
             <div className="footer">
+                {/* contenedor del footer en el cual tiene las imagenes y titulos correspondientes */}
                 <div className="footer--content">
                     <div className="title">Planeacion hacia el futuro</div>
                     <img src={img}/>
                 </div>
                 <div className="footer--content">
+                    {/* imagenes e iconos de redes sociales de la empresa */}
                     <div className="title">Redes Sociales</div>
                     <div className="images">
                         <img src={face}/>
@@ -24,6 +28,7 @@ class Footer extends React.Component{
                         <img src={twi}/>
                     </div>
                 </div>
+                {/* contenedor de informacion de la empresa como contactos etc */}
                 <div className="footer--content">
                     <div className="title">Contactos</div>
                     <br/>
