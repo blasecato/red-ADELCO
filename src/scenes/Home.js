@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { auth } from '../services/Auth/AuthActions'
-import { Button, Input } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
-import Tcp from "../assets/image/tcp.png";
-import Logo from "../assets/image/redlogo.png";
+
+import { auth } from '../services/Auth/AuthActions';
 import LayoutHome from "../components/LayoutHome/LayoutHome";
 import Footer from "../components/Footer/Footer";
+
+import Tcp from "../assets/image/tcp.png";
 import img1 from "../assets/image/img/img1.jpg";
 import img2 from "../assets/image/img/img2.jpg";
 import img3 from "../assets/image/img/img3.jpg";
@@ -15,24 +15,22 @@ import img4 from "../assets/image/img/img4.jpg";
 import img5 from "../assets/image/img/img5.jpg";
 import img6 from "../assets/image/img/img6.jpg";
 
-const { Search } = Input;
-
 export const Home = () => {
-
-	const [state, setstate] = useState({
-		submoduleSelect: undefined,
-		kitPending: false,
-		currentIndex: 0,
-		responsive: {
-			0: { items: 1 },
-			768: { items: 2 },
-			992: { items: 4 },
+	const dispatch = useDispatch()
+	const [state, setstate] = useState(
+		{
+			submoduleSelect: undefined,
+			kitPending: false,
+			currentIndex: 0,
+			responsive: {
+				0: { items: 1 },
+				768: { items: 2 },
+				992: { items: 4 },
+			}
 		}
-	})
+	)
 
 	const { submoduleSelect, kitPending, currentIndex, responsive } = state;
-
-	const dispatch = useDispatch()
 
 	const handleLogout = () => {
 		dispatch(auth.logout())
@@ -85,4 +83,3 @@ export const Home = () => {
 		</div>
 	)
 }
-

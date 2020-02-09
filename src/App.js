@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import './main.scss';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 
 import { Private } from './scenes/Layout/Private/Private'
 import { Public } from './scenes/Layout/Public/Public'
+import './main.scss';
 
 export const App = () => {
 

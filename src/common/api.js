@@ -6,7 +6,6 @@ import { auth } from '../services/Auth/AuthActions';
 const apiUrl = 'http://localhost:3001'
 
 export class Api {
-
   post(url, data, formData) {
     let dataBody
 
@@ -85,7 +84,6 @@ export class Api {
       return response;
     }).catch(err => err)
   }
-
 }
 
 export default new Api();

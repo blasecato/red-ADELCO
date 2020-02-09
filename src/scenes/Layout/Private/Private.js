@@ -16,8 +16,16 @@ import TipoCadena from '../../CadenasProductivas/tipo/TipoCadena';
 import RegisterOrg from '../../Organizaciones/components/RegisterOrg/RegisterOrg';
 import RegisterInfra from '../../Infraestructura/components/RegisterInfra/RegisterInfra';
 import { Indicadores } from '../../Indicadores/Indicadores';
+import { useDispatch, useSelector } from 'react-redux';
+import { indicators as indicatorAcctions } from '../../../services/indicadores/IndicadoresActions'
 
 export const Private = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(indicatorAcctions.getIndicators())
+  }, [])
 
   return (
     <div>
