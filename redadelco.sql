@@ -327,3 +327,24 @@ create table indicadores(
 	foreign key (id_objetivo) references objetivo(id) on delete cascade,
 	primary key (id)
 );
+
+create table user_login(
+	dni int(145) not null,
+	nombre varchar(145) not null,
+	user varchar(145) not null, 
+	password varchar(145) not null,
+	cargo varchar(145) not null,
+	primary key (dni)
+);
+
+create table productor_org (
+	id int(145) not null AUTO_INCREMENT,
+	id_productor int(145) not null,
+	id_organizacion int(145) not null,
+	id_cargo_org int(145),
+	foreign key (id_productor) references productores(dni) on delete cascade,
+	foreign key (id_productor) references productores(dni) on delete cascade,
+	foreign key (id_productor) references productores(dni) on delete cascade,
+	primary key (id)
+
+);

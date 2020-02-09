@@ -17,8 +17,9 @@ import Tipo from "../src/scenes/Infraestructura/Tipo/Tipo";
 import TipoCadena from "../src/scenes/CadenasProductivas/tipo/TipoCadena";
 import RegisterOrg from "../src/scenes/Organizaciones/components/RegisterOrg/RegisterOrg";
 import RegisterInfra from "../src/scenes/Infraestructura/components/RegisterInfra/RegisterInfra";
-import Indicadores from "../src/scenes/Indicadores/Indicadores";
+import {Indicadores} from "./scenes/Indicadores/Indicadores";
 import RegisterChain  from "../src/scenes/CadenasProductivas/RegisterChain/RegisterChain";
+import {SelectComponent}  from "../src/components/User/SelectComponent";
 
 //rutas deacceso de la aplicacion arriba importamos los componentes y los llamamos dandole una url
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/registerinfra/" component={RegisterInfra} />
         <Route path="/indicadores/" component={Indicadores} />
         <Route path="/registrarcadenasproductivas/" component={RegisterChain} />
+        <Route path="/update/" component={SelectComponent} />
       </Router>
     </div>
   );
