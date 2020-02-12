@@ -19,7 +19,7 @@ const Login = ({ form, }) => {
   };
 
   return (
-    <div>
+    <div className="login">
       <Form onSubmit={handleSubmit}>
         <div>
           <Form.Item label='Correo'>
