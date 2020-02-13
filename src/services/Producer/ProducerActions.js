@@ -8,6 +8,9 @@ export const { producer } = createActions({
 
     GET_GENDER: () => ({}),
     GET_GENDER_RESPONSE: (genderCount) => ({ genderCount }),
+
+    GET_PRODUCER_DATE: () => ({}),
+    GET_PRODUCER_DATE_RESPONSE: (genderDate) => ({ genderDate }),
   }
 
 })

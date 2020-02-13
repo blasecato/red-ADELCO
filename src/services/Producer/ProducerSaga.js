@@ -23,9 +23,21 @@ function* getGender({ payload }) {
   }
 }
 
+function* getProducerDate({ payload }) {
+  const response = yield Api.get('/producers/producer-date')
+  console.log("response==>", response)
+  if (response.ok) {
+    yield put(producer.getProducerDateResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_PRODUCER_DATE')
+    yield put(producer.getProducerDateResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(producer.createProducer, createProducer)
   yield takeLatest(producer.getGender, getGender)
+  yield takeLatest(producer.getProducerDate, getProducerDate)
 }
 
 export default function* rootSaga() {

@@ -3,6 +3,7 @@ import { handleActions } from 'redux-actions';
 export const INITIAL_STATE = {
   loading: false,
   genderCount: undefined,
+  genderDate: undefined
 }
 
 const reducer = handleActions({
@@ -28,6 +29,15 @@ const reducer = handleActions({
       }
     },
 
+    GET_PRODUCER_DATE: (state, { payload: { } }) => ({ ...state, loading: true }),
+    GET_PRODUCER_DATE_RESPONSE: {
+      next(state, { payload: { genderDate } }) {
+        return { ...state, genderDate }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
   }
 },
   INITIAL_STATE
