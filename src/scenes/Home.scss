@@ -7,6 +7,19 @@
             object-fit: cover;
         }
     }
+    .cerrar{
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        button{
+            background-color: #B58900;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 0;
+            border-color: #B58900;
+        }
+    }
     .caroucel{
         display: flex;
         justify-content: center;

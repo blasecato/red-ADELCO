@@ -9,14 +9,14 @@ import Logo from "../../assets/image/redlogo.png";
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-        1st menu item
-      </a>
+      <Link to="/singup" rel="noopener noreferrer">
+        Registrar Adminostrador
+      </Link>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+      <Link to=''>
         2nd menu item
-      </a>
+      </Link>
     </Menu.Item>
     <Menu.Item>
       <Link className="layout-home__nav__index" to="/indicadores">

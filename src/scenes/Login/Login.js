@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { Form, Input, Button, Row, Col, Layout, Typography, Alert } from 'antd'
 import { useDispatch } from 'react-redux'
 import { auth } from '../../services/Auth/AuthActions'
+import { Link } from 'react-router-dom';
+
+import img  from "../../assets/image/img/org3.jpg";
+
 
 const Login = ({ form, }) => {
 
@@ -20,33 +24,43 @@ const Login = ({ form, }) => {
 
   return (
     <div className="login">
-      <Form onSubmit={handleSubmit}>
-        <div>
-          <Form.Item label='Correo'>
-            {getFieldDecorator('user', {
-              rules: [{ required: true, message: `Por favor ingrese su correo` }],
-            })(
-              <Input />
-            )}
-          </Form.Item>
-        </div>
+      <div className="login--card">
+        <Form className="form" onSubmit={handleSubmit}>
+          <div className="lado">
+              <img src={img}/>
+          </div>
+          <div className="lado">
+            <div className="title">Iniciar Sesión</div>
+            <div>
+              <Form.Item label='Usuario'>
+                {getFieldDecorator('user', {
+                  rules: [{ required: true, message: `Por favor ingrese su correo` }],
+                })(
+                  <Input />
+                )}
+              </Form.Item>
+            </div>
 
-        <div>
-          <Form.Item label='Contraseña'>
-            {getFieldDecorator('password', {
-              rules: [{ required: true, message: `Por favor ingrese su contraseña.` }],
-            })(
-              <Input type="password" />
-            )}
-          </Form.Item>
-        </div>
+            <div>
+              <Form.Item label='Contraseña'>
+                {getFieldDecorator('password', {
+                  rules: [{ required: true, message: `Por favor ingrese su contraseña.` }],
+                })(
+                  <Input type="password" />
+                )}
+              </Form.Item>
+            </div>
 
-        <div>
-          <Form.Item>
-            <Button htmlType="submit" >continuar</Button>
-          </Form.Item>
-        </div>
-      </Form>
+            <div>
+              <Form.Item className="btn-content">
+                <Button htmlType="submit" >continuar</Button>
+              </Form.Item>
+              
+            </div>
+          </div>
+        </Form>
+      </div>
+
     </div>
   )
 }

@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { indicators as indicatorAcctions } from '../../../services/indicadores/IndicadoresActions'
 import RegisterChain from "../../../scenes/CadenasProductivas/RegisterChain/RegisterChain";
 import { SelectComponent } from "../../../components/User/SelectComponent";
-
+import  SingUp  from "../../Admin/SingUp/SingUp";
 export const Private = () => {
 
   const dispatch = useDispatch()
@@ -50,6 +50,7 @@ export const Private = () => {
         <Route path="/indicadores/" component={Indicadores} />
         <Route path="/registrarcadenasproductivas/" component={RegisterChain} />
         <Route path="/update/" component={SelectComponent} />
+        <Route path="/singup/" component={SingUp} />
       </Router>
     </div>
   );

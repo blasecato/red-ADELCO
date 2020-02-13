@@ -14,6 +14,7 @@ import img3 from "../assets/image/img/img3.jpg";
 import img4 from "../assets/image/img/img4.jpg";
 import img5 from "../assets/image/img/img5.jpg";
 import img6 from "../assets/image/img/img6.jpg";
+import { Button } from 'antd';
 
 export const Home = () => {
 	const dispatch = useDispatch()
@@ -44,8 +45,8 @@ export const Home = () => {
 			<LayoutHome></LayoutHome>
 			<div className="caroucel" >
 				<div className="caroucel-content">
-					<div>
-						<button className="button" onClick={handleLogout}>Cerrar sesión</button>
+					<div className="cerrar">
+						<Button className="button" onClick={handleLogout}>Cerrar sesión</Button>
 					</div>
 
 					<AliceCarousel
