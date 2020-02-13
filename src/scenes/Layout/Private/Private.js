@@ -7,7 +7,7 @@ import QueryUser from '../../Users/QueryUser/QueryUser';
 import DeleteUpdateUser from '../../Users/DeleteUpdateUser/DeleteUpdateUser';
 import Profile from '../../Users/Profile/Profile';
 import Coberturas from '../../Coberturas/Coberturas';
-import RegisterUser from '../../Users/RegisterUser/RegisterUser';
+import { RegisterUser } from '../../Users/RegisterUser/RegisterUser';
 import CadenasProductivas from '../../CadenasProductivas/CadenasProductivas';
 import Infraestructura from '../../Infraestructura/Infraestructura';
 import Organizaciones from '../../Organizaciones/Organizaciones';

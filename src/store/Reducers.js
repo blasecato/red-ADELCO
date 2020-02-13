@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import reducerIndicator from '../services/indicadores/IndicadoresReducer';
 import reducerAuth from '../services/Auth/AuthReducer';
+import producerAuth from '../services/Producer/ProducerReducer';
 
 
 const appReducer = history =>
@@ -9,6 +10,7 @@ const appReducer = history =>
     router: connectRouter(history),
     indicator: reducerIndicator,
     auth: reducerAuth,
+    producer: producerAuth,
   });
 
 const rootReducer = history => {
