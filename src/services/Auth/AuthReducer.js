@@ -5,6 +5,7 @@ export const INITIAL_STATE = {
   authentication: Token.isTokenValid(),
   loading: false,
   error: false,
+  success: false
 }
 
 const reducer = handleActions({
@@ -22,10 +23,10 @@ const reducer = handleActions({
     SIGNUP: (state, { payload: { } }) => ({ ...state, loading: true, error: false }),
     SIGNUP_RESPONSE: {
       next(state, { payload: { success } }) {
-        return { ...state, success }
+        return { ...state, success, error: false }
       },
       throw(state, { error, payload: { message } }) {
-        return { ...state, error, message }
+        return { ...state, error, message, success: false }
       }
     },
 

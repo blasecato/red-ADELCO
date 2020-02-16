@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { Home } from '../../Home';
 import Users from '../../Users/Users';
-import QueryUser from '../../Users/QueryUser/QueryUser';
+import { QueryUser } from '../../Users/QueryUser/QueryUser';
 import DeleteUpdateUser from '../../Users/DeleteUpdateUser/DeleteUpdateUser';
 import Profile from '../../Users/Profile/Profile';
 import Coberturas from '../../Coberturas/Coberturas';
@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { indicators as indicatorAcctions } from '../../../services/indicadores/IndicadoresActions'
 import RegisterChain from "../../../scenes/CadenasProductivas/RegisterChain/RegisterChain";
 import { SelectComponent } from "../../../components/User/SelectComponent";
-import  SingUp  from "../../Admin/SingUp/SingUp";
+import { SingUp } from "../../Admin/SingUp/SingUp";
 export const Private = () => {
 
   const dispatch = useDispatch()

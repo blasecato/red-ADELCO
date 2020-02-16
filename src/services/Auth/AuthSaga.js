@@ -19,8 +19,8 @@ function* signup({ payload }) {
   const { data } = payload
   const response = yield Api.post('/auth/signup', data);
   if (response.ok) {
-    yield put(auth.signupResponse(response.payload.success));
-    yield put(push('/onboarding/phases'));
+    console.log(response)
+    yield put(auth.signupResponse(response.ok));
   } else {
     const err = new TypeError('ERROR_LOGIN')
     yield put(auth.signupResponse(err))
