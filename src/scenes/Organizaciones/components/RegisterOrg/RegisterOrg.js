@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Upload, message, Avatar, Form, Icon, Input, Button, Select, Radio, DatePicker } from 'antd';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
@@ -40,130 +40,132 @@ const props = {
 	},
 };
 
-class RegisterOrg extends React.Component {
-	state = {
+const FormRegisterOrg = (props) => {
+
+	const [state, setstate] = useState({
 		value: 1,
 		desisable: true,
-	};
-	componentDidMount() {
+	})
+
+	const componentDidMount = () => {
 		// To  submit button at the beginning.
-		this.props.form.validateFields();
+		props.form.validateFields();
 	}
-	handleSubmit = e => {
+
+	const handleSubmit = e => {
 		e.preventDefault();
-		this.props.form.validateFields((err, values) => {
+		props.form.validateFields((err, values) => {
 			if (!err) {
-				console.log('Received values of form: ', values);
+				console.log('Received values of form: ', values)
 			}
-		});
-	};
-	toggle = () => {
-		this.setState({
-			desisable: !this.state.desisable,
-		});
-	};
-	onChange = e => {
+		})
+	}
+
+	const toggle = () => {
+		setstate({ ...state, desisable: !state.desisable, });
+	}
+
+	const onChange = e => {
 		console.log('radio checked', e.target.value);
-		this.setState({
-			value: e.target.value,
-		});
-	};
-	render() {
-		const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
-		const usernameError = isFieldTouched('username') && getFieldError('username');
-		const passwordError = isFieldTouched('password') && getFieldError('password');
+		setstate({
+			...state, value: e.target.value,
+		})
+	}
 
-		return (
-			<section >
-				<LayoutHome />
-				<div className="RegisterOrg">
-					<div className="users--title">
-						<h1>Registrar Organizacion</h1>
-					</div>
-					<Form layout="inline" className="RegisterOrg--form" onSubmit={this.handleSubmit}>
-						<div className="RegisterOrg--form__content-1">
-							
+	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
+	const usernameError = isFieldTouched('username') && getFieldError('username');
+	const passwordError = isFieldTouched('password') && getFieldError('password');
 
-							<div className="RegisterOrg--form__content-1--rigth">
-								<div className="RegisterOrg--form__content-1--rigth--title">
-									Datos Dela Organizacion
+	return (
+		<section >
+			<LayoutHome />
+			<div className="RegisterOrg">
+				<div className="users--title">
+					<h1>Registrar Organizacion</h1>
+				</div>
+				<Form layout="inline" className="RegisterOrg--form" onSubmit={handleSubmit}>
+					<div className="RegisterOrg--form__content-1">
+
+
+						<div className="RegisterOrg--form__content-1--rigth">
+							<div className="RegisterOrg--form__content-1--rigth--title">
+								Datos Dela Organizacion
                                 </div>
-								<div className="form">
-									<Form.Item className="item">
-										<label>Nombres</label>
-										<Input type="text" className="item--input" placeholder="Nombre" />
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Telefono de Contacto</label> 
-										<Input type="number" className="item--input" placeholder="Telefono" />
-									</Form.Item>
+							<div className="form">
+								<Form.Item className="item">
+									<label>Nombres</label>
+									<Input type="text" className="item--input" placeholder="Nombre" />
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Telefono de Contacto</label>
+									<Input type="number" className="item--input" placeholder="Telefono" />
+								</Form.Item>
 
-									<Form.Item className="item">
-										<label>Pais de la Organizacion</label>
-										<div className="select-content">
-											<Select className="select" defaultValue="1">
-												<Option value="1">Ninguna</Option>
-												<Option value="2">Colombia</Option>
-												<Option value="3">Venezuela</Option>
-											</Select>
-										</div>
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Departamento de la Organizacion</label>
-										<div className="select-content">
-											<Select className="select" defaultValue="0">
-												<Option value="0">Ninguna</Option>
-												<Option value="1">Caqueta</Option>
-												<Option value="2">Huila</Option>
-											</Select>
-										</div>
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Pueblo la Organizacion</label>
-										<div className="select-content">
-											<Select className="select" defaultValue="0">
-												<Option value="0">Ninguna</Option>
-												<Option value="1">Florencia</Option>
-												<Option value="2">Paujil</Option>
-											</Select>
-										</div>
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Vereda de la Organizacion</label>
-										<div className="select-content">
-											<Select className="select" defaultValue="0" >
-												<Option value="0">Ninguna</Option>
-												<Option value="1">vereda 1</Option>
-												<Option value="2">vereda 2</Option>
-											</Select>
-										</div>
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Representante</label>
-										<div className="select-content">
-											<Select className="select" defaultValue="0" >
-												<Option value="0">seleccione uno/a</Option>
-												<Option value="1">juan torres</Option>
-												<Option value="2">maria calderon</Option>
-											</Select>
-										</div>
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Descripcion</label>
-										<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />
-									</Form.Item>
-								</div>
+								<Form.Item className="item">
+									<label>Pais de la Organizacion</label>
+									<div className="select-content">
+										<Select className="select" defaultValue="1">
+											<Option value="1">Ninguna</Option>
+											<Option value="2">Colombia</Option>
+											<Option value="3">Venezuela</Option>
+										</Select>
+									</div>
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Departamento de la Organizacion</label>
+									<div className="select-content">
+										<Select className="select" defaultValue="0">
+											<Option value="0">Ninguna</Option>
+											<Option value="1">Caqueta</Option>
+											<Option value="2">Huila</Option>
+										</Select>
+									</div>
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Pueblo la Organizacion</label>
+									<div className="select-content">
+										<Select className="select" defaultValue="0">
+											<Option value="0">Ninguna</Option>
+											<Option value="1">Florencia</Option>
+											<Option value="2">Paujil</Option>
+										</Select>
+									</div>
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Vereda de la Organizacion</label>
+									<div className="select-content">
+										<Select className="select" defaultValue="0" >
+											<Option value="0">Ninguna</Option>
+											<Option value="1">vereda 1</Option>
+											<Option value="2">vereda 2</Option>
+										</Select>
+									</div>
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Representante</label>
+									<div className="select-content">
+										<Select className="select" defaultValue="0" >
+											<Option value="0">seleccione uno/a</Option>
+											<Option value="1">juan torres</Option>
+											<Option value="2">maria calderon</Option>
+										</Select>
+									</div>
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Descripcion</label>
+									<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />
+								</Form.Item>
 							</div>
 						</div>
-						<div className="btn">
-							<Button><Icon type="form" />Registrar</Button>
-						</div>
-					</Form>
-				</div>
-			</section>
-		);
-	}
+					</div>
+					<div className="btn">
+						<Button><Icon type="form" />Registrar</Button>
+					</div>
+				</Form>
+			</div>
+		</section>
+	)
+
 }
 
-RegisterOrg = withRouter(RegisterOrg);
-export default Form.create({ name: 'formLogin' })(RegisterOrg);
+export const RegisterOrg = Form.create({ name: 'formLogin' })(FormRegisterOrg);

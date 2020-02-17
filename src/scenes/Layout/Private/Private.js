@@ -13,7 +13,7 @@ import Infraestructura from '../../Infraestructura/Infraestructura';
 import Organizaciones from '../../Organizaciones/Organizaciones';
 import Tipo from '../../Infraestructura/Tipo/Tipo';
 import TipoCadena from '../../CadenasProductivas/tipo/TipoCadena';
-import RegisterOrg from '../../Organizaciones/components/RegisterOrg/RegisterOrg';
+import { RegisterOrg } from '../../Organizaciones/components/RegisterOrg/RegisterOrg';
 import RegisterInfra from '../../Infraestructura/components/RegisterInfra/RegisterInfra';
 import { Indicadores } from '../../Indicadores/Indicadores';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,7 +23,7 @@ import RegisterLine from "../../../scenes/CadenasProductivas/RegisterChain/Regis
 import { SelectComponent } from "../../../components/User/SelectComponent";
 import { SingUp } from "../../Admin/SingUp/SingUp";
 import { Cultivo } from "../../CadenasProductivas/Cultivos/Cultivos";
-import  {RegisterUserSocial}  from "../../Organizaciones/components/UserSocial/UserSocial";
+import { RegisterUserSocial } from "../../Organizaciones/components/UserSocial/UserSocial";
 
 export const Private = () => {
 
