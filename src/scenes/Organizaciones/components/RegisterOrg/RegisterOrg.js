@@ -82,7 +82,7 @@ class RegisterOrg extends React.Component {
 					</div>
 					<Form layout="inline" className="RegisterOrg--form" onSubmit={this.handleSubmit}>
 						<div className="RegisterOrg--form__content-1">
-							
+
 
 							<div className="RegisterOrg--form__content-1--rigth">
 								<div className="RegisterOrg--form__content-1--rigth--title">
@@ -90,73 +90,82 @@ class RegisterOrg extends React.Component {
                                 </div>
 								<div className="form">
 									<Form.Item className="item">
-										<label>Nombres</label>
-										<Input type="text" className="item--input" placeholder="Nombre" />
+										<label>Nombre de la Organización</label>
+										{getFieldDecorator('nombre', {
+											rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+										})(<Input placeholder="Nombre" className="item--input" />)}
 									</Form.Item>
 									<Form.Item className="item">
-										<label>Telefono de Contacto</label> 
-										<Input type="number" className="item--input" placeholder="Telefono" />
-									</Form.Item>
-
-									<Form.Item className="item">
-										<label>Pais de la Organizacion</label>
-										<div className="select-content">
-											<Select className="select" defaultValue="1">
-												<Option value="1">Ninguna</Option>
-												<Option value="2">Colombia</Option>
-												<Option value="3">Venezuela</Option>
-											</Select>
-										</div>
+										<label>Telefono de Contacto</label>
+										{getFieldDecorator('phone', {
+											rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+										})(<Input type="number" className="item--input" placeholder="Telefono" />)}
 									</Form.Item>
 									<Form.Item className="item">
-										<label>Departamento de la Organizacion</label>
-										<div className="select-content">
-											<Select className="select" defaultValue="0">
-												<Option value="0">Ninguna</Option>
-												<Option value="1">Caqueta</Option>
-												<Option value="2">Huila</Option>
-											</Select>
-										</div>
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Pueblo la Organizacion</label>
-										<div className="select-content">
-											<Select className="select" defaultValue="0">
+                  <label>Municipio</label>
+                  <div className="select-content">
+                    {getFieldDecorator('idmunicipio', {
+                      rules: [{ required: true, message: 'Porfavor seleccione un municipio' }],
+                    })(
+                      <Select className="select" defaultValue="0" placeholder="municipio">
 												<Option value="0">Ninguna</Option>
 												<Option value="1">Florencia</Option>
 												<Option value="2">Paujil</Option>
-											</Select>
-										</div>
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Vereda de la Organizacion</label>
-										<div className="select-content">
-											<Select className="select" defaultValue="0" >
+											</Select>,
+                    )}
+                  </div>
+                </Form.Item>
+								<Form.Item className="item">
+                  <label>Vereda</label>
+                  <div className="select-content">
+                    {getFieldDecorator('idvereda', {
+                      rules: [{ required: true, message: 'Pofavor seleccione la vereda!' }],
+                    })(
+                      <Select className="select" defaultValue="0" placeholder="vereda">
 												<Option value="0">Ninguna</Option>
 												<Option value="1">vereda 1</Option>
 												<Option value="2">vereda 2</Option>
-											</Select>
-										</div>
-									</Form.Item>
+											</Select>,
+                    )}
+                  </div>
+                </Form.Item>
 									<Form.Item className="item">
 										<label>Representante</label>
 										<div className="select-content">
-											<Select className="select" defaultValue="0" >
+                    {getFieldDecorator('iduser', {
+                      rules: [{ required: true, message: 'Pofavor seleccione el Representante!' }],
+                    })(
+                      <Select className="select" defaultValue="0" placeholder="representante">
 												<Option value="0">seleccione uno/a</Option>
 												<Option value="1">juan torres</Option>
 												<Option value="2">maria calderon</Option>
-											</Select>
-										</div>
+											</Select>,
+                    )}
+                  </div>
 									</Form.Item>
 									<Form.Item className="item">
 										<label>Descripcion</label>
-										<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />
+										{getFieldDecorator('description', {
+											rules: [{ required: true, message: 'Porfavor ingrese la descripcion', whitespace: true }],
+										})(<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />)}
+									</Form.Item>
+									<Form.Item className="item">
+										<label>Tema Empresaqrial</label>
+										{getFieldDecorator('empresarial', {
+											rules: [{ required: true, message: 'Porfavor ingrese el tema empresarial', whitespace: true }],
+										})(<TextArea placeholder="tema empresarial" allowClear onChange={onChange} />)}
+									</Form.Item>
+									<Form.Item className="item">
+										<label>Tema de Capacitacion</label>
+										{getFieldDecorator('capaciti', {
+											rules: [{ required: true, message: 'Porfavor la capacitacion', whitespace: true }],
+										})(<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />)}
 									</Form.Item>
 								</div>
 							</div>
 						</div>
 						<div className="btn">
-							<Button><Icon type="form" />Registrar</Button>
+							<Button htmlType="submit"><Icon type="form" />Registrar</Button>
 						</div>
 					</Form>
 				</div>
