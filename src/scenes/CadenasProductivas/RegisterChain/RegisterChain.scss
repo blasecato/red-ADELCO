@@ -18,7 +18,7 @@
             }
         }
         &--rigth{
-            width: 50%;
+            width: 100%;
             //display: flex;
             // justify-content: center;
             flex-wrap: wrap;
@@ -32,6 +32,7 @@
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
+                
                 .item{
                     width: 45%;
                     display: grid;
@@ -76,6 +77,16 @@
                 }
                 .ant-calendar-picker {
                     width: 100%;
+                }
+                &-two{
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    width: 100%;
+                    justify-content: inherit;
+                    .select {
+                        width: 100%;
+                    }
                 }
                 
             }

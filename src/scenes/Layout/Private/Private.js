@@ -19,8 +19,10 @@ import { Indicadores } from '../../Indicadores/Indicadores';
 import { useDispatch, useSelector } from 'react-redux';
 import { indicators as indicatorAcctions } from '../../../services/indicadores/IndicadoresActions'
 import RegisterChain from "../../../scenes/CadenasProductivas/RegisterChain/RegisterChain";
+import RegisterLine from "../../../scenes/CadenasProductivas/RegisterChain/RegisterLine";
 import { SelectComponent } from "../../../components/User/SelectComponent";
 import { SingUp } from "../../Admin/SingUp/SingUp";
+import { Cultivo } from "../../CadenasProductivas/Cultivos/Cultivos";
 export const Private = () => {
 
   const dispatch = useDispatch()
@@ -49,8 +51,10 @@ export const Private = () => {
         <Route path="/registerinfra/" component={RegisterInfra} />
         <Route path="/indicadores/" component={Indicadores} />
         <Route path="/registrarcadenasproductivas/" component={RegisterChain} />
+        <Route path="/registrarline/" component={RegisterLine} />
         <Route path="/update/" component={SelectComponent} />
         <Route path="/singup/" component={SingUp} />
+        <Route path="/cultivos/" component={Cultivo} />
       </Router>
     </div>
   );

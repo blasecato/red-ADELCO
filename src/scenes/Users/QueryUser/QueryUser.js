@@ -12,36 +12,15 @@ const { Column, ColumnGroup } = Table;
 export const QueryUser = () => {
 
 	const dispatch = useDispatch()
-	const data = [
-		{
-			key: '1',
-			firstName: 'John',
-			lastName: 'Brown',
-			age: 32,
-			address: 'Jefe Finca',
-			tags: ['Cacao', 'Cafe'],
-		},
-		{
-			key: '2',
-			firstName: 'Jim',
-			lastName: 'Green',
-			age: 42,
-			address: 'Esposa',
-			tags: ['Cacao', 'Caña', 'Cafe'],
-		},
-		{
-			key: '3',
-			firstName: 'Joe',
-			lastName: 'Black',
-			age: 32,
-			address: 'Hija',
-			tags: ['Cacao', 'Caña'],
-		},
-	]
+	
 	const { genderDate } = useSelector(state => state.producer)
+	const { genderCount } = useSelector(state => state.producer)
+	console.log(genderCount && genderCount.woman);
+	
 
 	useEffect(() => {
-		dispatch(producer.getProducerDate())
+		dispatch(producer.getProducerDate());
+		dispatch(producer.getGender())
 	}, [])
 
 	return (
@@ -72,7 +51,7 @@ export const QueryUser = () => {
 							Key="action"
 							render={(text, record) => (
 								<span>
-									<Link href="/profile">Ver Mas</Link>
+									<Link to="/profile">Ver Mas</Link>
 								</span>
 							)}
 						/>
@@ -80,7 +59,69 @@ export const QueryUser = () => {
 				</Card>
 
 			</div>
+			<div className="queryuser__content">
+				<div className="users--title">
+					<h1>Mujeres</h1>
+				</div>
+					{genderCount &&  <Card title={<p>Total de mujeres {genderCount.woman.count.sum}</p>}
+					extra={<Search
+						placeholder="Buscar Usuario"
+						onSearch={value => console.log(value)}
+					/>}
+				>
+					<Table dataSource={genderCount.woman.arraywoman} rowKey="id">
+						<Column title="Nombres." dataIndex="nombres" Key="nombres" />
+						<Column title="Apellidos." dataIndex="apellidos" Key="apellidos" />
+						<Column title="Numero de identificacion." dataIndex="dni" Key="dni" />
+						<Column title="Edad." dataIndex="edad" Key="edad" />
+						<Column
+							title="Codigo"
+							dataIndex="id"
+							Key="id"
+						/>
+						<Column
+							title="Mas..."
+							Key="action"
+							render={(text, record) => (
+								<span>
+									<Link to="/profile">Ver Mas</Link>
+								</span>
+							)}
+						/>
+					</Table>   
+				</Card>}
+				<div className="users--title">
+					<h1>Hombres</h1>
+				</div>
+				{genderCount &&  <Card title={<p>Total de Hombres {genderCount.men.count.count}</p>}
+					extra={<Search
+						placeholder="Buscar Usuario"
+						onSearch={value => console.log(value)}
+					/>}
+				>
+					<Table dataSource={genderCount.men.arraymen} rowKey="id">
+						<Column title="Nombres." dataIndex="nombres" Key="nombres" />
+						<Column title="Apellidos." dataIndex="apellidos" Key="apellidos" />
+						<Column title="Numero de identificacion." dataIndex="dni" Key="dni" />
+						<Column title="Edad." dataIndex="edad" Key="edad" />
+						<Column
+							title="Codigo"
+							dataIndex="id"
+							Key="id"
+						/>
+						<Column
+							title="Mas..."
+							Key="action"
+							render={(text, record) => (
+								<span>
+									<Link to="/profile">Ver Mas</Link>
+								</span>
+							)}
+						/>
+					</Table>   
+				</Card>}
 
+			</div>
 		</div>
 	)
 }
