@@ -23,6 +23,8 @@ import RegisterLine from "../../../scenes/CadenasProductivas/RegisterChain/Regis
 import { SelectComponent } from "../../../components/User/SelectComponent";
 import { SingUp } from "../../Admin/SingUp/SingUp";
 import { Cultivo } from "../../CadenasProductivas/Cultivos/Cultivos";
+import  {RegisterUserSocial}  from "../../Organizaciones/components/UserSocial/UserSocial";
+
 export const Private = () => {
 
   const dispatch = useDispatch()
@@ -55,6 +57,7 @@ export const Private = () => {
         <Route path="/update/" component={SelectComponent} />
         <Route path="/singup/" component={SingUp} />
         <Route path="/cultivos/" component={Cultivo} />
+        <Route path="/usersocial/" component={RegisterUserSocial} />
       </Router>
     </div>
   );

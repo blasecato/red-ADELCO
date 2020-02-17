@@ -32,10 +32,10 @@ class Organizaciones extends React.Component{
                         <Card
                             className="users__content-cards--card"
                             hoverable
-                            cover={<Link to="/queryuser"><img alt="example" src={queryuser} /></Link>}
+                            cover={<Link to="/usersocial"><img alt="example" src={queryuser} /></Link>}
                         >
                             <Meta title="Beneficiarios" description="Consulta Informacion de las Organizaciones ¡AQUI!" />
-                            <Link className="btn" to="/queryuser" type="primary" shape="circle">
+                            <Link className="btn" to="/usersocial" type="primary" shape="circle">
                                 IR
                             </Link>
                         </Card>

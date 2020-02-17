@@ -14,11 +14,6 @@ const menu = (
       </Link>
     </Menu.Item>
     <Menu.Item>
-      <Link to=''>
-        2nd menu item
-      </Link>
-    </Menu.Item>
-    <Menu.Item>
       <Link className="layout-home__nav__index" to="/indicadores">
         INDICADORES
       </Link>
@@ -38,16 +33,16 @@ class LayoutHome extends React.Component {
               <Icon className="icon" type="home" />
             </Link>
             <Link className="layout-home__nav__index" to="/cadenasproductivas">
-              COMPONENTE PRODUCTIVAS
+              PRODUCTIVOS
             </Link>
             <Link className="layout-home__nav__index" to="/infraestructura">
-              COMPONENTE INFRAESTRUCTURA
+              INFRAESTRUCTURA
             </Link>
             <Link className="layout-home__nav__index" to="/organizaciones">
-              COMPONENTE SOCIAL
+              SOCIAL
             </Link>
             <Link className="layout-home__nav__index" to="/organizaciones">
-              COMPONENTE REINCORPORACION
+              REINCORPORACION
             </Link>
             <Link className="layout-home__nav__index" to="/users">
               USUARIOS

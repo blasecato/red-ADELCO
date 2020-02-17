@@ -86,7 +86,7 @@ class RegisterOrg extends React.Component {
 
 							<div className="RegisterOrg--form__content-1--rigth">
 								<div className="RegisterOrg--form__content-1--rigth--title">
-									Datos Personales
+									Datos Dela Organizacion
                                 </div>
 								<div className="form">
 									<Form.Item className="item">
