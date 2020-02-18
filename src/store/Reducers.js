@@ -2,8 +2,10 @@ import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import reducerIndicator from '../services/indicadores/IndicadoresReducer';
 import reducerAuth from '../services/Auth/AuthReducer';
-import producerAuth from '../services/Producer/ProducerReducer';
+import reducerproducer from '../services/Producer/ProducerReducer';
 import reducerCrops from '../services/crop/cropReducer';
+import reducerMunicipio from '../services/municipio/municipioReducer';
+import reducerOrganization from '../services/organization/organizationReducer';
 
 
 const appReducer = history =>
@@ -11,8 +13,10 @@ const appReducer = history =>
     router: connectRouter(history),
     indicator: reducerIndicator,
     auth: reducerAuth,
-    producer: producerAuth,
+    producer: reducerproducer,
     crop: reducerCrops,
+    municipio: reducerMunicipio,
+    organization: reducerOrganization,
   });
 
 const rootReducer = history => {

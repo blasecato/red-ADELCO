@@ -1,80 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Upload, message, Avatar, Form, Icon, Input, Button, Select, Radio, DatePicker } from 'antd';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
-
 import LayoutHome from "../../../../components/LayoutHome/LayoutHome";
+import { useDispatch, useSelector } from "react-redux";
+import { municipios as municipiosActions } from "../../../../services/municipio/municipioActions";
+import { producer as producerActions } from "../../../../services/Producer/ProducerActions";
+import { organization as organizationActions } from "../../../../services/organization/organizationActions";
 
 const { TextArea } = Input;
-
-function hasErrors(fieldsError) {
-	return Object.keys(fieldsError).some(field => fieldsError[field]);
-}
-const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
-
-function onChange(date, dateString) {
-	console.log(date, dateString);
-}
 const { Option } = Select;
-
-function handleChange(value) {
-	console.log(`selected ${value}`);
-}
-const dateFormat = 'YYYY-MM-DD';
-
-const props = {
-	name: 'file',
-	action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-	headers: {
-		authorization: 'authorization-text',
-	},
-	onChange(info) {
-		if (info.file.status !== 'uploading') {
-			console.log(info.file, info.fileList);
-		}
-		if (info.file.status === 'done') {
-			message.success(`${info.file.name} file uploaded successfully`);
-		} else if (info.file.status === 'error') {
-			message.error(`${info.file.name} file upload failed.`);
-		}
-	},
-};
 
 const FormRegisterOrg = (props) => {
 
+	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
+
+	const { municipios } = useSelector(state => state.municipio)
+	const { genderDate } = useSelector(state => state.producer)
+	const dispatch = useDispatch()
 	const [state, setstate] = useState({
 		value: 1,
 		desisable: true,
 	})
 
-	const componentDidMount = () => {
-		// To  submit button at the beginning.
-		props.form.validateFields();
-	}
+	const [veredas, setveredas] = useState([])
+
+	useEffect(() => {
+		dispatch(municipiosActions.getMunicipios())
+		dispatch(producerActions.getProducerDate())
+	}, [])
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		props.form.validateFields((err, values) => {
 			if (!err) {
-				console.log('Received values of form: ', values)
+				const { idmunicipio, ...result } = values
+				console.log("values form==>", result)
+				dispatch(organizationActions.createOrganization(result))
 			}
 		})
 	}
 
-	const toggle = () => {
-		setstate({ ...state, desisable: !state.desisable, });
-	}
-
 	const onChange = e => {
-		console.log('radio checked', e.target.value);
 		setstate({
 			...state, value: e.target.value,
 		})
 	}
 
-	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
-	const usernameError = isFieldTouched('username') && getFieldError('username');
-	const passwordError = isFieldTouched('password') && getFieldError('password');
+	const handleSelectVereda = e => {
+		setveredas(municipios.find((municipio) => municipio.id === e).veredas)
+	}
 
 	return (
 		<section >
@@ -86,86 +61,98 @@ const FormRegisterOrg = (props) => {
 				<Form layout="inline" className="RegisterOrg--form" onSubmit={handleSubmit}>
 					<div className="RegisterOrg--form__content-1">
 
-
 						<div className="RegisterOrg--form__content-1--rigth">
 							<div className="RegisterOrg--form__content-1--rigth--title">
 								Datos Dela Organizacion
-                                </div>
+							</div>
+
 							<div className="form">
 								<Form.Item className="item">
-									<label>Nombres</label>
-									<Input type="text" className="item--input" placeholder="Nombre" />
+									<label>Nombre de la Organización</label>
+									{getFieldDecorator('nombre', {
+										rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+									})(<Input placeholder="Nombre" className="item--input" />)}
 								</Form.Item>
 								<Form.Item className="item">
 									<label>Telefono de Contacto</label>
-									<Input type="number" className="item--input" placeholder="Telefono" />
+									{getFieldDecorator('contacto', {
+										rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+									})(<Input type="number" className="item--input" placeholder="Telefono" />)}
 								</Form.Item>
-
 								<Form.Item className="item">
-									<label>Pais de la Organizacion</label>
+									<label>Municipio</label>
 									<div className="select-content">
-										<Select className="select" defaultValue="1">
-											<Option value="1">Ninguna</Option>
-											<Option value="2">Colombia</Option>
-											<Option value="3">Venezuela</Option>
-										</Select>
+										{getFieldDecorator('idmunicipio', {
+											rules: [{ required: true, message: 'Porfavor seleccione un municipio' }],
+										})(
+											<Select className="select" onChange={handleSelectVereda} placeholder="municipio">
+												{municipios && municipios.map((municipio) => <Option key={municipio.id} value={municipio.id} >{municipio.nombre}</Option>)}
+											</Select>
+										)}
 									</div>
 								</Form.Item>
 								<Form.Item className="item">
-									<label>Departamento de la Organizacion</label>
+									<label>Vereda</label>
 									<div className="select-content">
-										<Select className="select" defaultValue="0">
-											<Option value="0">Ninguna</Option>
-											<Option value="1">Caqueta</Option>
-											<Option value="2">Huila</Option>
-										</Select>
-									</div>
-								</Form.Item>
-								<Form.Item className="item">
-									<label>Pueblo la Organizacion</label>
-									<div className="select-content">
-										<Select className="select" defaultValue="0">
-											<Option value="0">Ninguna</Option>
-											<Option value="1">Florencia</Option>
-											<Option value="2">Paujil</Option>
-										</Select>
-									</div>
-								</Form.Item>
-								<Form.Item className="item">
-									<label>Vereda de la Organizacion</label>
-									<div className="select-content">
-										<Select className="select" defaultValue="0" >
-											<Option value="0">Ninguna</Option>
-											<Option value="1">vereda 1</Option>
-											<Option value="2">vereda 2</Option>
-										</Select>
+										{getFieldDecorator('idVereda2', {
+											rules: [{ required: true, message: 'Pofavor seleccione la vereda!' }],
+										})(
+											<Select className="select" placeholder="vereda">
+												{veredas && veredas.map((vereda) => <Option key={vereda.id} value={vereda.id} >{vereda.nombre}</Option>)}
+											</Select>
+										)}
 									</div>
 								</Form.Item>
 								<Form.Item className="item">
 									<label>Representante</label>
 									<div className="select-content">
-										<Select className="select" defaultValue="0" >
-											<Option value="0">seleccione uno/a</Option>
-											<Option value="1">juan torres</Option>
-											<Option value="2">maria calderon</Option>
-										</Select>
+										{getFieldDecorator('representante2', {
+											rules: [{ required: true, message: 'Pofavor seleccione el Representante!' }],
+										})(
+											<Select
+												className="select"
+												placeholder="representante"
+												filterOption={(inputValue, option) =>
+													option.props.children
+														.toString()
+														.toLowerCase()
+														.includes(inputValue.toLowerCase())
+												}
+												showSearch
+											>
+												{genderDate && genderDate.map((date, index) => <Option key={index} value={date.dni} >{date.nombres} {date.apellidos}</Option>)}
+											</Select>
+										)}
 									</div>
 								</Form.Item>
 								<Form.Item className="item">
 									<label>Descripcion</label>
-									<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />
+									{getFieldDecorator('descripcion', {
+										rules: [{ required: true, message: 'Porfavor ingrese la descripcion', whitespace: true }],
+									})(<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />)}
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Tema Empresaqrial</label>
+									{getFieldDecorator('temaEmpresarial', {
+										rules: [{ required: true, message: 'Porfavor ingrese el tema empresarial', whitespace: true }],
+									})(<TextArea placeholder="tema empresarial" allowClear onChange={onChange} />)}
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Tema de Capacitacion</label>
+									{getFieldDecorator('temaCapacitacion', {
+										rules: [{ required: true, message: 'Porfavor la capacitacion', whitespace: true }],
+									})(<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />)}
 								</Form.Item>
 							</div>
 						</div>
 					</div>
 					<div className="btn">
-						<Button><Icon type="form" />Registrar</Button>
+						<Button htmlType="submit"><Icon type="form" />Registrar</Button>
 					</div>
 				</Form>
 			</div>
 		</section>
 	)
-
 }
 
 export const RegisterOrg = Form.create({ name: 'formLogin' })(FormRegisterOrg);

@@ -12,9 +12,18 @@ function* createProducer({ payload }) {
   }
 }
 
+function* updateProducer({ payload }) {
+  const response = yield Api.put('/producers/update', payload.producer)
+  if (response.ok) {
+    yield put(producer.updateProducerResponse());
+  } else {
+    const err = new TypeError('ERROR_PRODUCER')
+    yield put(producer.updateProducerResponse(err))
+  }
+}
+
 function* getGender({ payload }) {
   const response = yield Api.get('/producers/genderCount')
-  console.log("response==>", response)
   if (response.ok) {
     yield put(producer.getGenderResponse(response.payload));
   } else {
@@ -25,7 +34,6 @@ function* getGender({ payload }) {
 
 function* getProducerDate({ payload }) {
   const response = yield Api.get('/producers/producer-date')
-  console.log("response==>", response)
   if (response.ok) {
     yield put(producer.getProducerDateResponse(response.payload));
   } else {
@@ -34,10 +42,22 @@ function* getProducerDate({ payload }) {
   }
 }
 
+function* getProducerUpdate({ payload }) {
+  const response = yield Api.get('/producers/date-update')
+  if (response.ok) {
+    yield put(producer.getProducerUpdateResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_DATE_UPDATE')
+    yield put(producer.getProducerUpdateResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(producer.createProducer, createProducer)
+  yield takeLatest(producer.updateProducer, updateProducer)
   yield takeLatest(producer.getGender, getGender)
   yield takeLatest(producer.getProducerDate, getProducerDate)
+  yield takeLatest(producer.getProducerUpdate, getProducerUpdate)
 }
 
 export default function* rootSaga() {
