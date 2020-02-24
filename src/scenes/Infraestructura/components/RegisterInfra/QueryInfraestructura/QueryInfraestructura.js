@@ -2,19 +2,19 @@ import React, { useEffect } from 'react';
 import { Table, Divider, Tag, Card, Input } from 'antd';
 import { Link } from 'react-router-dom';
 
-import LayoutHome from "../../../../components/LayoutHome/LayoutHome";
+import LayoutHome from "../../../../../components/LayoutHome/LayoutHome";
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
-export const OrgQuery = () => {
+export const InfraQuery = () => {
 
 	return (
 		<div className="queryuser">
 			<LayoutHome />
 			<div className="queryuser__content">
 				<div className="users--title">
-					<h1>Consultar Usuarios</h1>
+					<h1>Consultar Infraestructura</h1>
 				</div>
 				<Card title="Listado de Beneficiarios"
 					extra={<Search
@@ -24,11 +24,12 @@ export const OrgQuery = () => {
 				>
 					<Table>
 						<Column title="Nombre." dataIndex="nombres" Key="nombres" />
-						<Column title="Municipio." dataIndex="apellidos" Key="apellidos" />
-						<Column title="Vereda." dataIndex="idOrganizacion2.nombre" Key="idOrganizacion2" />
-						<Column title="Descripcion." dataIndex="idParentesco2.nombre" Key="idParentesco2" />
+						<Column title="Covertura." dataIndex="apellidos" Key="apellidos" />
+						<Column title="Municipio." dataIndex="idOrganizacion2.nombre" Key="idOrganizacion2" />
+						<Column title="Responsable." dataIndex="idParentesco2.nombre" Key="idParentesco2" />
+						<Column title="Estado." dataIndex="idParentesco2.nombre" Key="idParentesco2" />
 						<Column
-							title="Representante"
+							title="Vereda"
 							dataIndex="idConflicto2.nombre"
 							Key="idConflicto2"
 						/>

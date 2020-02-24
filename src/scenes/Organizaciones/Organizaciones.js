@@ -23,8 +23,18 @@ class Organizaciones extends React.Component{
                             hoverable
                             cover={<Link to="/registerorg"><img alt="example" src={usernew} /></Link>}
                         >
-                            <Meta title="Organizaciones" description="Registra nuevas Organizaciones ¡AQUI!" />
+                            <Meta title="Registrar Organizaciones" description="Registra nuevas Organizaciones ¡AQUI!" />
                             <Link className="btn" to="/registerorg" type="primary" shape="circle">
+                                IR
+                            </Link>
+                        </Card>
+                        <Card
+                            className="users__content-cards--card"
+                            hoverable
+                            cover={<Link to="/orgquery"><img alt="example" src={usernew} /></Link>}
+                        >
+                            <Meta title="Consultar Organizaciones" description="Consulta nuevas Organizaciones ¡AQUI!" />
+                            <Link className="btn" to="/orgquery" type="primary" shape="circle">
                                 IR
                             </Link>
                         </Card>

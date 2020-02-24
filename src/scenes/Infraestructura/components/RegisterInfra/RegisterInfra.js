@@ -130,6 +130,20 @@ class RegisterInfra extends React.Component {
 										</div>
 									</Form.Item>
 									<Form.Item className="item">
+										<label>Estado de la Infraestructura</label>
+										<div className="select-content">
+											{getFieldDecorator('idestado', {
+												rules: [{ required: true, message: 'Porfavor seleccione un estado' }],
+											})(
+												<Select className="select" defaultValue="0">
+													<Option value="0">activo</Option>
+													<Option value="1">hola</Option>
+													<Option value="2">fdgfdg</Option>
+												</Select>
+											)}
+										</div>
+									</Form.Item>
+									<Form.Item className="item">
 										<label>Representante</label>
 										{getFieldDecorator('representante', {
 											rules: [{ required: true, message: 'Porfavor ingrese el nombre del representante', whitespace: true }],

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 import { crop } from '../../../services/crop/cropActions';
+import { JsonToExcel } from 'react-json-excel';
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
@@ -17,13 +18,33 @@ export const Cultivo = () => {
 	useEffect(() => {
 		dispatch(crop.getCropsProducer())
 	}, [])
-
 	console.log("cropsProducer==>", cropsProducer)
 
+
+	const className = 'class-name-for-style',
+	filename = 'Excel-file',
+	fields = {
+		"index": "Index",
+		"guid": "GUID"
+	},
+	style = {
+		padding: "5px"
+	},
+	data = [
+		{ index: 0, guid: 'asdf231234'},
+		{ index: 1, guid: 'wetr2343af'}
+	];
 	return (
 		<div className="queryuser">
 			<LayoutHome />
-
+			<JsonToExcel
+				data={data}
+				fileformat={"xls"}
+				className={className}
+				filename={filename}
+				fields={fields}
+				style={style}
+			/>
 			<div className="queryuser__content">
 				<div className="users--title">
 					<h1>Listado de Cultivos</h1>
@@ -31,6 +52,7 @@ export const Cultivo = () => {
 				<div className="button">
 					<Link to="/registercultivos" className="btn-register">Registrar Cultivo</Link>
 				</div>
+
 				<Card title={<p>Cultivos</p>}
 					extra={<Search
 						placeholder="Buscar Usuario"

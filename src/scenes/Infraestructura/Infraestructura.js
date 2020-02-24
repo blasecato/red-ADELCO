@@ -42,7 +42,7 @@ class Infraestructura extends React.Component {
             className="users__content-cards--card"
             hoverable
             cover={
-              <Link to="/queryuser">
+              <Link to="/infraquery">
                 <img alt="example" src={queryuser} />
               </Link>
             }
@@ -51,7 +51,7 @@ class Infraestructura extends React.Component {
               title="Consultar Infraestructuras"
               description="Consulta Informacion de Infraestructuras ¡AQUI!"
             />
-            <Link className="btn" to="/queryuser" type="primary" shape="circle">
+            <Link className="btn" to="/infraquery" type="primary" shape="circle">
               IR
             </Link>
           </Card>

@@ -25,6 +25,8 @@ import { SingUp } from "../../Admin/SingUp/SingUp";
 import { Cultivo } from "../../CadenasProductivas/Cultivos/Cultivos";
 import { RegisterUserSocial } from "../../Organizaciones/components/UserSocial/UserSocial";
 import  RegisterCultivos  from "../../CadenasProductivas/Cultivos/RegisterCultivos";
+import  {OrgQuery}  from "../../Organizaciones/components/Org/Org";
+import  {InfraQuery}  from "../../Infraestructura/components/RegisterInfra/QueryInfraestructura/QueryInfraestructura";
 
 export const Private = () => {
 
@@ -60,6 +62,8 @@ export const Private = () => {
         <Route path="/cultivos/" component={Cultivo} />
         <Route path="/usersocial/" component={RegisterUserSocial} />
         <Route path="/registercultivos/" component={RegisterCultivos} />
+        <Route path="/orgquery/" component={OrgQuery} />
+        <Route path="/infraquery/" component={InfraQuery} />
       </Router>
     </div>
   );
