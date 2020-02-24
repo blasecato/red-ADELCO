@@ -6,11 +6,37 @@ import { useDispatch, useSelector } from 'react-redux';
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 import { crop } from '../../../services/crop/cropActions';
 import { JsonToExcel } from 'react-json-excel';
+import {json2excel, excel2json} from 'js2excel';
+import exel from "../../../assets/image/excel.png";
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
 export const Cultivo = () => {
+
+
+
+	const data = [
+		{
+			"userId": 1,
+			"userPhoneNumber": 1888888888,
+			"userAddress": 'xxxx',
+			"date": '2013/09/10 09:10'  // string
+		},
+		{
+			"userId": 2,
+			"userPhoneNumber": 1888888888,
+			"userAddress": 'xxxx',
+			"date": new Date()
+		},
+		{
+			"userId": 3,
+			"userPhoneNumber": 1888888888,
+			"userAddress": 'xxxx',
+			"date": new Date()
+		}
+	];
+
 
 	const dispatch = useDispatch()
 	const { cropsProducer } = useSelector(state => state.crop)
@@ -20,31 +46,29 @@ export const Cultivo = () => {
 	}, [])
 	console.log("cropsProducer==>", cropsProducer)
 
+	const handleToExel = () => {
+			const jsonConvert = []
+			cropsProducer.forEach(item => {
+				jsonConvert.push({
+					Municipio: item.idMunicipio2.nombre,
+					Vereda: item.idVereda2.nombre,
+					CodigoProductor: item.codigoProductor2.nombres + ' ' + item.codigoProductor2.apellidos,
+					LineaProductiva: item.idLineaProductiva2.nombre
+				})
+			})
+			console.log(jsonConvert)
+			json2excel({
+				data: jsonConvert,
+				name: 'user-info-data',
+				formateDate: 'yyyy/mm/dd'
+			});
+	
+	  };
 
-	const className = 'class-name-for-style',
-	filename = 'Excel-file',
-	fields = {
-		"index": "Index",
-		"guid": "GUID"
-	},
-	style = {
-		padding: "5px"
-	},
-	data = [
-		{ index: 0, guid: 'asdf231234'},
-		{ index: 1, guid: 'wetr2343af'}
-	];
+
 	return (
 		<div className="queryuser">
 			<LayoutHome />
-			<JsonToExcel
-				data={data}
-				fileformat={"xls"}
-				className={className}
-				filename={filename}
-				fields={fields}
-				style={style}
-			/>
 			<div className="queryuser__content">
 				<div className="users--title">
 					<h1>Listado de Cultivos</h1>
@@ -52,7 +76,9 @@ export const Cultivo = () => {
 				<div className="button">
 					<Link to="/registercultivos" className="btn-register">Registrar Cultivo</Link>
 				</div>
-
+				<div className="btn-exel">
+					<button className="btn-exel--exel" onClick={handleToExel}><img className="img-excel" src={exel}/> Descargar</button>
+				</div>
 				<Card title={<p>Cultivos</p>}
 					extra={<Search
 						placeholder="Buscar Usuario"
@@ -77,7 +103,6 @@ export const Cultivo = () => {
 						/>
 					</Table>
 				</Card>
-
 			</div>
 		</div>
 	)
