@@ -1,9 +1,9 @@
 import React from "react";
 import { Upload, message, Avatar, Form, Icon, Input, Button, Select, Radio, DatePicker } from 'antd';
 import { withRouter } from 'react-router-dom';
-import moment from 'moment';
+import { TimePicker } from 'antd';
 
-import LayoutHome from "../../../../components/LayoutHome/LayoutHome";
+import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 
 const { TextArea } = Input;
 
@@ -40,7 +40,7 @@ const props = {
 	},
 };
 
-class RegisterInfra extends React.Component {
+class RegisterCultivos extends React.Component {
 	state = {
 		value: 1,
 		desisable: true,
@@ -70,15 +70,15 @@ class RegisterInfra extends React.Component {
 	};
 	render() {
 		const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
-		const usernameError = isFieldTouched('username') && getFieldError('username');
-		const passwordError = isFieldTouched('password') && getFieldError('password');
-
+		const config = {
+			rules: [{ type: 'object', required: true, message: 'Porfavor seleccione la fecha' }],
+		  };
 		return (
 			<section >
 				<LayoutHome />
 				<div className="RegisterInfra">
 					<div className="users--title">
-						<h1>Registrar Infraestructura</h1>
+						<h1>Registrar Cultivo</h1>
 					</div>
 					<Form layout="inline" className="RegisterInfra--form" onSubmit={this.handleSubmit}>
 						<div className="RegisterInfra--form__content-1">
@@ -88,81 +88,70 @@ class RegisterInfra extends React.Component {
 									Datos Requeridos
                                 </div>
 								<div className="form">
-									<Form.Item className="item">
-										<label>Nombres</label>
-										{getFieldDecorator('nombre', {
-											rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
-										})(<Input type="text" className="item--input" placeholder="Nombre" />)}
-
+								<Form.Item className="item">
+										<label>Productor encargado del Cultivo</label>
+										<div className="select-content">
+											{getFieldDecorator('idencargado', {
+												rules: [{ required: true, message: 'Porfavor seleccione el Encargado' }],
+											})(
+												<Select className="select" defaultValue="0">
+													<Option value="0">juan</Option>
+													<Option value="1">maria</Option>
+													<Option value="2">jose</Option>
+												</Select>
+											)}
+										</div>
 									</Form.Item>
 									<Form.Item className="item">
-										<label>Covertura (metros)</label>
-										{getFieldDecorator('phone', {
+										<label>Covertura (Hectareas)</label>
+										{getFieldDecorator('hectareas', {
 											rules: [{ required: true, message: 'Porfavor ingrese la covertura', whitespace: true }],
 										})(<Input type="number" className="item--input" placeholder="Metros Cuadrados" />)}
 									</Form.Item>
+									<Form.Item className="item" >
+										<label>Fecha de inicio</label>
+									{getFieldDecorator('date-time-picker', config)(
+										<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" placeholder="Seleccione la fecha"/>,
+									)}
+									</Form.Item>
 									<Form.Item className="item">
-										<label>Municipio la Infraestructura</label>
+										<label>linea productiva a sembrar</label>
+										<div className="select-content">
+											{getFieldDecorator('idlineaproductiva', {
+												rules: [{ required: true, message: 'Porfavor seleccione una linea productiva' }],
+											})(
+												<Select className="select" defaultValue="0">
+													<Option value="0">cafe</Option>
+													<Option value="1">cacao</Option>
+													<Option value="2">caña</Option>
+												</Select>
+											)}
+										</div>
+									</Form.Item>
+									<Form.Item className="item">
+										<label>Municipio de la Infraestructura</label>
 										<div className="select-content">
 											{getFieldDecorator('idmunicipio', {
 												rules: [{ required: true, message: 'Porfavor seleccione un municipio' }],
 											})(
 												<Select className="select" defaultValue="0">
-													<Option value="0">Ninguno</Option>
-													<Option value="1">Florencia</Option>
-													<Option value="2">Paujil</Option>
+													<Option value="1">Ninguno</Option>
+													<Option value="2">Florencia</Option>
+													<Option value="3">Paujil</Option>
 												</Select>
 											)}
 										</div>
 									</Form.Item>
 									<Form.Item className="item">
-										<label>Vereda la Infraestructura</label>
+										<label>Vereda de la Infraestructura</label>
 										<div className="select-content">
 											{getFieldDecorator('idvereda', {
-												rules: [{ required: true, message: 'Porfavor seleccione una vereda' }],
+												rules: [{ required: true, message: 'Porfavor seleccione un vereda' }],
 											})(
 												<Select className="select" defaultValue="0">
 													<Option value="0">Ninguno</Option>
 													<Option value="1">hola</Option>
 													<Option value="2">fdgfdg</Option>
-												</Select>
-											)}
-										</div>
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Representante</label>
-										{getFieldDecorator('representante', {
-											rules: [{ required: true, message: 'Porfavor ingrese el nombre del representante', whitespace: true }],
-										})(<Input placeholder="nomnre del representante" className="item--input" />)}
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Posicion de planos</label>
-										{getFieldDecorator('planos', {
-											rules: [{ required: true, message: 'Porfavor ingrese la posicion de planos', whitespace: true }],
-										})(<Input placeholder="Posicion de los Planos" className="item--input" />)}
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Direccion</label>
-										{getFieldDecorator('direccion', {
-											rules: [{ required: true, message: 'Porfavor ingrese la direccion', whitespace: true }],
-										})(<Input placeholder="direccion" className="item--input" />)}
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Descripcion</label>
-										{getFieldDecorator('descripcion', {
-											rules: [{ required: true, message: 'Porfavor ingrese la descripcion', whitespace: true }],
-										})(<TextArea placeholder="direccion" className="item--input" />)}
-									</Form.Item>
-									<Form.Item className="item">
-										<label>Editar tipo de Infraestructura</label>
-										<div className="select-content">
-										{getFieldDecorator('idtipo', {
-												rules: [{ required: true, message: 'Porfavor seleccione un municipio' }],
-											})(
-												<Select className="select" defaultValue="0">
-													<Option value="0">Vial</Option>
-													<Option value="1">Comunitario</Option>
-													<Option value="2">Productivo</Option>
 												</Select>
 											)}
 										</div>
@@ -180,5 +169,5 @@ class RegisterInfra extends React.Component {
 	}
 }
 
-RegisterInfra = withRouter(RegisterInfra);
-export default Form.create({ name: 'formLogin' })(RegisterInfra);
+RegisterCultivos = withRouter(RegisterCultivos);
+export default Form.create({ name: 'formLogin' })(RegisterCultivos);

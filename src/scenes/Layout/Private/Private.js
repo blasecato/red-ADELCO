@@ -24,6 +24,7 @@ import { SelectComponent } from "../../../components/User/SelectComponent";
 import { SingUp } from "../../Admin/SingUp/SingUp";
 import { Cultivo } from "../../CadenasProductivas/Cultivos/Cultivos";
 import { RegisterUserSocial } from "../../Organizaciones/components/UserSocial/UserSocial";
+import  RegisterCultivos  from "../../CadenasProductivas/Cultivos/RegisterCultivos";
 
 export const Private = () => {
 
@@ -58,6 +59,7 @@ export const Private = () => {
         <Route path="/singup/" component={SingUp} />
         <Route path="/cultivos/" component={Cultivo} />
         <Route path="/usersocial/" component={RegisterUserSocial} />
+        <Route path="/registercultivos/" component={RegisterCultivos} />
       </Router>
     </div>
   );

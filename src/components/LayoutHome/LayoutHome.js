@@ -17,6 +17,9 @@ const menu = (
       <Link className="layout-home__nav__index" to="/indicadores">
         INDICADORES
       </Link>
+      <Link className="layout-home__nav__index" to="/indicadores">
+        Veredas
+      </Link>
     </Menu.Item>
   </Menu>
 );

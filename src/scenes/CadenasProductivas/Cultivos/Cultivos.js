@@ -14,33 +14,6 @@ export const Cultivo = () => {
 	const dispatch = useDispatch()
 	const { cropsProducer } = useSelector(state => state.crop)
 
-	const data = [
-		{
-			key: '1',
-			firstName: 'John',
-			lastName: 'Brown',
-			age: 3234324367,
-			address: 'Jefe Finca',
-			tags: ['Cacao', 'Cafe'],
-		},
-		{
-			key: '2',
-			firstName: 'Jim',
-			lastName: 'Green',
-			age: 4243543543,
-			address: 'Esposa',
-			tags: ['Cacao', 'Caña', 'Cafe'],
-		},
-		{
-			key: '3',
-			firstName: 'Joe',
-			lastName: 'Black',
-			age: 3234543543,
-			address: 'Hija',
-			tags: ['Cacao', 'Caña'],
-		},
-	]
-
 	useEffect(() => {
 		dispatch(crop.getCropsProducer())
 	}, [])
@@ -54,6 +27,9 @@ export const Cultivo = () => {
 			<div className="queryuser__content">
 				<div className="users--title">
 					<h1>Listado de Cultivos</h1>
+				</div>
+				<div className="button">
+					<Link to="/registercultivos" className="btn-register">Registrar Cultivo</Link>
 				</div>
 				<Card title={<p>Cultivos</p>}
 					extra={<Search
