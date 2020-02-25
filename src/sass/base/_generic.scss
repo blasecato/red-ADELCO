@@ -1,0 +1,18 @@
+.btn-exel {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-right: 50px;
+
+    &--exel{
+        border-radius: 5px;
+        width: 200px;
+        height: 70px;
+        font-size: 20px;
+        background: #85b585;
+        color: #ffffff;
+    }
+    .img-excel{
+        width: 50px;
+    }
+}
