@@ -3,9 +3,7 @@ import Api from "../../common/api";
 import { crop } from "./cropActions"
 
 function* getCropsProducer() {
-  console.log("response")
   const response = yield Api.get('/crops/producer')
-  console.log("response==>", response)
   if (response.ok) {
     yield put(crop.getCropsProducerResponse(response.payload));
   } else {
@@ -14,8 +12,19 @@ function* getCropsProducer() {
   }
 }
 
+function* getLineProductive() {
+  const response = yield Api.get('/cadenas-productivas')
+  if (response.ok) {
+    yield put(crop.getLineProductiveResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_LINE_PRODUCTIVE')
+    yield put(crop.getLineProductiveResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(crop.getCropsProducer, getCropsProducer)
+  yield takeLatest(crop.getLineProductive, getLineProductive)
 }
 
 export default function* rootSaga() {

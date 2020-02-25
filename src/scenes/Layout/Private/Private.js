@@ -8,7 +8,7 @@ import DeleteUpdateUser from '../../Users/DeleteUpdateUser/DeleteUpdateUser';
 import Profile from '../../Users/Profile/Profile';
 import Coberturas from '../../Coberturas/Coberturas';
 import { RegisterUser } from '../../Users/RegisterUser/RegisterUser';
-import CadenasProductivas from '../../CadenasProductivas/CadenasProductivas';
+import { CadenasProductivas } from '../../CadenasProductivas/CadenasProductivas';
 import Infraestructura from '../../Infraestructura/Infraestructura';
 import Organizaciones from '../../Organizaciones/Organizaciones';
 import Tipo from '../../Infraestructura/Tipo/Tipo';
@@ -24,9 +24,9 @@ import { SelectComponent } from "../../../components/User/SelectComponent";
 import { SingUp } from "../../Admin/SingUp/SingUp";
 import { Cultivo } from "../../CadenasProductivas/Cultivos/Cultivos";
 import { RegisterUserSocial } from "../../Organizaciones/components/UserSocial/UserSocial";
-import  RegisterCultivos  from "../../CadenasProductivas/Cultivos/RegisterCultivos";
-import  {OrgQuery}  from "../../Organizaciones/components/Org/Org";
-import  {InfraQuery}  from "../../Infraestructura/components/RegisterInfra/QueryInfraestructura/QueryInfraestructura";
+import RegisterCultivos from "../../CadenasProductivas/Cultivos/RegisterCultivos";
+import { OrgQuery } from "../../Organizaciones/components/Org/Org";
+import { InfraQuery } from "../../Infraestructura/components/RegisterInfra/QueryInfraestructura/QueryInfraestructura";
 
 export const Private = () => {
 

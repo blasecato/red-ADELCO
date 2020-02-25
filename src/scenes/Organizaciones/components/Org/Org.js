@@ -1,41 +1,50 @@
 import React, { useEffect } from 'react';
 import { Table, Divider, Tag, Card, Input } from 'antd';
 import { Link } from 'react-router-dom';
+import { organization as organizationActions } from '../../../../services/organization/organizationActions';
 
 import LayoutHome from "../../../../components/LayoutHome/LayoutHome";
+import { useSelector, useDispatch } from 'react-redux';
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
 export const OrgQuery = () => {
 
-	return (
-		<div className="queryuser">
-			<LayoutHome />
-			<div className="queryuser__content">
-				<div className="users--title">
-					<h1>Consultar Usuarios</h1>
-				</div>
-				<Card title="Listado de Beneficiarios"
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
-				>
-					<Table>
-						<Column title="Nombre." dataIndex="nombres" Key="nombres" />
-						<Column title="Municipio." dataIndex="apellidos" Key="apellidos" />
-						<Column title="Vereda." dataIndex="idOrganizacion2.nombre" Key="idOrganizacion2" />
-						<Column title="Descripcion." dataIndex="idParentesco2.nombre" Key="idParentesco2" />
-						<Column
-							title="Representante"
-							dataIndex="idConflicto2.nombre"
-							Key="idConflicto2"
-						/>
-					</Table>
-				</Card>
+  const { organizations } = useSelector(state => state.organization)
+  const dispatch = useDispatch()
 
-			</div>
-		</div>
-	)
+  useEffect(() => {
+    dispatch(organizationActions.getOrganization())
+  }, [])
+
+  return (
+    <div className="queryuser">
+      <LayoutHome />
+      <div className="queryuser__content">
+        <div className="users--title">
+          <h1>Consultar Organizacion</h1>
+        </div>
+        <Card title="Listado de Beneficiarios"
+          extra={<Search
+            placeholder="Buscar Usuario"
+            onSearch={value => console.log(value)}
+          />}
+        >
+          <Table dataSource={organizations} rowKey="id">
+            <Column title="Nombre." dataIndex="nombre" Key="nombre" />
+            <Column title="Municipio." dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
+            <Column title="Vereda." dataIndex="idVereda2.nombres" Key="idVereda2" />
+            <Column title="Descripcion." dataIndex="descripcion" Key="descripcion" />
+            <Column
+              title="Representante"
+              dataIndex="representante2.nombres"
+              Key="representante2"
+            />
+          </Table>
+        </Card>
+
+      </div>
+    </div>
+  )
 }

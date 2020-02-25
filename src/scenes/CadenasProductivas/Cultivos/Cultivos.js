@@ -22,18 +22,18 @@ export const Cultivo = () => {
 
 
 	const className = 'class-name-for-style',
-	filename = 'Excel-file',
-	fields = {
-		"index": "Index",
-		"guid": "GUID"
-	},
-	style = {
-		padding: "5px"
-	},
-	data = [
-		{ index: 0, guid: 'asdf231234'},
-		{ index: 1, guid: 'wetr2343af'}
-	];
+		filename = 'Excel-file',
+		fields = {
+			"index": "Index",
+			"guid": "GUID"
+		},
+		style = {
+			padding: "5px"
+		},
+		data = [
+			{ index: 0, guid: 'asdf231234' },
+			{ index: 1, guid: 'wetr2343af' }
+		];
 	return (
 		<div className="queryuser">
 			<LayoutHome />
