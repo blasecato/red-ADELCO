@@ -23,6 +23,11 @@ const menu = (
         Veredas
       </Link>
     </Menu.Item>
+    <Menu.Item>
+      <Link className="layout-home__nav__index" to="/coberturas">
+        Coberturas
+      </Link>
+    </Menu.Item>
   </Menu>
 );
 

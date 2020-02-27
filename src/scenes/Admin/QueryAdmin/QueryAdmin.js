@@ -6,13 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 import { crop } from '../../../services/crop/cropActions';
 import { JsonToExcel } from 'react-json-excel';
-import { json2excel, excel2json } from 'js2excel';
+import {json2excel, excel2json} from 'js2excel';
 import exel from "../../../assets/image/excel.png";
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
-export const Cultivo = () => {
+export const QueryAdmin = () => {
+
+
 
 	const data = [
 		{
@@ -33,7 +35,8 @@ export const Cultivo = () => {
 			"userAddress": 'xxxx',
 			"date": new Date()
 		}
-	]
+	];
+
 
 	const dispatch = useDispatch()
 	const { cropsProducer } = useSelector(state => state.crop)
@@ -41,39 +44,27 @@ export const Cultivo = () => {
 	useEffect(() => {
 		dispatch(crop.getCropsProducer())
 	}, [])
+	console.log("cropsProducer==>", cropsProducer)
 
 	const handleToExel = () => {
-		const jsonConvert = []
-		cropsProducer.forEach(item => {
-			jsonConvert.push({
-				Municipio: item.idMunicipio2.nombre,
-				Vereda: item.idVereda2.nombre,
-				CodigoProductor: item.codigoProductor2.nombres + ' ' + item.codigoProductor2.apellidos,
-				LineaProductiva: item.idLineaProductiva2.nombre
+			const jsonConvert = []
+			cropsProducer.forEach(item => {
+				jsonConvert.push({
+					Municipio: item.idMunicipio2.nombre,
+					Vereda: item.idVereda2.nombre,
+					CodigoProductor: item.codigoProductor2.nombres + ' ' + item.codigoProductor2.apellidos,
+					LineaProductiva: item.idLineaProductiva2.nombre
+				})
 			})
-		})
-		console.log(jsonConvert)
-		json2excel({
-			data: jsonConvert,
-			name: 'user-info-data',
-			formateDate: 'yyyy/mm/dd'
-		});
+			console.log(jsonConvert)
+			json2excel({
+				data: jsonConvert,
+				name: 'user-info-data',
+				formateDate: 'yyyy/mm/dd'
+			});
+	
+	  };
 
-	}
-
-	// const className = 'class-name-for-style',
-	// 	filename = 'Excel-file',
-	// 	fields = {
-	// 		"index": "Index",
-	// 		"guid": "GUID"
-	// 	},
-	// 	style = {
-	// 		padding: "5px"
-	// 	},
-	// 	data = [
-	// 		{ index: 0, guid: 'asdf231234' },
-	// 		{ index: 1, guid: 'wetr2343af' }
-	// 	]
 
 	return (
 		<div className="queryuser">
@@ -86,7 +77,7 @@ export const Cultivo = () => {
 					<Link to="/registercultivos" className="btn-register">Registrar Cultivo</Link>
 				</div>
 				<div className="btn-exel">
-					<button className="btn-exel--exel" onClick={handleToExel}><img className="img-excel" src={exel} /> Descargar</button>
+					<button className="btn-exel--exel" onClick={handleToExel}><img className="img-excel" src={exel}/> Descargar</button>
 				</div>
 				<Card title={<p>Cultivos</p>}
 					extra={<Search

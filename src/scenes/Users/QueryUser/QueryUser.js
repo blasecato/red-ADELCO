@@ -13,7 +13,7 @@ const { Column, ColumnGroup } = Table;
 export const QueryUser = () => {
 
 	const dispatch = useDispatch()
-
+ 
 	const { genderDate } = useSelector(state => state.producer)
 	const { genderCount } = useSelector(state => state.producer)
 
