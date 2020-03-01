@@ -7,6 +7,9 @@ import Highlighter from 'react-highlight-words';
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 import { producer } from '../../../services/Producer/ProducerActions';
 
+import { json2excel, excel2json } from 'js2excel';
+import exel from "../../../assets/image//excel.png";
+
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
@@ -140,12 +143,79 @@ export const QueryUser = () => {
 				),
 	});
 
+	const handleToExel = () => {
+		const jsonConvert = []
+		genderDate.forEach(item => {
+			jsonConvert.push({
+				cosido: item.id,
+				nombre: item.nombres,
+				apellidos: item.apellidos,
+				identificacion: item.dni,
+				edad: item.edad,
+				telefono: item.telefono,
+				genero: item.idGenero2.nombre,
+				etnia: item.idEtnia2.nombre,
+				conflicto: item.idConflicto2.nombre,
+				parentesco: item.idParentesco2.nombre
+			})
+		})
+		console.log(jsonConvert)
+		json2excel({
+			data: jsonConvert,
+			name: 'user-info-data',
+			formateDate: 'yyyy/mm/dd'
+		});
+
+	}
+	console.log(genderCount);
+	const handleToExelWomen = () => {
+		const jsonConvert = []
+		genderCount.woman.arraywoman.forEach(item => {
+			jsonConvert.push({
+				codigo: item.id,
+				nombres: item.nombres,
+				apellidos: item.apellidos,
+				dni: item.dni,
+				edad: item.edad,
+				telefono: item.telefono
+			})
+		})
+		console.log(jsonConvert)
+		json2excel({
+			data: jsonConvert,
+			name: 'user-info-data',
+			formateDate: 'yyyy/mm/dd'
+		});
+	}
+	const handleToExelMen = () => {
+		const jsonConvert = []
+		genderCount.men.arraymen.forEach(item => {
+			jsonConvert.push({
+				codigo: item.id,
+				nombres: item.nombres,
+				apellidos: item.apellidos,
+				dni: item.dni,
+				edad: item.edad,
+				telefono: item.telefono
+			})
+		})
+		console.log(jsonConvert)
+		json2excel({
+			data: jsonConvert,
+			name: 'user-info-data',
+			formateDate: 'yyyy/mm/dd'
+		});
+	}
+
 	return (
 		<div className="queryuser">
 			<LayoutHome />
 			<div className="queryuser__content">
 				<div className="users--title">
 					<h1>Consultar Usuarios</h1>
+				</div>
+				<div className="btn-exel">
+					<button className="btn-exel--exel" onClick={handleToExel}><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title="Listado de Beneficiarios"
 					extra={<Search
@@ -160,6 +230,9 @@ export const QueryUser = () => {
 			<div className="queryuser__content">
 				<div className="users--title">
 					<h1>Mujeres</h1>
+				</div>
+				<div className="btn-exel">
+					<button className="btn-exel--exel" onClick={handleToExelWomen}><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				{genderCount && <Card title={<p>Total de mujeres {genderCount.woman.count.sum}</p>}
 					extra={<Search
@@ -190,6 +263,9 @@ export const QueryUser = () => {
 				</Card>}
 				<div className="users--title">
 					<h1>Hombres</h1>
+				</div>
+				<div className="btn-exel">
+					<button className="btn-exel--exel" onClick={handleToExelMen}><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				{genderCount && <Card title={<p>Total de Hombres {genderCount.men.count.count}</p>}
 					extra={<Search
