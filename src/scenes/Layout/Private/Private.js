@@ -27,6 +27,8 @@ import { RegisterUserSocial } from "../../Organizaciones/components/UserSocial/U
 import RegisterCultivos from "../../CadenasProductivas/Cultivos/RegisterCultivos";
 import { OrgQuery } from "../../Organizaciones/components/Org/Org";
 import { InfraQuery } from "../../Infraestructura/components/RegisterInfra/QueryInfraestructura/QueryInfraestructura";
+import { Vereda } from "../../CadenasProductivas/Veredas/Veredas";
+import  RegisterVereda  from "../../CadenasProductivas/Veredas/RegistrarVereda";
 
 export const Private = () => {
 
@@ -64,6 +66,8 @@ export const Private = () => {
         <Route path="/registercultivos/" component={RegisterCultivos} />
         <Route path="/orgquery/" component={OrgQuery} />
         <Route path="/infraquery/" component={InfraQuery} />
+        <Route path="/vereda/" component={Vereda} />
+        <Route path="/register-vereda/" component={RegisterVereda} />
       </Router>
     </div>
   );

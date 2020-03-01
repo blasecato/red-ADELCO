@@ -6,6 +6,7 @@ import LayoutHome from "../../components/LayoutHome/LayoutHome";
 
 import usernew from "../../assets/image/img/org2.jpg";
 import queryuser from "../../assets/image/img/org1.jpg";
+import queryorg from "../../assets/image/deleteuser.jpg";
 
 const { Meta } = Card;
 
@@ -31,7 +32,7 @@ class Organizaciones extends React.Component{
                         <Card
                             className="users__content-cards--card"
                             hoverable
-                            cover={<Link to="/orgquery"><img alt="example" src={usernew} /></Link>}
+                            cover={<Link to="/orgquery"><img alt="example" src={queryorg} /></Link>}
                         >
                             <Meta title="Consultar Organizaciones" description="Consulta nuevas Organizaciones ¡AQUI!" />
                             <Link className="btn" to="/orgquery" type="primary" shape="circle">

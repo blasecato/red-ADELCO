@@ -19,8 +19,13 @@ const menu = (
       </Link>
     </Menu.Item>
     <Menu.Item>
-      <Link className="layout-home__nav__index" to="/">
+      <Link className="layout-home__nav__index" to="/vereda">
         Veredas
+      </Link>
+    </Menu.Item>
+    <Menu.Item>
+      <Link className="layout-home__nav__index" to="/coberturas">
+        Coberturas
       </Link>
     </Menu.Item>
   </Menu>
