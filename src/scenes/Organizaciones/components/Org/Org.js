@@ -5,7 +5,7 @@ import { organization as organizationActions } from '../../../../services/organi
 
 import LayoutHome from "../../../../components/LayoutHome/LayoutHome";
 import { useSelector, useDispatch } from 'react-redux';
-//import { json2excel, excel2json } from 'js2excel';
+import { json2excel, excel2json } from 'js2excel';
 import exel from "../../../../assets/image/excel.png";
 
 const { Search } = Input;
@@ -20,25 +20,25 @@ export const OrgQuery = () => {
     dispatch(organizationActions.getOrganization())
   }, [])
 
-  /*const handleToExel = () => {
-		const jsonConvert = []
+  const handleToExel = () => {
+    const jsonConvert = []
     organizations.forEach(item => {
-			jsonConvert.push({
-				codigo: item.id,
-				nombres: item.nombre,
-				descripcion: item.descripcion,
-				Contacto: item.contacto,
-				temaCapacitacion: item.temaCapacitacion,
+      jsonConvert.push({
+        codigo: item.id,
+        nombres: item.nombre,
+        descripcion: item.descripcion,
+        Contacto: item.contacto,
+        temaCapacitacion: item.temaCapacitacion,
         temaEmpresarial: item.temaEmpresarial
-			})
-		})
-		console.log(jsonConvert)
-		json2excel({
-			data: jsonConvert,
-			name: 'user-info-data',
-			formateDate: 'yyyy/mm/dd'
-		});
-	}*/
+      })
+    })
+    console.log(jsonConvert)
+    json2excel({
+      data: jsonConvert,
+      name: 'user-info-data',
+      formateDate: 'yyyy/mm/dd'
+    });
+  }
   console.log(organizations)
   return (
     <div className="queryuser">
@@ -49,7 +49,7 @@ export const OrgQuery = () => {
         </div>
         <div className="btn-exel">
           <button className="btn-exel--exel"
-          //onClick={handleToExel}
+            onClick={handleToExel}
           ><img className="img-excel" src={exel} /> Descargar</button>
         </div>
         <Card title="Listado de Beneficiarios"

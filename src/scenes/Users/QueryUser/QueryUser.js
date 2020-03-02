@@ -7,7 +7,7 @@ import Highlighter from 'react-highlight-words';
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 import { producer } from '../../../services/Producer/ProducerActions';
 
-//import { json2excel, excel2json } from 'js2excel';
+import { json2excel, excel2json } from 'js2excel';
 import exel from "../../../assets/image//excel.png";
 
 const { Search } = Input;
@@ -144,7 +144,7 @@ export const QueryUser = () => {
 				),
 	});
 
-	/*const handleToExel = () => {
+	const handleToExel = () => {
 		const jsonConvert = []
 		genderDate.forEach(item => {
 			jsonConvert.push({
@@ -204,7 +204,7 @@ export const QueryUser = () => {
 			name: 'user-info-data',
 			formateDate: 'yyyy/mm/dd'
 		});
-	}*/
+	}
 
 	return (
 		<div className="queryuser">
@@ -215,7 +215,7 @@ export const QueryUser = () => {
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
-					//onClick={handleToExel}
+						onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title="Listado de Beneficiarios"
@@ -234,7 +234,7 @@ export const QueryUser = () => {
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
-					//onClick={handleToExelWomen}
+						onClick={handleToExelWomen}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				{genderCount && <Card title={<p>Total de mujeres {genderCount.woman.count.sum}</p>}
@@ -269,7 +269,7 @@ export const QueryUser = () => {
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
-					//onClick={handleToExelMen}
+						onClick={handleToExelMen}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				{genderCount && <Card title={<p>Total de Hombres {genderCount.men.count.count}</p>}

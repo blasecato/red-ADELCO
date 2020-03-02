@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 import { crop } from '../../../services/crop/cropActions';
-//import { JsonToExcel } from 'react-json-excel';
-//import { json2excel, excel2json } from 'js2excel';
+import { json2excel, excel2json } from 'js2excel';
 import exel from "../../../assets/image/excel.png";
 
 const { Search } = Input;
@@ -42,7 +41,7 @@ export const Cultivo = () => {
 		dispatch(crop.getCropsProducer())
 	}, [])
 
-	/*const handleToExel = () => {
+	const handleToExel = () => {
 		const jsonConvert = []
 		cropsProducer.forEach(item => {
 			jsonConvert.push({
@@ -61,7 +60,7 @@ export const Cultivo = () => {
 			name: 'user-info-data',
 			formateDate: 'yyyy/mm/dd'
 		});
-	}*/
+	}
 
 
 	return (
@@ -76,7 +75,7 @@ export const Cultivo = () => {
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
-					//onClick={handleToExel}
+						onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title={<p>Cultivos</p>}
