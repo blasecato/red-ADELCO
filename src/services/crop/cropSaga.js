@@ -12,8 +12,18 @@ function* getCropsProducer() {
   }
 }
 
+function* getCropsDate() {
+  const response = yield Api.get('/crops/date-crop')
+  if (response.ok) {
+    yield put(crop.getCropsDateResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_PRODUCER_CROPS')
+    yield put(crop.getCropsDateResponse(err))
+  }
+}
+
 function* getLineProductive() {
-  const response = yield Api.get('/cadenas-productivas')
+  const response = yield Api.get('/cadenas-productivas/line')
   if (response.ok) {
     yield put(crop.getLineProductiveResponse(response.payload));
   } else {
@@ -22,9 +32,22 @@ function* getLineProductive() {
   }
 }
 
+function* createCrop({ payload }) {
+  const response = yield Api.post('/crops', payload.crop)
+  if (response.ok) {
+    yield put(crop.createCropResponse());
+  } else {
+    const err = new TypeError('ERROR_LINE_PRODUCTIVE')
+    yield put(crop.createCropResponse(err))
+  }
+}
+
+
 function* ActionWatcher() {
   yield takeLatest(crop.getCropsProducer, getCropsProducer)
+  yield takeLatest(crop.getCropsDate, getCropsDate)
   yield takeLatest(crop.getLineProductive, getLineProductive)
+  yield takeLatest(crop.createCrop, createCrop)
 }
 
 export default function* rootSaga() {

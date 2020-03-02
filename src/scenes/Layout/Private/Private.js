@@ -14,21 +14,21 @@ import Organizaciones from '../../Organizaciones/Organizaciones';
 import Tipo from '../../Infraestructura/Tipo/Tipo';
 import TipoCadena from '../../CadenasProductivas/tipo/TipoCadena';
 import { RegisterOrg } from '../../Organizaciones/components/RegisterOrg/RegisterOrg';
-import RegisterInfra from '../../Infraestructura/components/RegisterInfra/RegisterInfra';
+import { RegisterInfra } from '../../Infraestructura/components/RegisterInfra/RegisterInfra';
 import { Indicadores } from '../../Indicadores/Indicadores';
 import { useDispatch, useSelector } from 'react-redux';
 import { indicators as indicatorAcctions } from '../../../services/indicadores/IndicadoresActions'
-import RegisterChain from "../../../scenes/CadenasProductivas/RegisterChain/RegisterChain";
-import RegisterLine from "../../../scenes/CadenasProductivas/RegisterChain/RegisterLine";
+import { RegisterChain } from "../../../scenes/CadenasProductivas/RegisterChain/RegisterChain";
+import { RegisterLine } from "../../../scenes/CadenasProductivas/RegisterChain/RegisterLine";
 import { SelectComponent } from "../../../components/User/SelectComponent";
 import { SingUp } from "../../Admin/SingUp/SingUp";
 import { Cultivo } from "../../CadenasProductivas/Cultivos/Cultivos";
 import { RegisterUserSocial } from "../../Organizaciones/components/UserSocial/UserSocial";
-import RegisterCultivos from "../../CadenasProductivas/Cultivos/RegisterCultivos";
+import { RegisterCultivos } from "../../CadenasProductivas/Cultivos/RegisterCultivos";
 import { OrgQuery } from "../../Organizaciones/components/Org/Org";
 import { InfraQuery } from "../../Infraestructura/components/RegisterInfra/QueryInfraestructura/QueryInfraestructura";
 import { Vereda } from "../../CadenasProductivas/Veredas/Veredas";
-import  RegisterVereda  from "../../CadenasProductivas/Veredas/RegistrarVereda";
+import { RegisterVereda } from "../../CadenasProductivas/Veredas/RegistrarVereda";
 
 export const Private = () => {
 

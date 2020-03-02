@@ -10,7 +10,7 @@ import lineas from "../../assets/image/img/lineas.jpg";
 import cadenas from "../../assets/image/img/cadena.jpg";
 import cultivo from "../../assets/image/img/img5.jpg";
 
-import { json2excel, excel2json } from 'js2excel';
+//import { json2excel, excel2json } from 'js2excel';
 import exel from "../../assets/image/excel.png";
 
 const { Search } = Input;
@@ -22,30 +22,30 @@ export const CadenasProductivas = () => {
 
 	const { lineProductives } = useSelector(state => state.crop)
 	const dispatch = useDispatch()
-	
+
 	useEffect(() => {
 		dispatch(cropActions.getLineProductive())
 	}, [])
 	console.log(lineProductives)
 
-	const handleToExel = () => {
-		const jsonConvert = []
-		lineProductives.forEach(item => {
-			jsonConvert.push({
-				cosigo: item.id,
-				nombre: item.nombre,
-				CadenaProductiva: item.idCadenaProductiva2.nombre
+	/*	const handleToExel = () => {
+			const jsonConvert = []
+			lineProductives.forEach(item => {
+				jsonConvert.push({
+					cosigo: item.id,
+					nombre: item.nombre,
+					CadenaProductiva: item.idCadenaProductiva2.nombre
+				})
 			})
-		})
-		console.log(jsonConvert)
-		json2excel({
-			data: jsonConvert,
-			name: 'user-info-data',
-			formateDate: 'yyyy/mm/dd'
-		});
-
-	}
-
+			console.log(jsonConvert)
+			json2excel({
+				data: jsonConvert,
+				name: 'user-info-data',
+				formateDate: 'yyyy/mm/dd'
+			});
+	
+		}
+	*/
 	return (
 		<div className="users">
 			<LayoutHome></LayoutHome>
@@ -93,7 +93,9 @@ export const CadenasProductivas = () => {
 					<h1>Consultar lineas y cadenas productivas</h1>
 				</div>
 				<div className="btn-exel">
-					<button className="btn-exel--exel" onClick={handleToExel}><img className="img-excel" src={exel} /> Descargar</button>
+					<button className="btn-exel--exel"
+					//onClick={handleToExel}
+					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title="Listado de Beneficiarios"
 					extra={<Search

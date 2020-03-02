@@ -3,7 +3,8 @@ import { handleActions } from 'redux-actions';
 export const INITIAL_STATE = {
   loading: false,
   cropsProducer: undefined,
-  lineProductives: []
+  lineProductives: [],
+  cropsDate: undefined
 }
 
 const reducer = handleActions({
@@ -12,6 +13,26 @@ const reducer = handleActions({
     GET_CROPS_PRODUCER_RESPONSE: {
       next(state, { payload: { cropsProducer } }) {
         return { ...state, cropsProducer }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
+    GET_CROPS_DATE: (state, { payload: { } }) => ({ ...state, loading: true }),
+    GET_CROPS_DATE_RESPONSE: {
+      next(state, { payload: { cropsDate } }) {
+        return { ...state, cropsDate }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
+    CREATE_CROP: (state, { payload: { } }) => ({ ...state, loading: true }),
+    CREATE_CROP_RESPONSE: {
+      next(state, { payload: { } }) {
+        return { ...state, }
       },
       throw(state, action) {
         return { ...state }

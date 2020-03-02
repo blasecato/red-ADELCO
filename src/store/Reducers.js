@@ -6,6 +6,7 @@ import reducerproducer from '../services/Producer/ProducerReducer';
 import reducerCrops from '../services/crop/cropReducer';
 import reducerMunicipio from '../services/municipio/municipioReducer';
 import reducerOrganization from '../services/organization/organizationReducer';
+import reducerCade from '../services/line-cadena/line-cadenaReducer';
 
 
 const appReducer = history =>
@@ -17,6 +18,7 @@ const appReducer = history =>
     crop: reducerCrops,
     municipio: reducerMunicipio,
     organization: reducerOrganization,
+    cade: reducerCade,
   });
 
 const rootReducer = history => {

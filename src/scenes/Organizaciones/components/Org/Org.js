@@ -5,7 +5,7 @@ import { organization as organizationActions } from '../../../../services/organi
 
 import LayoutHome from "../../../../components/LayoutHome/LayoutHome";
 import { useSelector, useDispatch } from 'react-redux';
-import { json2excel, excel2json } from 'js2excel';
+//import { json2excel, excel2json } from 'js2excel';
 import exel from "../../../../assets/image/excel.png";
 
 const { Search } = Input;
@@ -20,7 +20,7 @@ export const OrgQuery = () => {
     dispatch(organizationActions.getOrganization())
   }, [])
 
-  const handleToExel = () => {
+  /*const handleToExel = () => {
 		const jsonConvert = []
     organizations.forEach(item => {
 			jsonConvert.push({
@@ -38,7 +38,7 @@ export const OrgQuery = () => {
 			name: 'user-info-data',
 			formateDate: 'yyyy/mm/dd'
 		});
-	}
+	}*/
   console.log(organizations)
   return (
     <div className="queryuser">
@@ -48,8 +48,10 @@ export const OrgQuery = () => {
           <h1>Consultar Organizacion</h1>
         </div>
         <div className="btn-exel">
-					<button className="btn-exel--exel" onClick={handleToExel}><img className="img-excel" src={exel} /> Descargar</button>
-				</div>
+          <button className="btn-exel--exel"
+          //onClick={handleToExel}
+          ><img className="img-excel" src={exel} /> Descargar</button>
+        </div>
         <Card title="Listado de Beneficiarios"
           extra={<Search
             placeholder="Buscar Usuario"

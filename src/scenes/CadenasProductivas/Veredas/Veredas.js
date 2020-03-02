@@ -4,33 +4,19 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
+import { cade } from '../../../services/line-cadena/line-cadenaActions';
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
 export const Vereda = () => {
 
-	const data = [
-		{
-			"userId": 1,
-			"userPhoneNumber": 1888888888,
-			"userAddress": 'xxxx',
-			"date": '2013/09/10 09:10'  // string
-		},
-		{
-			"userId": 2,
-			"userPhoneNumber": 1888888888,
-			"userAddress": 'xxxx',
-			"date": new Date()
-		},
-		{
-			"userId": 3,
-			"userPhoneNumber": 1888888888,
-			"userAddress": 'xxxx',
-			"date": new Date()
-		}
-	]
+	const dispatch = useDispatch()
+	const { veredas } = useSelector(state => state.cade)
 
+	useEffect(() => {
+		dispatch(cade.getVeredas());
+	}, [])
 
 	return (
 		<div className="queryuser">
@@ -48,11 +34,11 @@ export const Vereda = () => {
 						onSearch={value => console.log(value)}
 					/>}
 				>
-					<Table dataSource={data} rowKey="id">
+					<Table dataSource={veredas} rowKey="id">
 						<Column title="Codigo" dataIndex="id" Key="id" />
 						<Column title="nombre" dataIndex="nombre" Key="nmbre" />
 						<Column title="Municipio" dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
-						
+
 					</Table>
 				</Card>
 			</div>

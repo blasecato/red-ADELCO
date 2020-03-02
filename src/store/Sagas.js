@@ -5,6 +5,7 @@ import ProducerSaga from '../services/Producer/ProducerSaga'
 import CropSaga from '../services/crop/cropSaga'
 import MunicipioSaga from '../services/municipio/municipioSaga'
 import OrganizationSaga from '../services/organization/organizationSaga'
+import cadeSaga from '../services/line-cadena/line-cadenaSaga'
 
 export default function* rootSaga() {
   yield all([
@@ -14,5 +15,6 @@ export default function* rootSaga() {
     fork(CropSaga),
     fork(MunicipioSaga),
     fork(OrganizationSaga),
+    fork(cadeSaga),
   ]);
 }
