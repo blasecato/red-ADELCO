@@ -17,7 +17,6 @@ export const Vereda = () => {
 	useEffect(() => {
 		dispatch(cade.getVeredas());
 	}, [])
-
 	return (
 		<div className="queryuser">
 			<LayoutHome />

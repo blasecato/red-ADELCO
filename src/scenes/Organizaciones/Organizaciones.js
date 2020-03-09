@@ -13,10 +13,13 @@ const { Meta } = Card;
 class Organizaciones extends React.Component{
     render(){
         return(
-            <div className="users">
+            <div className="users organizaciones">
                     <LayoutHome></LayoutHome>
                     <div className="users--title">
                         <h1>Gestionar Organizaciones</h1> 
+                    </div>
+                    <div className="button">
+                        <Link to="/actulizarorg" className="btn-register">Actualizar Organizacion</Link>
                     </div>
                     <div className="users__content-cards">
                         <Card

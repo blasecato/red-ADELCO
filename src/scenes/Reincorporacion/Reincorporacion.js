@@ -54,7 +54,7 @@ export const Reincorporacion = () => {
 					// onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
-				<Card title={<p>Ex Combatintes</p>}
+				<Card title={<p>Victimas</p>}
 					extra={<Search
 						placeholder="Buscar Usuario"
 						onSearch={value => console.log(value)}
@@ -71,14 +71,14 @@ export const Reincorporacion = () => {
 			</div>
 			<div className="queryuser__content">
 				<div className="users--title">
-					<h1>EX Combatintes</h1>
+					<h1>EX Combatientes</h1>
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
 					//onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
-				<Card title={<p>Victimas</p>}
+				<Card title={<p>EX Combatientes</p>}
 					extra={<Search
 						placeholder="Buscar Usuario"
 						onSearch={value => console.log(value)}

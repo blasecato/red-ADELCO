@@ -16,3 +16,18 @@
         width: 50px;
     }
 }
+.button{
+    display: flex;
+    justify-content: flex-end;
+    .btn-register{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+        font-weight: bold;
+        background: #B58900;
+        width: 300px;
+        border-radius: 10px;
+    }
+}
