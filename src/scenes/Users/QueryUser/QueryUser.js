@@ -30,7 +30,6 @@ export const QueryUser = () => {
 			title: 'nombres',
 			dataIndex: 'nombres',
 			key: 'nombres',
-			width: '30%',
 			filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
 				<div style={{ padding: 8 }}>
 					<Input
@@ -63,10 +62,34 @@ export const QueryUser = () => {
 			title: 'apellidos',
 			dataIndex: 'apellidos',
 			key: 'apellidos',
-			width: '20%',
 		},
 		{
-			title: 'idOrganizacion2',
+			title: 'telefono',
+			dataIndex: 'telefono',
+			key: 'telefono',
+		},
+		{
+			title: 'dni',
+			dataIndex: 'dni',
+			key: 'dni',
+		},
+		{
+			title: 'Genero',
+			dataIndex: 'idGenero2.nombre',
+			key: 'idGenero',
+		},
+		{
+			title: 'codigo',
+			dataIndex: 'id',
+			key: 'id',
+		},
+		{
+			title: 'edad',
+			dataIndex: 'edad',
+			key: 'edad',
+		},
+		{
+			title: 'Organizacion',
 			dataIndex: 'idOrganizacion2.nombre',
 			key: 'idOrganizacion2',
 			//...getColumnSearchProps('idOrganizacion2.nombre'),

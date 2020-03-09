@@ -36,7 +36,7 @@ export const Vereda = () => {
 				>
 					<Table dataSource={veredas} rowKey="id">
 						<Column title="Codigo" dataIndex="id" Key="id" />
-						<Column title="nombre" dataIndex="nombre" Key="nmbre" />
+						<Column title="nombre" dataIndex="nombre" Key="nombre" />
 						<Column title="Municipio" dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
 
 					</Table>

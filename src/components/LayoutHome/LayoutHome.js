@@ -51,7 +51,7 @@ class LayoutHome extends React.Component {
             <Link className="layout-home__nav__index" to="/organizaciones">
               SOCIAL
             </Link>
-            <Link className="layout-home__nav__index" to="/organizaciones">
+            <Link className="layout-home__nav__index" to="/reincorporacion">
               REINCORPORACION
             </Link>
             <Link className="layout-home__nav__index" to="/users">

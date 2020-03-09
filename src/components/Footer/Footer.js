@@ -22,10 +22,10 @@ class Footer extends React.Component{
                     {/* imagenes e iconos de redes sociales de la empresa */}
                     <div className="title">Redes Sociales</div>
                     <div className="images">
-                        <img src={face}/>
-                        <img src={inst}/>
-                        <img src={you}/>
-                        <img src={twi}/>
+                        <a href="https://www.facebook.com/RedAdelcoColombia/"><img src={face}/></a>
+                        <a href="https://www.instagram.com/redadelco/"><img src={inst}/></a>
+                        <a href="https://www.youtube.com/channel/UC9EVBqzvI8UzNT2ZudKf18w"><img src={you}/></a>
+                        <a href="https://twitter.com/RedAdelco"><img src={twi}/></a>
                     </div>
                 </div>
                 {/* contenedor de informacion de la empresa como contactos etc */}

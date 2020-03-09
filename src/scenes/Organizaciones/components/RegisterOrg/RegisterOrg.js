@@ -63,7 +63,7 @@ const FormRegisterOrg = (props) => {
 
 						<div className="RegisterOrg--form__content-1--rigth">
 							<div className="RegisterOrg--form__content-1--rigth--title">
-								Datos Dela Organizacion
+								Datos De la Organizacion
 							</div>
 
 							<div className="form">

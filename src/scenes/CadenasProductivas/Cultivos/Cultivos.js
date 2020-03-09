@@ -13,27 +13,7 @@ const { Column, ColumnGroup } = Table;
 
 export const Cultivo = () => {
 
-	const data = [
-		{
-			"userId": 1,
-			"userPhoneNumber": 1888888888,
-			"userAddress": 'xxxx',
-			"date": '2013/09/10 09:10'  // string
-		},
-		{
-			"userId": 2,
-			"userPhoneNumber": 1888888888,
-			"userAddress": 'xxxx',
-			"date": new Date()
-		},
-		{
-			"userId": 3,
-			"userPhoneNumber": 1888888888,
-			"userAddress": 'xxxx',
-			"date": new Date()
-		}
-	]
-
+	
 	const dispatch = useDispatch()
 	const { cropsProducer } = useSelector(state => state.crop)
 
@@ -91,15 +71,7 @@ export const Cultivo = () => {
 						<Column title="vereda." dataIndex="idVereda2.nombre" Key="idVereda2" />
 						<Column title="municipio" dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
 						<Column title="linea productiva" dataIndex="idLineaProductiva2.nombre" Key="idLineaProductiva2" />
-						<Column
-							title="Mas..."
-							Key="action"
-							render={(text, record) => (
-								<span>
-									<Link to="/profile">Ver Mas</Link>
-								</span>
-							)}
-						/>
+					
 					</Table>
 				</Card>
 			</div>
