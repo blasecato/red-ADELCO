@@ -15,6 +15,9 @@ export const { producer } = createActions({
     GET_PRODUCER_DATE: () => ({}),
     GET_PRODUCER_DATE_RESPONSE: (genderDate) => ({ genderDate }),
 
+    GET_PRODUCER_INCORPORACION: () => ({}),
+    GET_PRODUCER_INCORPORACION_RESPONSE: (incorporacionDate) => ({ incorporacionDate }),
+
     GET_PRODUCER_UPDATE: () => ({}),
     GET_PRODUCER_UPDATE_RESPONSE: (getProducerUpdateDate) => ({ getProducerUpdateDate }),
   }

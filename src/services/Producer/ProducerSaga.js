@@ -52,12 +52,23 @@ function* getProducerUpdate({ payload }) {
   }
 }
 
+function* getProducerIncorporacion() {
+  const response = yield Api.get('/producers/get/excombatant-victims')
+  if (response.ok) {
+    yield put(producer.getProducerIncorporacionResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_DATE_INCORPORACION')
+    yield put(producer.getProducerIncorporacionResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(producer.createProducer, createProducer)
   yield takeLatest(producer.updateProducer, updateProducer)
   yield takeLatest(producer.getGender, getGender)
   yield takeLatest(producer.getProducerDate, getProducerDate)
   yield takeLatest(producer.getProducerUpdate, getProducerUpdate)
+  yield takeLatest(producer.getProducerIncorporacion, getProducerIncorporacion)
 }
 
 export default function* rootSaga() {

@@ -50,6 +50,16 @@ const reducer = handleActions({
       }
     },
 
+    GET_PRODUCER_INCORPORACION: (state, { payload: { } }) => ({ ...state, loading: true }),
+    GET_PRODUCER_INCORPORACION_RESPONSE: {
+      next(state, { payload: { incorporacionDate } }) {
+        return { ...state, incorporacionDate }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
     GET_PRODUCER_UPDATE: (state, { payload: { } }) => ({ ...state, loading: true }),
     GET_PRODUCER_UPDATE_RESPONSE: {
       next(state, { payload: { getProducerUpdateDate } }) {

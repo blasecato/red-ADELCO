@@ -6,13 +6,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import LayoutHome from "../../components/LayoutHome/LayoutHome";
 import { json2excel, excel2json } from 'js2excel';
 import exel from "../../assets/image/excel.png";
+import { producer } from '../../services/Producer/ProducerActions';
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
 export const Reincorporacion = () => {
 
-	
+	const dispatch = useDispatch()
+	const { incorporacionDate } = useSelector(state => state.producer)
+
+	useEffect(() => {
+		dispatch(producer.getProducerIncorporacion());
+	}, [])
 
 	// const handleToExel = () => {
 	// 	const jsonConvert = []
@@ -45,7 +51,7 @@ export const Reincorporacion = () => {
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
-						// onClick={handleToExel}
+					// onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title={<p>Ex Combatintes</p>}
@@ -54,24 +60,22 @@ export const Reincorporacion = () => {
 						onSearch={value => console.log(value)}
 					/>}
 				>
-					<Table  rowKey="id">
-						<Column title="Nombre." dataIndex="dniProductor" Key="dniProductor" />
-						<Column title="Apellido" dataIndex="codigoProductor2.nombres" Key="codigoProductor2" />
-						<Column title="DNI" dataIndex="hectareas" Key="hectareas" />
-						<Column title="Telefono" dataIndex="idVereda2.nombre" Key="idVereda2" />
-						<Column title="CODIGO" dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
-						<Column title="Edad" dataIndex="idLineaProductiva2.nombre" Key="idLineaProductiva2" />
-					
-					</Table>
+					{incorporacionDate && <Table rowKey="dni" dataSource={incorporacionDate.victimsProducurs}>
+						<Column title="Nombre." dataIndex="nombres" Key="nombres" />
+						<Column title="Apellido" dataIndex="apellidos" Key="apellidos" />
+						<Column title="DNI" dataIndex="dni" Key="dni" />
+						<Column title="Telefono" dataIndex="telefono" Key="telefono" />
+						<Column title="Edad" dataIndex="edad" Key="edad" />
+					</Table>}
 				</Card>
 			</div>
-            <div className="queryuser__content">
+			<div className="queryuser__content">
 				<div className="users--title">
 					<h1>EX Combatintes</h1>
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
-						// onClick={handleToExel}
+					//onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title={<p>Victimas</p>}
@@ -80,14 +84,13 @@ export const Reincorporacion = () => {
 						onSearch={value => console.log(value)}
 					/>}
 				>
-					<Table  rowKey="id">
-                    <Column title="Nombre." dataIndex="dniProductor" Key="dniProductor" />
-						<Column title="Apellido" dataIndex="codigoProductor2.nombres" Key="codigoProductor2" />
-						<Column title="DNI" dataIndex="hectareas" Key="hectareas" />
-						<Column title="Telefono" dataIndex="idVereda2.nombre" Key="idVereda2" />
-						<Column title="CODIGO" dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
-						<Column title="Edad" dataIndex="idLineaProductiva2.nombre" Key="idLineaProductiva2" />
-					</Table>
+					{incorporacionDate && <Table rowKey="id" dataSource={incorporacionDate.excombatantsProducurs}>
+						<Column title="Nombre." dataIndex="nombres" Key="nombres" />
+						<Column title="Apellido" dataIndex="apellidos" Key="apellidos" />
+						<Column title="DNI" dataIndex="dni" Key="dni" />
+						<Column title="Telefono" dataIndex="telefono" Key="telefono" />
+						<Column title="Edad" dataIndex="edad" Key="edad" />
+					</Table>}
 				</Card>
 			</div>
 		</div>
