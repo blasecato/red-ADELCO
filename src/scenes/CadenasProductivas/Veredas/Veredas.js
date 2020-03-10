@@ -13,10 +13,12 @@ export const Vereda = () => {
 
 	const dispatch = useDispatch()
 	const { veredas } = useSelector(state => state.cade)
+	const { dateInfra } = useSelector(state => state.cade)
 
 	useEffect(() => {
-		dispatch(cade.getVeredas());
+		dispatch(cade.getDateInfra());
 	}, [])
+
 	return (
 		<div className="queryuser">
 			<LayoutHome />
@@ -27,19 +29,22 @@ export const Vereda = () => {
 				<div className="button">
 					<Link to="/register-vereda" className="btn-register">Registrar Vereda</Link>
 				</div>
-				<Card title={<p>Veredas</p>}
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
-				>
-					<Table dataSource={veredas} rowKey="id">
-						<Column title="Codigo" dataIndex="id" Key="id" />
-						<Column title="nombre" dataIndex="nombre" Key="nombre" />
-						<Column title="Municipio" dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
+				{
+					dateInfra && dateInfra.municipio.map((municipio) => (
+						<Card title={<p>{municipio.nombre}</p>}
+							extra={<Search
+								placeholder="Buscar Usuario"
+							/>}
+						>
+							<Table dataSource={municipio.veredas} rowKey="id">
+								<Column title="Codigo" dataIndex="id" Key="id" />
+								<Column title="nombre" dataIndex="nombre" Key="nombre" />
+							</Table>
+						</Card>
+					))
+				}
 
-					</Table>
-				</Card>
+
 			</div>
 		</div>
 	)
