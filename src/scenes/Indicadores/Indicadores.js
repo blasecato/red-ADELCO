@@ -55,11 +55,12 @@ export  const Indicadores = () => {
                                 <div className="content">
                                     <div className="content-card">
                                         <h1 className="content-title">Objetivos</h1>
-                                        <p>Obj. General</p>
+                                        <p>{data.idObjetivo2.nombre}</p>
                                     </div>
                                     <div className="content-card">
                                         <h1 className="content-title">Resultado</h1>
                                         <p>Contribuir a la consolidación de una paz estable y duradera en Colombia, a través del fortalecimiento del desarrollo socioeconómico y ambiental de territorios amazónicos en postconflictol</p>
+                                        <input className="actualizar-input" value="" placeholder="Escriba el resultado"/>
                                     </div>
                                     <div className="content-card">
                                         <h1 className="content-title">Meta</h1>
@@ -81,6 +82,12 @@ export  const Indicadores = () => {
                                                 <Button className="btn-pdf"><img src={pdf} /></Button>
                                             </Upload>
                                             <p>Subir PDF</p>
+                                        </div>
+                                    </div>
+                                    <div className="content-card">
+                                        <h1 className="content-title">Actualizar Fuentes</h1>
+                                        <div className="content-pdf">
+                                            <Button className="btn-actualizar">Actualizar</Button>
                                         </div>
                                     </div>
                                 </div>
