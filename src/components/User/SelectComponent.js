@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Upload, message, Avatar, Form, Icon, Input, Button, Select, Radio, DatePicker } from 'antd';
 
 import LayoutHome from "../LayoutHome/LayoutHome";
+
+
 const { Option } = Select;
 
 export const SelectComponente = (props) => {

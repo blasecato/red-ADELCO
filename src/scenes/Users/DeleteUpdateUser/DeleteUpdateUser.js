@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, Divider, Tag,Card, Button } from 'antd';
 import { Input,Icon } from 'antd';
-
+import { Link } from "react-router-dom";
+import { producer } from '../../../services/Producer/ProducerActions';
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 import DeleteUser from "../../../components/modals/modaldeleteuser/ModalDeleteUser";
+import { useDispatch, useSelector } from 'react-redux';
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
-class DeleteUpdateUser extends React.Component {
-    render() {
+
+export const DeleteUpdateUser = () => {
+
+    const dispatch = useDispatch()
+    
+    const { genderDate } = useSelector(state => state.producer) 
+    useEffect(() => {
+		dispatch(producer.getProducerDate())
+    }, [])
+    console.log(genderDate)
         const data = [
             {
               key: '1',
@@ -49,17 +59,19 @@ class DeleteUpdateUser extends React.Component {
                     onSearch={value => console.log(value)}
                     />}
                 >
-                    <Table dataSource={data}>
-                        <Column title="Nombres." dataIndex="firstName" key="firstName" />
-                        <Column title="Apellidos." dataIndex="lastName" key="lastName" />
-                        <Column title="DNI" dataIndex="age" key="age" />
+                    <Table dataSource={genderDate}>
+                        <Column title="Identificacion." dataIndex="dni" key="dni" />
+                        <Column title="Nombres." dataIndex="nombres" key="nombres" />
+                        <Column title="Apellidos." dataIndex="apellidos" key="apellidos" />
+                        <Column title="Edad" dataIndex="edad" key="edad" />
+                        <Column title="Telefono" dataIndex="telefono" key="telefono" />
                         <Column
                         title="Actualizar"
                         dataIndex="tags"
                         key="tags"
                         render={(text, record) => (
                             <span>
-                                <Button className="update" href="/update"><Icon type="edit" />Actualizar</Button>
+                                <Link className="update" to="/update"><Icon type="edit" />Actualizar</Link>
                             </span>
                         )}
                         />
@@ -80,7 +92,6 @@ class DeleteUpdateUser extends React.Component {
             </div>
         );
 
-    }
+    
 }
 
-export default DeleteUpdateUser;
