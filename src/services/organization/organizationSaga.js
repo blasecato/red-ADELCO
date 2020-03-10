@@ -22,9 +22,20 @@ function* getOrganization() {
   }
 }
 
+function* get({ payload }) {
+  const response = yield Api.get(`/organization/count/persons-organization?idOrganization=${payload.id}`)
+  if (response.ok) {
+    yield put(organization.getResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_GET_PRODUCER')
+    yield put(organization.getResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(organization.createOrganization, createOrganization)
   yield takeLatest(organization.getOrganization, getOrganization)
+  yield takeLatest(organization.get, get)
 }
 
 export default function* rootSaga() {

@@ -7,5 +7,8 @@ export const { organization } = createActions({
 
     GET_ORGANIZATION: () => ({}),
     GET_ORGANIZATION_RESPONSE: (organizations) => ({ organizations }),
+
+    GET: (id) => ({ id }),
+    GET_RESPONSE: (organization) => ({ organization }),
   }
 })
