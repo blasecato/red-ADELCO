@@ -7,4 +7,17 @@
         background: rgb(100, 28, 0);
         color: #ffffff;
     }
+
+}
+.beneficioarios-org{
+    .item{
+        width: 100%;
+        font-weight: 700;
+        label {
+            font-size: 30px !important;
+        }
+        .ant-col.ant-form-item-control-wrapper {
+            width: 100%;
+        }
+    }
 }
