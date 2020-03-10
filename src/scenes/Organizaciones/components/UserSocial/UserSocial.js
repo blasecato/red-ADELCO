@@ -235,7 +235,7 @@ const UserSocial = ({ form }) => {
             </div>
           </div>
           <div className="btn">
-            <Button htmlType="submit"><Icon type="form" />Registrar</Button>
+            <Button htmlType="submit"><Icon type="form" />Actualizar</Button>
           </div>
         </Form>
       </div>

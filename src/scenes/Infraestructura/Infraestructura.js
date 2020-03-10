@@ -77,7 +77,7 @@ class Infraestructura extends React.Component {
               IR
             </Link>
           </Card>
-          <Card
+          {/* <Card
             className="users__content-cards--card"
             hoverable
             cover={
@@ -98,7 +98,7 @@ class Infraestructura extends React.Component {
             >
               IR
             </Link>
-          </Card>
+          </Card> */}
         </div>
         <div className="mesage">
           <span>¡</span>Aqui puedes gestionar Infraestructuras, puedes
