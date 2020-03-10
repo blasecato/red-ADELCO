@@ -62,6 +62,16 @@ function* getProducerIncorporacion() {
   }
 }
 
+function* get({ payload }) {
+  const response = yield Api.get(`/producers/get-by-id/${payload.dni}`)
+  if (response.ok) {
+    yield put(producer.getResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_GET_PRODUCER')
+    yield put(producer.getResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(producer.createProducer, createProducer)
   yield takeLatest(producer.updateProducer, updateProducer)
@@ -69,6 +79,7 @@ function* ActionWatcher() {
   yield takeLatest(producer.getProducerDate, getProducerDate)
   yield takeLatest(producer.getProducerUpdate, getProducerUpdate)
   yield takeLatest(producer.getProducerIncorporacion, getProducerIncorporacion)
+  yield takeLatest(producer.get, get)
 }
 
 export default function* rootSaga() {

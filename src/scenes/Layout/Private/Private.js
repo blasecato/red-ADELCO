@@ -5,7 +5,7 @@ import { Home } from '../../Home';
 import Users from '../../Users/Users';
 import { QueryUser } from '../../Users/QueryUser/QueryUser';
 import DeleteUpdateUser from '../../Users/DeleteUpdateUser/DeleteUpdateUser';
-import Profile from '../../Users/Profile/Profile';
+import { Profile } from '../../Users/Profile/Profile';
 import Coberturas from '../../Coberturas/Coberturas';
 import { RegisterUser } from '../../Users/RegisterUser/RegisterUser';
 import { CadenasProductivas } from '../../CadenasProductivas/CadenasProductivas';
@@ -49,7 +49,7 @@ export const Private = () => {
         <Route path="/users/" component={Users} />
         <Route path="/queryuser/" component={QueryUser} />
         <Route path="/deleteupdateuser/" component={DeleteUpdateUser} />
-        <Route path="/profile/" component={Profile} />
+        <Route path="/profile/:id" component={Profile} />
         <Route path="/coberturas/" component={Coberturas} />
         <Route path="/registeruser/" component={RegisterUser} />
         <Route path="/cadenasproductivas/" component={CadenasProductivas} />
@@ -76,6 +76,5 @@ export const Private = () => {
         <Route path="/actulizarinfra/" component={ActualizarInfra} />
       </Router>
     </div>
-  );
-
+  )
 }

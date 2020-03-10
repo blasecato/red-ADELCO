@@ -13,7 +13,7 @@ import exel from "../../../assets/image//excel.png";
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
-export const QueryUser = () => {
+export const QueryUser = ({ history }) => {
 
 	const dispatch = useDispatch()
 
@@ -247,7 +247,12 @@ export const QueryUser = () => {
 						onSearch={value => console.log(value)}
 					/>}
 				>
-					<Table columns={columns} dataSource={genderDate} rowKey="dni" />
+					<Table
+						onRow={(record) => ({ onClick: (e) => history.push(`/profile/${record.dni}`) })}
+						columns={columns}
+						dataSource={genderDate}
+						rowKey="dni"
+					/>
 				</Card>
 
 			</div>
@@ -266,7 +271,11 @@ export const QueryUser = () => {
 						onSearch={value => console.log(value)}
 					/>}
 				>
-					<Table dataSource={genderCount.woman.arraywoman} rowKey="id">
+					<Table
+						onRow={(record) => ({ onClick: (e) => history.push(`/profile/${record.dni}`) })}
+						dataSource={genderCount.woman.arraywoman}
+						rowKey="id"
+					>
 						<Column title="Nombres." dataIndex="nombres" Key="nombres" />
 						<Column title="Apellidos." dataIndex="apellidos" Key="apellidos" />
 						<Column title="Numero de identificacion." dataIndex="dni" Key="dni" />
@@ -275,15 +284,6 @@ export const QueryUser = () => {
 							title="Codigo"
 							dataIndex="id"
 							Key="id"
-						/>
-						<Column
-							title="Mas..."
-							Key="action"
-							render={(text, record) => (
-								<span>
-									<Link to="/profile">Ver Mas</Link>
-								</span>
-							)}
 						/>
 					</Table>
 				</Card>}
@@ -301,7 +301,11 @@ export const QueryUser = () => {
 						onSearch={value => console.log(value)}
 					/>}
 				>
-					<Table dataSource={genderCount.men.arraymen} rowKey="id">
+					<Table
+						onRow={(record) => ({ onClick: (e) => history.push(`/profile/${record.dni}`) })}
+						dataSource={genderCount.men.arraymen}
+						rowKey="id"
+					>
 						<Column title="Nombres." dataIndex="nombres" Key="nombres" />
 						<Column title="Apellidos." dataIndex="apellidos" Key="apellidos" />
 						<Column title="Numero de identificacion." dataIndex="dni" Key="dni" />
@@ -310,15 +314,6 @@ export const QueryUser = () => {
 							title="Codigo"
 							dataIndex="id"
 							Key="id"
-						/>
-						<Column
-							title="Mas..."
-							Key="action"
-							render={(text, record) => (
-								<span>
-									<Link to="/profile">Ver Mas</Link>
-								</span>
-							)}
 						/>
 					</Table>
 				</Card>}
