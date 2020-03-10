@@ -16,8 +16,13 @@
     }
     &__content{
         padding: 1% 5%;
+        .card {
+            display: flex;
+            justify-content: center;
+        }
         .ant-card{
             border-radius: 20px;
+            margin-top: 20px;
             &-head {
                 background: #B58900;
                 border-radius: 10px 10px 0px 0px;
@@ -43,3 +48,8 @@
         
     }
 }
+        .veredas{
+            .queryuser__content .ant-card {
+                width: 50%;
+            } 
+        }
