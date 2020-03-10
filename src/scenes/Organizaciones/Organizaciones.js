@@ -48,7 +48,7 @@ class Organizaciones extends React.Component{
                             hoverable
                             cover={<Link to="/usersocial"><img alt="example" src={queryuser} /></Link>}
                         >
-                            <Meta title="Beneficiarios" description="Consulta Informacion de las Organizaciones ¡AQUI!" />
+                            <Meta title="Actualizar Beneficiarios" description="Actualiza Informacion de las Organizaciones ¡AQUI!" />
                             <Link className="btn" to="/usersocial" type="primary" shape="circle">
                                 IR
                             </Link>

@@ -59,7 +59,7 @@ class Infraestructura extends React.Component {
             className="users__content-cards--card"
             hoverable
             cover={
-              <Link to="/deleteupdateuser">
+              <Link to="/actulizarinfra">
                 <img alt="example" src={updateuser} />
               </Link>
             }
@@ -70,7 +70,7 @@ class Infraestructura extends React.Component {
             />
             <Link
               className="btn"
-              to="/deleteupdateuser"
+              to="/actulizarinfra"
               type="primary"
               shape="circle"
             >

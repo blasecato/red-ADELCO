@@ -31,6 +31,7 @@ import { Vereda } from "../../CadenasProductivas/Veredas/Veredas";
 import { RegisterVereda } from "../../CadenasProductivas/Veredas/RegistrarVereda";
 import { Reincorporacion } from "../../Reincorporacion/Reincorporacion";
 import { ActualizarOrgFrom } from "../../Organizaciones/components/ActulizarOrg/ActulizarOrg";
+import { ActualizarInfra } from '../../Infraestructura/components/ActualizarInfra/ActualizarInfra';
 
 export const Private = () => {
 
@@ -72,6 +73,7 @@ export const Private = () => {
         <Route path="/register-vereda/" component={RegisterVereda} />
         <Route path="/reincorporacion/" component={Reincorporacion} />
         <Route path="/actulizarorg/" component={ActualizarOrgFrom} />
+        <Route path="/actulizarinfra/" component={ActualizarInfra} />
       </Router>
     </div>
   );
