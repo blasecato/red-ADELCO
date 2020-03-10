@@ -12,6 +12,9 @@ export const { producer } = createActions({
     GET_GENDER: () => ({}),
     GET_GENDER_RESPONSE: (genderCount) => ({ genderCount }),
 
+    GET: (dni) => ({ dni }),
+    GET_RESPONSE: (producer) => ({ producer }),
+
     GET_PRODUCER_DATE: () => ({}),
     GET_PRODUCER_DATE_RESPONSE: (genderDate) => ({ genderDate }),
 

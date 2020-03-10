@@ -40,6 +40,16 @@ const reducer = handleActions({
       }
     },
 
+    GET: (state, { payload: { } }) => ({ ...state, loading: true }),
+    GET_RESPONSE: {
+      next(state, { payload: { producer } }) {
+        return { ...state, producer }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
     GET_PRODUCER_DATE: (state, { payload: { } }) => ({ ...state, loading: true }),
     GET_PRODUCER_DATE_RESPONSE: {
       next(state, { payload: { genderDate } }) {
