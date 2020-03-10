@@ -57,7 +57,7 @@ export const CadenasProductivas = () => {
 				<Card
 					className="users__content-cards--card"
 					hoverable
-					cover={<Link to="/queryuser"><img alt="example" src={cultivo} /></Link>}
+					cover={<Link to="/cultivos"><img alt="example" src={cultivo} /></Link>}
 				>
 					<Meta title="Cultivos" description="Consulta los Cultivos ¡AQUI!" />
 					<Link className="btn" to="/cultivos" type="primary" shape="circle">

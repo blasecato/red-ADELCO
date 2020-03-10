@@ -33,13 +33,10 @@ class Footer extends React.Component{
                     <div className="title">Contactos</div>
                     <br/>
                     <p className="text">
-                        <span className="text--title">Correo:</span> <span>red_adelco@gamail.com</span>
+                        <span className="text--title">Telefono:</span> <span>(+57) (8) 436 96 07</span>
                     </p>
                     <p className="text">
-                        <span className="text--title">Telefono:</span> <span>3213213213</span>
-                    </p>
-                    <p className="text">
-                        <span className="text--title">Direccion:</span> <span>calle epocas 12 34 5 sur</span>
+                        <span className="text--title">Direccion:</span> <span>Carrera 3E N° 32B-24/ Cunduy – Florencia, Caquetá</span>
                     </p>
                 </div>
             </div>

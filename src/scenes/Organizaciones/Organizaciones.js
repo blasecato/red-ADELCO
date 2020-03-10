@@ -53,6 +53,16 @@ class Organizaciones extends React.Component{
                                 IR
                             </Link>
                         </Card>
+                        <Card
+                            className="users__content-cards--card"
+                            hoverable
+                            cover={<Link to="/beneficiariosorg"><img alt="example" src={queryuser} /></Link>}
+                        >
+                            <Meta title="Consulta Beneficiarios" description="Pertenecientes a organizaciones separados por hombres y mujeres ¡AQUI!" />
+                            <Link className="btn" to="/beneficiariosorg" type="primary" shape="circle">
+                                IR
+                            </Link>
+                        </Card>
                     </div>
                     <div className="mesage"><span>¡</span>Aqui puedes gestionar Organizaciones, puedes Consultarlas, Registrarlas, Actualizarlas, Y Eliminarlas con tan solo dar click sobre la opcion que desees<span>!</span></div>
 

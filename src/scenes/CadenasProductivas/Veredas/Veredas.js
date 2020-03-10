@@ -20,30 +20,31 @@ export const Vereda = () => {
 	}, [])
 
 	return (
-		<div className="queryuser">
+		<div className="queryuser veredas">
 			<LayoutHome />
 			<div className="queryuser__content">
 				<div className="users--title">
-					<h1>Listado de Veredas</h1>
+					<h1>Listado de Veredas Por Municipio</h1>
 				</div>
 				<div className="button">
 					<Link to="/register-vereda" className="btn-register">Registrar Vereda</Link>
 				</div>
-				{
-					dateInfra && dateInfra.municipio.map((municipio) => (
-						<Card title={<p>{municipio.nombre}</p>}
-							extra={<Search
-								placeholder="Buscar Usuario"
-							/>}
-						>
-							<Table dataSource={municipio.veredas} rowKey="id">
-								<Column title="Codigo" dataIndex="id" Key="id" />
-								<Column title="nombre" dataIndex="nombre" Key="nombre" />
-							</Table>
-						</Card>
-					))
-				}
-
+					{
+						dateInfra && dateInfra.municipio.map((municipio) => (
+						<div className="card">					
+							<Card title={<p>{municipio.nombre}</p>}
+								extra={<Search
+									placeholder="Buscar Usuario"
+								/>}
+							>
+								<Table dataSource={municipio.veredas} rowKey="id">
+									<Column title="Codigo" dataIndex="id" Key="id" />
+									<Column title="Nombre Vereda" dataIndex="nombre" Key="nombre" />
+								</Table>
+							</Card>
+						</div>
+						))
+					}
 
 			</div>
 		</div>

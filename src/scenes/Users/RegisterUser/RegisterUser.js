@@ -88,12 +88,6 @@ const FormRegisterUser = ({ form }) => {
                   })(
                     <Input type="number" className="item--input" placeholder="Edad" />)}
                 </Form.Item>
-                <Form.Item className="item">
-                  <label>Carnet</label>
-                  {getFieldDecorator('id', {
-                    rules: [{ required: true, message: 'Porfavor ingrese el carnet', whitespace: true }],
-                  })(<Input placeholder="Carnet" className="item--input" />)}
-                </Form.Item>
               </div>
             </div>
           </div>
