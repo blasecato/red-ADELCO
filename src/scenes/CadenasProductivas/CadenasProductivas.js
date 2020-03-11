@@ -64,6 +64,16 @@ export const CadenasProductivas = () => {
 						IR
                             </Link>
 				</Card>
+				<Card
+					className="users__content-cards--card"
+					hoverable
+					cover={<Link to="/linea-productiva"><img alt="example" src={cadenas} /></Link>}
+				>
+					<Meta title="lineas productivas y sus Cultivos" description="Consulta las cadenas productivas ¡AQUI!" />
+					<Link className="btn" to="/linea-productiva" type="primary" shape="circle">
+						IR
+                            </Link>
+				</Card>
 			</div>
 			<div className="mesage"><span>¡</span>Aqui puedes gestionar Cadenas Productivas, puedes Consultarlas, Registrarlas, Actualizarlas, Y Eliminarlas con tan solo dar click sobre la opcion que desees<span>!</span></div>
 

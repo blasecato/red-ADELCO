@@ -33,6 +33,7 @@ import { Reincorporacion } from "../../Reincorporacion/Reincorporacion";
 import { ActualizarOrgFrom } from "../../Organizaciones/components/ActulizarOrg/ActulizarOrg";
 import { ActualizarInfra } from '../../Infraestructura/components/ActualizarInfra/ActualizarInfra';
 import {BeneficiariosOrga } from '../../Organizaciones/components/BeneficiariosOrg/BeneficiariosOrg';
+import { LineProductoves } from '../../CadenasProductivas/LineProductove/LineProductove';
 
 export const Private = () => {
 
@@ -76,6 +77,7 @@ export const Private = () => {
         <Route path="/actulizarorg/" component={ActualizarOrgFrom} />
         <Route path="/actulizarinfra/" component={ActualizarInfra} />
         <Route path="/beneficiariosorg/" component={BeneficiariosOrga} />
+        <Route path="/linea-productiva/" component={LineProductoves} />
       </Router>
     </div>
   )
