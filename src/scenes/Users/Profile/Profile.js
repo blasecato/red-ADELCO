@@ -69,27 +69,27 @@ export const Profile = ({ match }) => {
                   {producer.edad} años
                 </div>
               </div>
-              {producer.idGenero2.nombre &&
+              {producer.idGenero2 &&
                 <div className="item">
                   <div className="title">
                     Genero:
                 </div>
                   <div className="component">
-                    {producer.idGenero2.nombre}
+                    {producer.idGenero2.nombre =! null && producer.idGenero2.nombre}
                   </div>
                 </div>
               }
-              {producer.idConflicto2.nombre &&
+              {producer.idConflicto2 &&
                 <div className="item">
                   <div className="title">
                     Relacion con el Conflicto:
-                </div>
+                  </div>
                   <div className="component">
                     {producer.idConflicto2.nombre}
                   </div>
                 </div>
               }
-              {producer.idOrganizacion2.nombre &&
+              {producer.idOrganizacion2 &&
                 <div className="item">
                   <div className="title">
                     Organizacion:
@@ -99,7 +99,7 @@ export const Profile = ({ match }) => {
                   </div>
                 </div>
               }
-              {producer.idEtnia2.nombre &&
+              {producer.idEtnia2 &&
                 <div className="item">
                   <div className="title">
                     Etnia:
@@ -109,7 +109,7 @@ export const Profile = ({ match }) => {
                   </div>
                 </div>
               }
-              {producer.idParentesco2.nombre &&
+              {producer.idParentesco2 &&
                 <div className="item">
                   <div className="title">
                     parentesco:
@@ -119,7 +119,7 @@ export const Profile = ({ match }) => {
                   </div>
                 </div>
               }
-              {producer.idEtnia2.nombre &&
+              {producer.idEtnia2 &&
                 <div className="item">
                   <div className="title">
                     Discapacidad:
