@@ -15,23 +15,23 @@ const { Option } = Select;
 const ActualizarOrg = (props) => {
 
 	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
-    const { municipios } = useSelector(state => state.municipio)
+	const { municipios } = useSelector(state => state.municipio)
 	const { genderDate } = useSelector(state => state.producer)
-    const { organizations } = useSelector(state => state.organization)
+	const { organizations } = useSelector(state => state.organization)
 	const dispatch = useDispatch()
 	const [state, setstate] = useState({
 		value: 1,
 		desisable: true,
-    })
-    
-    console.log(organizations)
+	})
+
+	console.log(organizations)
 
 	const [veredas, setveredas] = useState([])
 
 	useEffect(() => {
 		dispatch(municipiosActions.getMunicipios())
-        dispatch(producerActions.getProducerDate())
-        dispatch(organizationActions.getOrganization())
+		dispatch(producerActions.getProducerDate())
+		dispatch(organizationActions.getOrganization())
 	}, [])
 
 	const handleSubmit = e => {
@@ -70,14 +70,14 @@ const ActualizarOrg = (props) => {
 							</div>
 
 							<div className="form">
-                                <Form.Item className="item">
+								<Form.Item className="item">
 									<label>Organizacion</label>
 									<div className="select-content">
 										{getFieldDecorator('id', {
 											rules: [{ required: true, message: 'Porfavor seleccione una organizacion' }],
 										})(
 											<Select className="select" onChange={handleSelectVereda} placeholder="municipio">
-												{organizations && organizations.map((organization) => <Option key={organization.id} value={organization.id} >{organization.nombre}</Option>)}
+												{municipios && municipios.map((municipio) => <Option key={municipio.id} value={municipio.id} >{municipio.nombre}</Option>)}
 											</Select>
 										)}
 									</div>
@@ -94,7 +94,7 @@ const ActualizarOrg = (props) => {
 										rules: [{ required: false, message: 'Porfavor ingrese el nombre', whitespace: true }],
 									})(<Input type="number" className="item--input" placeholder="Telefono" />)}
 								</Form.Item>
-								
+
 								<Form.Item className="item">
 									<label>Vereda</label>
 									<div className="select-content">
@@ -107,7 +107,7 @@ const ActualizarOrg = (props) => {
 										)}
 									</div>
 								</Form.Item>
-								
+
 								<Form.Item className="item">
 									<label>Representante</label>
 									<div className="select-content">
