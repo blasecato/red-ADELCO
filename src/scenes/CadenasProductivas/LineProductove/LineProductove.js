@@ -3,6 +3,7 @@ import { Table, Divider, Tag, Card, Button, Select, Form } from 'antd';
 import { Input, Icon } from 'antd';
 import { organization as organizationActions } from '../../../services/organization/organizationActions';
 import { crop as cropActions } from "../../../services/crop/cropActions";
+import { cade as cadeActions } from "../../../services/line-cadena/line-cadenaActions";
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -14,49 +15,23 @@ const { Column, ColumnGroup } = Table;
 
 const LineProductove = (props) => {
 
-    const { organizations, organization } = useSelector(state => state.organization)
-    const { lineProductives } = useSelector(state => state.crop)
+	const { dateLine } = useSelector(state => state.cade)
+	const { lineProductives } = useSelector(state => state.crop)
 	const dispatch = useDispatch()
 	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
 
 	useEffect(() => {
-        dispatch(organizationActions.getOrganization())
-        dispatch(cropActions.getLineProductive())
-    }, [])
-    console.log("asddsfs", lineProductives)
+		dispatch(organizationActions.getOrganization())
+		dispatch(cropActions.getLineProductive())
+	}, [])
+	console.log("asddsfs", lineProductives)
 
 	const handleOrganization = (value) => {
 		console.log(value)
-		dispatch(organizationActions.get(value))
+		dispatch(cadeActions.get(value))
 	}
 
-	console.log("organization==>", organization)
-	const data = [
-		{
-			key: '1',
-			firstName: 'John',
-			lastName: 'Brown',
-			age: 3234324367,
-			address: 'Jefe Finca',
-			tags: ['Cacao', 'Cafe'],
-		},
-		{
-			key: '2',
-			firstName: 'Jim',
-			lastName: 'Green',
-			age: 4243543543,
-			address: 'Esposa',
-			tags: ['Cacao', 'Caña', 'Cafe'],
-		},
-		{
-			key: '3',
-			firstName: 'Joe',
-			lastName: 'Black',
-			age: 3234543543,
-			address: 'Hija',
-			tags: ['Cacao', 'Caña'],
-		},
-	]
+	console.log("dateLine==>", dateLine)
 
 	return (
 		<div className="deleteupdateuser beneficioarios-org">
@@ -79,21 +54,19 @@ const LineProductove = (props) => {
 						</div>
 					</Form.Item>
 				</Form>
-				{organization && <Card title={"Beneficiarios : " + organization.countPersons.countPeople}>
-					<Table dataSource={organization.datePersons[0]}>
-						<Column title="Nombres." dataIndex="nombres" key="firstName" />
-						<Column title="Apellidos." dataIndex="apellidos" key="lastName" />
-						<Column title="DNI" dataIndex="dni" key="dni" />
-						<Column title="Telefono" dataIndex="telefono" key="telefono" />
-						<Column title="Edad" dataIndex="edad" key="age" />
+				{dateLine && <Card title={"Beneficiarios : " + dateLine.countCrop.countCrops}>
+					<Table dataSource={dateLine.dataCrops} rowKey="dniProductor2.dni">
+						<Column title="Nombres." dataIndex="dniProductor2.nombres" key="nombres" />
+						<Column title="Apellidos." dataIndex="dniProductor2.apellidos" key="apellidos" />
+						<Column title="Edad" dataIndex="dniProductor2.edad" key="edad" />
+						<Column title="Hectareas" dataIndex="hectareas" key="hectareas" />
+						<Column title="Municipio" dataIndex="idMunicipio2.nombre" key="municipio" />
 					</Table>
 				</Card>}
 			</div>
 
 		</div>
-	);
-
-
+	)
 }
 
 export const LineProductoves = Form.create({ name: 'formLogin' })(LineProductove);

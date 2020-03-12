@@ -32,10 +32,21 @@ function* get({ payload }) {
   }
 }
 
+function* update({ payload }) {
+  const response = yield Api.put(`/organization/update`, payload.organization)
+  if (response.ok) {
+    yield put(organization.updateResponse());
+  } else {
+    const err = new TypeError('ERROR_GET_PRODUCER')
+    yield put(organization.getResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(organization.createOrganization, createOrganization)
   yield takeLatest(organization.getOrganization, getOrganization)
   yield takeLatest(organization.get, get)
+  yield takeLatest(organization.update, update)
 }
 
 export default function* rootSaga() {

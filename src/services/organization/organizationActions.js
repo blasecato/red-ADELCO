@@ -10,5 +10,8 @@ export const { organization } = createActions({
 
     GET: (id) => ({ id }),
     GET_RESPONSE: (organization) => ({ organization }),
+
+    UPDATE: (organization) => ({ organization }),
+    UPDATE_RESPONSE: () => ({}),
   }
 })

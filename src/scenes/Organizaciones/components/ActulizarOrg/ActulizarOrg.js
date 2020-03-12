@@ -13,7 +13,6 @@ const { TextArea } = Input;
 const { Option } = Select;
 
 const ActualizarOrg = (props) => {
-
 	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
 	const { municipios } = useSelector(state => state.municipio)
 	const { genderDate } = useSelector(state => state.producer)
@@ -23,10 +22,8 @@ const ActualizarOrg = (props) => {
 		value: 1,
 		desisable: true,
 	})
-
-	console.log(organizations)
-
 	const [veredas, setveredas] = useState([])
+	const [orgSelect, setOrgSelect] = useState(undefined)
 
 	useEffect(() => {
 		dispatch(municipiosActions.getMunicipios())
@@ -38,8 +35,9 @@ const ActualizarOrg = (props) => {
 		e.preventDefault();
 		props.form.validateFields((err, values) => {
 			if (!err) {
-				const { idmunicipio, ...result } = values
+				const { idMunicipio, ...result } = values
 				console.log("values form==>", result)
+				dispatch(organizationActions.update(result))
 			}
 		})
 	}
@@ -52,6 +50,10 @@ const ActualizarOrg = (props) => {
 
 	const handleSelectVereda = e => {
 		setveredas(municipios.find((municipio) => municipio.id === e).veredas)
+	}
+
+	const handleSelectOrg = e => {
+		setOrgSelect(organizations.find((x) => x.id === e))
 	}
 
 	return (
@@ -76,18 +78,33 @@ const ActualizarOrg = (props) => {
 										{getFieldDecorator('id', {
 											rules: [{ required: true, message: 'Porfavor seleccione una organizacion' }],
 										})(
+											<Select className="select" onChange={handleSelectOrg} placeholder="organizacion">
+												{organizations && organizations.map((organization) => <Option key={organization.id} value={organization.id} >{organization.nombre}</Option>)}
+											</Select>
+										)}
+									</div>
+								</Form.Item>
+
+								<Form.Item className="item">
+									<label>Municipio</label>
+									<div className="select-content">
+										{getFieldDecorator('idMunicipio', {
+											rules: [{ required: true, message: 'Porfavor seleccione un municipio' }],
+										})(
 											<Select className="select" onChange={handleSelectVereda} placeholder="municipio">
 												{municipios && municipios.map((municipio) => <Option key={municipio.id} value={municipio.id} >{municipio.nombre}</Option>)}
 											</Select>
 										)}
 									</div>
 								</Form.Item>
+
 								<Form.Item className="item">
 									<label>Nombre de la Organización</label>
 									{getFieldDecorator('nombre', {
 										rules: [{ required: false, message: 'Porfavor ingrese el nombre', whitespace: true }],
 									})(<Input placeholder="Nombre" className="item--input" />)}
 								</Form.Item>
+
 								<Form.Item className="item">
 									<label>Telefono de Contacto</label>
 									{getFieldDecorator('contacto', {
@@ -98,7 +115,7 @@ const ActualizarOrg = (props) => {
 								<Form.Item className="item">
 									<label>Vereda</label>
 									<div className="select-content">
-										{getFieldDecorator('idVereda2', {
+										{getFieldDecorator('idVereda', {
 											rules: [{ required: false, message: 'Pofavor seleccione la vereda!' }],
 										})(
 											<Select className="select" placeholder="vereda">
@@ -111,7 +128,7 @@ const ActualizarOrg = (props) => {
 								<Form.Item className="item">
 									<label>Representante</label>
 									<div className="select-content">
-										{getFieldDecorator('representante2', {
+										{getFieldDecorator('representante', {
 											rules: [{ required: false, message: 'Pofavor seleccione el Representante!' }],
 										})(
 											<Select
@@ -130,24 +147,28 @@ const ActualizarOrg = (props) => {
 										)}
 									</div>
 								</Form.Item>
+
 								<Form.Item className="item">
 									<label>Descripcion</label>
 									{getFieldDecorator('descripcion', {
 										rules: [{ required: false, message: 'Porfavor ingrese la descripcion', whitespace: true }],
 									})(<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />)}
 								</Form.Item>
+
 								<Form.Item className="item">
 									<label>Tema Empresaqrial</label>
 									{getFieldDecorator('temaEmpresarial', {
 										rules: [{ required: false, message: 'Porfavor ingrese el tema empresarial', whitespace: true }],
 									})(<TextArea placeholder="tema empresarial" allowClear onChange={onChange} />)}
 								</Form.Item>
+
 								<Form.Item className="item">
 									<label>Tema de Capacitacion</label>
 									{getFieldDecorator('temaCapacitacion', {
 										rules: [{ required: false, message: 'Porfavor la capacitacion', whitespace: true }],
 									})(<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />)}
 								</Form.Item>
+
 							</div>
 						</div>
 					</div>

@@ -25,5 +25,8 @@ export const { cade } = createActions({
 
     CREATE_LINE: (line) => ({ line }),
     CREATE_LINE_RESPONSE: () => ({}),
+
+    GET: (id) => ({ id }),
+    GET_RESPONSE: (dateLine) => ({ dateLine }),
   }
 })

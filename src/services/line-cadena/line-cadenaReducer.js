@@ -89,6 +89,16 @@ const reducer = handleActions({
         return { ...state }
       }
     },
+
+    GET: (state, { payload: { } }) => ({ ...state, loading: true }),
+    GET_RESPONSE: {
+      next(state, { payload: { dateLine } }) {
+        return { ...state, dateLine }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
   }
 },
   INITIAL_STATE

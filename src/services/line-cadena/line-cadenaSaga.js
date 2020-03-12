@@ -83,6 +83,16 @@ function* createLine({ payload }) {
   }
 }
 
+function* get({ payload }) {
+  const response = yield Api.get(`/crops/quantity/productive-line?productivelineId=${payload.id}`)
+  if (response.ok) {
+    yield put(cade.getResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_GET_PRODUCER')
+    yield put(cade.getResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(cade.getDateInfra, getDateInfra)
   yield takeLatest(cade.getInfra, getInfra)
@@ -92,6 +102,7 @@ function* ActionWatcher() {
   yield takeLatest(cade.createCadena, createCadena)
   yield takeLatest(cade.createLine, createLine)
   yield takeLatest(cade.getCade, getCade)
+  yield takeLatest(cade.get, get)
 }
 
 export default function* rootSaga() {
