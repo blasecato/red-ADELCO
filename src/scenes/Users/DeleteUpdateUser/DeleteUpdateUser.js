@@ -67,7 +67,7 @@ export const DeleteUpdateUser = () => {
                         <Column title="Telefono" dataIndex="telefono" key="telefono" />
                         <Column
                         title="Actualizar"
-                        dataIndex="tags"
+                        dataIndex="tags" 
                         key="tags"
                         render={(text, record) => (
                             <span>
