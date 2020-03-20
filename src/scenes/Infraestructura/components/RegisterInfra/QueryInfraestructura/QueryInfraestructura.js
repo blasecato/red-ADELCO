@@ -27,7 +27,7 @@ export const InfraQuery = () => {
 				<div className="users--title">
 					<h1>Consultar Infraestructura</h1>
 				</div>
-				<Card title="Listado de Beneficiarios"
+				<Card title="Listado de Infraestructuras"
 					extra={<Search
 						placeholder="Buscar Usuario"
 						onSearch={value => console.log(value)}

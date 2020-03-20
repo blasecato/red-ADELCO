@@ -50,7 +50,7 @@ class Users extends React.Component {
               IR
                             </Link>
           </Card>
-          <Card
+          {/* <Card
             className="users__content-cards--card"
             hoverable
             cover={<Link to="/deleteupdateuser"><img alt="example" src={deleteuser} /></Link>}
@@ -59,7 +59,7 @@ class Users extends React.Component {
             <Link className="btn" to="/deleteupdateuser" type="primary" shape="circle">
               IR
             </Link>
-          </Card>
+          </Card> */}
         </div>
         <div className="mesage"><span>¡</span>Aqui puedes gestionar un usuario, puedes Consultarlos, Registrarlos, Actualizarlos, Y Eliminarlos con tan solo dar click sobre la opcion que desees<span>!</span></div>
 

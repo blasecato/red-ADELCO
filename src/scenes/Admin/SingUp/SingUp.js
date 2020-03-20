@@ -31,7 +31,7 @@ const FormSingUp = ({ form }) => {
 			<LayoutHome />
 			<div className="registeruser">
 				<div className="users--title">
-					<h1>Registrar Beneficiario</h1>
+					<h1>Registrar Administrador</h1>
 				</div>
 				<Form layout="inline" className="registeruser--form" onSubmit={handleSubmit}>
 					<div className="registeruser--form__content-1">

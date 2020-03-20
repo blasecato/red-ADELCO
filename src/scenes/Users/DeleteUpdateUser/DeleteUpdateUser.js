@@ -75,15 +75,7 @@ export const DeleteUpdateUser = () => {
                             </span>
                         )}
                         />
-                        <Column
-                        title="Mas..."
-                        key="Eliminar"
-                        render={(text, record) => (
-                            <span>
-                                <DeleteUser></DeleteUser>
-                            </span>
-                        )}
-                        />
+                        
                     </Table>
                 </Card>
                     

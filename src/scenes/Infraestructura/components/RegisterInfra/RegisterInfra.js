@@ -101,10 +101,10 @@ const FormRegisterInfra = ({ form }) => {
 										)}
 									</div>
 								</Form.Item>
-								<Form.Item className="item">
+								{/* <Form.Item className="item">
 									<label>Estado de la Infraestructura</label>
 									<div className="select-content">
-										{/*getFieldDecorator('idestado', {
+										getFieldDecorator('idestado', {
 											rules: [{ required: true, message: 'Porfavor seleccione un estado' }],
 										})(
 											<Select className="select">
@@ -112,9 +112,9 @@ const FormRegisterInfra = ({ form }) => {
 												<Option value="1">hola</Option>
 												<Option value="2">fdgfdg</Option>
 											</Select>
-										)*/}
+										)
 									</div>
-								</Form.Item>
+								</Form.Item> */}
 								<Form.Item className="item">
 									<label>Representante</label>
 									{getFieldDecorator('responsable', {
