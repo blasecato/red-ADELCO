@@ -55,7 +55,7 @@ export const OrgQuery = () => {
         <Card title="Listado de Beneficiarios"
           extra={<Search
             placeholder="Buscar Usuario"
-            onSearch={value => console.log(value)}
+            onSearch={organizations => console.log(organizations)}
           />}
         >
           <Table dataSource={organizations} rowKey="id">
