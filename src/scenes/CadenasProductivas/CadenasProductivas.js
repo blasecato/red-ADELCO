@@ -32,7 +32,7 @@ export const CadenasProductivas = () => {
 		const jsonConvert = []
 		lineProductives.forEach(item => {
 			jsonConvert.push({
-				cosigo: item.id,
+				codigo: item.id,
 				nombre: item.nombre,
 				CadenaProductiva: item.idCadenaProductiva2.nombre
 			})

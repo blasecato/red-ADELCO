@@ -29,6 +29,11 @@ import { OrgQuery } from "../../Organizaciones/components/Org/Org";
 import { InfraQuery } from "../../Infraestructura/components/RegisterInfra/QueryInfraestructura/QueryInfraestructura";
 import { Vereda } from "../../CadenasProductivas/Veredas/Veredas";
 import { RegisterVereda } from "../../CadenasProductivas/Veredas/RegistrarVereda";
+import { Beneficios } from "../../CadenasProductivas/Beneficios/Beneficios";
+import { Kid } from "../../CadenasProductivas/Kid/Kid";
+import { Diagnostico } from "../../CadenasProductivas/Diagnostico/Diagnostico";
+import { Aft } from "../../CadenasProductivas/Aft/Aft";
+import { Afts } from "../../CadenasProductivas/Afts/Afts";
 import { Reincorporacion } from "../../Reincorporacion/Reincorporacion";
 import { ActualizarOrgFrom } from "../../Organizaciones/components/ActulizarOrg/ActulizarOrg";
 import { ActualizarInfra } from '../../Infraestructura/components/ActualizarInfra/ActualizarInfra';
@@ -78,6 +83,11 @@ export const Private = () => {
         <Route path="/actulizarinfra/" component={ActualizarInfra} />
         <Route path="/beneficiariosorg/" component={BeneficiariosOrga} />
         <Route path="/linea-productiva/" component={LineProductoves} />
+        <Route path="/beneficios/" component={Beneficios} />
+        <Route path="/kit/" component={Kid} />
+        <Route path="/Aft/" component={Aft} />
+        <Route path="/Afts/" component={Afts} />
+        <Route path="/diagnosticos/" component={Diagnostico} />
       </Router>
     </div>
   )

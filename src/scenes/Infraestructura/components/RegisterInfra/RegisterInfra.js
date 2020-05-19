@@ -68,9 +68,9 @@ const FormRegisterInfra = ({ form }) => {
 
 								</Form.Item>
 								<Form.Item className="item">
-									<label>Covertura (metros)</label>
-									{getFieldDecorator('covertura', {
-										rules: [{ required: true, message: 'Porfavor ingrese la covertura', whitespace: true }],
+									<label>Cobertura (metros)</label>
+									{getFieldDecorator('cobertura', {
+										rules: [{ required: true, message: 'Porfavor ingrese la cobertura', whitespace: true }],
 									})(<Input type="number" className="item--input" placeholder="Metros Cuadrados" />)}
 								</Form.Item>
 								<Form.Item className="item">

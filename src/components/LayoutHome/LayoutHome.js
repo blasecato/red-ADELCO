@@ -24,6 +24,31 @@ const menu = (
       </Link>
     </Menu.Item>
     <Menu.Item>
+      <Link className="layout-home__nav__index" to="/beneficios">
+        Beneficios
+      </Link>
+    </Menu.Item>
+    <Menu.Item>
+      <Link className="layout-home__nav__index" to="/aft">
+        Registrar AFT
+      </Link>
+    </Menu.Item>
+    <Menu.Item>
+      <Link className="layout-home__nav__index" to="/afts">
+        Listar AFT
+      </Link>
+    </Menu.Item>
+    <Menu.Item>
+      <Link className="layout-home__nav__index" to="/diagnosticos">
+        Diagnosticos
+      </Link>
+    </Menu.Item>
+    <Menu.Item>
+      <Link className="layout-home__nav__index" to="/kit">
+        kit usuario
+      </Link>
+    </Menu.Item>
+    <Menu.Item>
       <Link className="layout-home__nav__index" to="/coberturas">
         Coberturas
       </Link>

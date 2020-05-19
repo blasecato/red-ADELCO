@@ -75,9 +75,9 @@ const FormRegisterCultivos = ({ form }) => {
 									</div>
 								</Form.Item>
 								<Form.Item className="item">
-									<label>Covertura (Hectareas)</label>
+									<label>Cobertura (Hectareas)</label>
 									{getFieldDecorator('hectareas', {
-										rules: [{ required: true, message: 'Porfavor ingrese la covertura', whitespace: true }],
+										rules: [{ required: true, message: 'Porfavor ingrese la cobertura', whitespace: true }],
 									})(<Input type="number" className="item--input" placeholder="Metros Cuadrados" />)}
 								</Form.Item>
 								<Form.Item className="item" >
@@ -101,7 +101,7 @@ const FormRegisterCultivos = ({ form }) => {
 									</div>
 								</Form.Item>
 								<Form.Item className="item">
-									<label>Municipio de la Infraestructura</label>
+									<label>Municipio del cultivo</label>
 									<div className="select-content">
 										{getFieldDecorator('idMunicipio', {
 											rules: [{ required: true, message: 'Porfavor seleccione un municipio' }],
@@ -115,7 +115,7 @@ const FormRegisterCultivos = ({ form }) => {
 									</div>
 								</Form.Item>
 								<Form.Item className="item">
-									<label>Vereda de la Infraestructura</label>
+									<label>Vereda del cultivo</label>
 									<div className="select-content">
 										{getFieldDecorator('idVereda', {
 											rules: [{ required: true, message: 'Porfavor seleccione un vereda' }],
@@ -128,6 +128,13 @@ const FormRegisterCultivos = ({ form }) => {
 										)}
 									</div>
 								</Form.Item>
+								 <Form.Item className="item">
+									<label>posicion del acepta</label>
+									{getFieldDecorator('posicion del acepta', {
+										rules: [{ required: true, message: 'Porfavor ingrese la posicion', whitespace: true }],
+									})
+										(<Input className="item--input" placeholder="posicion" />)}
+								</Form.Item> 
 							</div>
 						</div>
 					</div>

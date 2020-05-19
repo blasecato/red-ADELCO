@@ -35,7 +35,7 @@ export const InfraQuery = () => {
 				>
 					<Table dataSource={infra} rowKey="id">
 						<Column title="Nombre." dataIndex="nombre" Key="nombre" />
-						<Column title="Covertura." dataIndex="covertura" Key="covertura" />
+						<Column title="Cobertura." dataIndex="covertura" Key="covertura" />
 						<Column title="Municipio." dataIndex="idVereda2.idMunicipio2.nombre" Key="idVereda2" />
 						<Column title="Responsable." dataIndex="responsable" Key="responsable" />
 						<Column title="Descripcion." dataIndex="descripcion" Key="descripcion" />

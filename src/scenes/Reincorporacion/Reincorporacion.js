@@ -24,7 +24,7 @@ export const Reincorporacion = () => {
 	// 	const jsonConvert = []
 	// 	cropsProducer.forEach(item => {
 	// 		jsonConvert.push({
-	// 			cosigo: item.id,
+	// 			codigo: item.id,
 	// 			Municipio: item.idMunicipio2.nombre,
 	// 			Vereda: item.idVereda2.nombre,
 	// 			CodigoProductor: item.codigoProductor2.nombres + ' ' + item.codigoProductor2.apellidos,
