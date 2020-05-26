@@ -23,6 +23,7 @@ const FormRegisterUser = ({ form }) => {
       if (!err) {
         console.log('Received register values of form: ', values)
         dispatch(producerActions.createProducer(values))
+        form.resetFields()
       }
     })
   }
@@ -41,6 +42,12 @@ const FormRegisterUser = ({ form }) => {
                 Datos Personales
               </div>
               <div className="form">
+              <Form.Item className="item">
+                  <label>Codigo</label>
+                  {getFieldDecorator('id', {
+                    rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+                  })(<Input placeholder="Codigo" className="item--input" />)}
+                </Form.Item>
                 <Form.Item className="item">
                   <label>Nombres</label>
                   {getFieldDecorator('nombres', {

@@ -6,6 +6,8 @@ import CropSaga from '../services/crop/cropSaga'
 import MunicipioSaga from '../services/municipio/municipioSaga'
 import OrganizationSaga from '../services/organization/organizationSaga'
 import cadeSaga from '../services/line-cadena/line-cadenaSaga'
+import atfSaga from "../services/atf/AtfSaga";
+import kitSaga from "../services/Kit/KitSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -16,5 +18,7 @@ export default function* rootSaga() {
     fork(MunicipioSaga),
     fork(OrganizationSaga),
     fork(cadeSaga),
+    fork(atfSaga),
+    fork(kitSaga),
   ]);
 }

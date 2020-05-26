@@ -31,7 +31,7 @@ const FormRegisterInfra = ({ form }) => {
 		form.validateFields((err, values) => {
 			if (!err) {
 				console.log('Received values of form: ', values);
-				dispatch(cade.createCadena(values))
+				dispatch(cade.createInfra(values))
 				form.resetFields()
 			}
 		});
@@ -69,7 +69,7 @@ const FormRegisterInfra = ({ form }) => {
 								</Form.Item>
 								<Form.Item className="item">
 									<label>Cobertura (metros)</label>
-									{getFieldDecorator('cobertura', {
+									{getFieldDecorator('covertura', {
 										rules: [{ required: true, message: 'Porfavor ingrese la cobertura', whitespace: true }],
 									})(<Input type="number" className="item--input" placeholder="Metros Cuadrados" />)}
 								</Form.Item>
@@ -101,20 +101,6 @@ const FormRegisterInfra = ({ form }) => {
 										)}
 									</div>
 								</Form.Item>
-								{/* <Form.Item className="item">
-									<label>Estado de la Infraestructura</label>
-									<div className="select-content">
-										getFieldDecorator('idestado', {
-											rules: [{ required: true, message: 'Porfavor seleccione un estado' }],
-										})(
-											<Select className="select">
-												<Option value="0">activo</Option>
-												<Option value="1">hola</Option>
-												<Option value="2">fdgfdg</Option>
-											</Select>
-										)
-									</div>
-								</Form.Item> */}
 								<Form.Item className="item">
 									<label>Representante</label>
 									{getFieldDecorator('responsable', {

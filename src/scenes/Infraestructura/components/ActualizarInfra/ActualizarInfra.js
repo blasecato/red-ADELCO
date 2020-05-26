@@ -14,9 +14,6 @@ const FormActualizarInfra = ({ form }) => {
 
 
 	const { infra } = useSelector(state => state.cade)
-
-	
-    
 	const dispatch = useDispatch()
 	const { dateInfra } = useSelector(state => state.cade)
 
@@ -39,14 +36,14 @@ const FormActualizarInfra = ({ form }) => {
 		form.validateFields((err, values) => {
 			if (!err) {
 				console.log('Received values of form: ', values);
-				dispatch(cade.createCadena(values))
+				dispatch(cade.update(values))
 				form.resetFields()
 			}
 		});
 	};
 
 	const handleVeredas = (value) => {
-		setVeredas(dateInfra.municipio.find((municipio) => municipio.id === value).veredas)
+		setVeredas(dateInfra && dateInfra.municipio.find((municipio) => municipio.id === value).veredas)
 	}
 
 	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = form;
@@ -74,7 +71,9 @@ const FormActualizarInfra = ({ form }) => {
 										{getFieldDecorator('id', {
 											rules: [{ required: true, message: 'Porfavor seleccione una infraestructura' }],
 										})(
-											<Select className="select" onChange={handleVeredas}>
+											<Select className="select" 
+											// onChange={handleVeredas}
+											>
 												{infra && infra.map((item) => (
 													<Option key={item.id} value={item.id}>{item.nombre}</Option>
 												))}

@@ -10,7 +10,7 @@ import exel from "../../../assets/image/excel.png";
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
-
+ 
 export const Cultivo = () => {
 
 	

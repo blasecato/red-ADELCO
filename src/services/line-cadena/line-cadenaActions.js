@@ -28,5 +28,8 @@ export const { cade } = createActions({
 
     GET: (id) => ({ id }),
     GET_RESPONSE: (dateLine) => ({ dateLine }),
+
+    UPDATE: (infra) => ({ infra }),
+    UPDATE_RESPONSE: () => ({}),
   }
 })

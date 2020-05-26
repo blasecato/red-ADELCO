@@ -7,6 +7,8 @@ import reducerCrops from '../services/crop/cropReducer';
 import reducerMunicipio from '../services/municipio/municipioReducer';
 import reducerOrganization from '../services/organization/organizationReducer';
 import reducerCade from '../services/line-cadena/line-cadenaReducer';
+import reducerAtf from "../services/atf/AtfReducer";
+import reducerKit from "../services/Kit/KitReducer";
 
 
 const appReducer = history =>
@@ -19,6 +21,8 @@ const appReducer = history =>
     municipio: reducerMunicipio,
     organization: reducerOrganization,
     cade: reducerCade,
+    atf: reducerAtf,
+    kit: reducerKit,
   });
 
 const rootReducer = history => {

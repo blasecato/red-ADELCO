@@ -40,12 +40,22 @@ const menu = (
     </Menu.Item>
     <Menu.Item>
       <Link className="layout-home__nav__index" to="/diagnosticos">
-        Diagnosticos
+        Registrar Diagnosticos
+      </Link>
+    </Menu.Item>
+    <Menu.Item>
+      <Link className="layout-home__nav__index" to="/ver-diagnosticos">
+        Ver Diagnosticos
       </Link>
     </Menu.Item>
     <Menu.Item>
       <Link className="layout-home__nav__index" to="/kit">
-        kit usuario
+        Registrar kit a un usuario
+      </Link>
+    </Menu.Item>
+    <Menu.Item>
+      <Link className="layout-home__nav__index" to="/kituser">
+        usuarios con kits
       </Link>
     </Menu.Item>
     <Menu.Item>

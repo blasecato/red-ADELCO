@@ -12,6 +12,16 @@ function* createOrganization({ payload }) {
   }
 }
 
+function* createDiagnostico({ payload }) {
+  const response = yield Api.post('/crops/create-diagnostic', payload.organization)
+  if (response.ok) {
+    yield put(organization.createDiagnosticoResponse());
+  } else {
+    const err = new TypeError('ERROR_CREATE_DIAGNOSTICO')
+    yield put(organization.createDiagnosticoResponse(err))
+  }
+}
+
 function* getOrganization() {
   const response = yield Api.get('/organization')
   if (response.ok) {
@@ -19,6 +29,16 @@ function* getOrganization() {
   } else {
     const err = new TypeError('ERROR_CREATE_ORGANIZATION')
     yield put(organization.getOrganizationResponse(err))
+  }
+}
+
+function* getDiagnostico() {
+  const response = yield Api.get('/crops/get/crops-diagnostic')
+  if (response.ok) {
+    yield put(organization.getDiagnosticoResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_CREATE_DIAGNOSTICO')
+    yield put(organization.getDiagnosticoResponse(err))
   }
 }
 
@@ -44,7 +64,9 @@ function* update({ payload }) {
 
 function* ActionWatcher() {
   yield takeLatest(organization.createOrganization, createOrganization)
+  yield takeLatest(organization.createDiagnostico, createDiagnostico)
   yield takeLatest(organization.getOrganization, getOrganization)
+  yield takeLatest(organization.getDiagnostico, getDiagnostico)
   yield takeLatest(organization.get, get)
   yield takeLatest(organization.update, update)
 }

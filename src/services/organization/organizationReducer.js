@@ -17,8 +17,28 @@ const reducer = handleActions({
       }
     },
 
+    CREATE_DIAGNOSTICO: (state, { payload: { } }) => ({ ...state, loading: true }),
+    CREATE_DIAGNOSTICO_RESPONSE: {
+      next(state, { payload: { } }) {
+        return { ...state }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
     GET_ORGANIZATION: (state, { payload: { } }) => ({ ...state, loading: true }),
     GET_ORGANIZATION_RESPONSE: {
+      next(state, { payload: { organizations } }) {
+        return { ...state, organizations }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
+    GET_DIAGNOSTICO: (state, { payload: { } }) => ({ ...state, loading: true }),
+    GET_DIAGNOSTICO_RESPONSE: {
       next(state, { payload: { organizations } }) {
         return { ...state, organizations }
       },

@@ -44,7 +44,7 @@ function* getCade() {
 }
 
 function* createInfra({ payload }) {
-  const response = yield Api.post('/infrastructures', payload.infra)
+  const response = yield Api.post('/infrastructures/create', payload.infra)
   if (response.ok) {
     yield put(cade.createInfraResponse());
   } else {
@@ -93,6 +93,16 @@ function* get({ payload }) {
   }
 }
 
+function* update({ payload }) {
+  const response = yield Api.put(`/infrastructures/update`, payload.cade)
+  if (response.ok) {
+    yield put(cade.updateResponse());
+  } else {
+    const err = new TypeError('ERROR_GET_PRODUCER')
+    yield put(cade.getResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(cade.getDateInfra, getDateInfra)
   yield takeLatest(cade.getInfra, getInfra)
@@ -103,6 +113,7 @@ function* ActionWatcher() {
   yield takeLatest(cade.createLine, createLine)
   yield takeLatest(cade.getCade, getCade)
   yield takeLatest(cade.get, get)
+  yield takeLatest(cade.update, update)
 }
 
 export default function* rootSaga() {

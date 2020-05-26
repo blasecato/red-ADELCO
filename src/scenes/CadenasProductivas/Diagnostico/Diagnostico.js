@@ -5,6 +5,8 @@ import LayoutHome from "../../../components/LayoutHome/LayoutHome";
 import { useDispatch, useSelector } from "react-redux";
 import { cade } from "../../../services/line-cadena/line-cadenaActions";
 import { producer as producerActions } from "../../../services/Producer/ProducerActions";
+import { crop } from '../../../services/crop/cropActions';
+import { organization as organizationActions } from "../../../services/organization/organizationActions";
 
 
 const { Option } = Select;
@@ -14,6 +16,7 @@ const FormDiagnostico = ({ form }) => {
 	const { getFieldDecorator, validateFields, resetFields } = form
 	const { dateInfra } = useSelector(state => state.cade)
 	const { genderDate, getProducerUpdateDate } = useSelector(state => state.producer)
+	const { cropsProducer } = useSelector(state => state.crop)
 
 	const dispatch = useDispatch()
 
@@ -21,6 +24,7 @@ const FormDiagnostico = ({ form }) => {
 		dispatch(cade.getDateInfra());
 		dispatch(producerActions.getProducerDate())
 		dispatch(producerActions.getProducerUpdate())
+		dispatch(crop.getCropsProducer())
 	}, [])
 
 	const handleSubmit = e => {
@@ -28,11 +32,13 @@ const FormDiagnostico = ({ form }) => {
 		validateFields((err, values) => {
 			if (!err) {
 				console.log('Received values of form: ', values);
-				dispatch(cade.createVereda(values));
+				dispatch(organizationActions.createDiagnostico(values))
 				resetFields()
 			}
 		})
 	}
+	
+
 
 	return (
 		<section >
@@ -50,9 +56,9 @@ const FormDiagnostico = ({ form }) => {
 							</div>
 							<div className="form">
 								<Form.Item className="item">
-									<label>Seleccione Cultivo</label>
+									<label>Seleccione dueño del Cultivo por cedula</label>
 									<div className="select-content">
-										{getFieldDecorator('dni', {
+										{getFieldDecorator('idCultivo', {
 											rules: [{ required: true, message: 'Porfavor seleccione un usuario!' }],
 										})(
 											<Select
@@ -66,14 +72,14 @@ const FormDiagnostico = ({ form }) => {
 												}
 												showSearch
 											>
-												{genderDate && genderDate.map((date, index) => <Option key={index} value={date.dni} >{date.nombres} {date.apellidos}</Option>)}
+												{cropsProducer && cropsProducer.map((date, index) => <Option key={index} value={date.id} >{date.dniProductor}</Option>)}
 											</Select>
 										)}
 									</div>
 								</Form.Item>
                                 <Form.Item className="item">
 									<label>posicion del diagnostico</label>
-									{getFieldDecorator('posicion del diagnostico', {
+									{getFieldDecorator('nombre', {
 										rules: [{ required: true, message: 'Porfavor ingrese la posicion', whitespace: true }],
 									})
 										(<Input className="item--input" placeholder="posicion" />)}

@@ -4,7 +4,7 @@ import { Input, Icon } from 'antd';
 import { atf as atfActions } from '../../../services/atf/AtfActions';
 
 import { crop as cropActions } from "../../../services/crop/cropActions";
-import { cade as cadeActions } from "../../../services/line-cadena/line-cadenaActions";
+import { organization as organizationActions } from "../../../services/organization/organizationActions";
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -14,32 +14,31 @@ const { Option } = Select;
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
 
-export const Afts = (props) => {
+export const Diagnosticos = (props) => {
 
 
-	const { atf } = useSelector(state => state.atf)
+	const { organizations } = useSelector(state => state.organization)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(atfActions.getAtf())
+		dispatch(organizationActions.getDiagnostico())
 	}, [])
+
+	console.log('hla',organizations)
 
 	return (
 		<div className="deleteupdateuser beneficioarios-org">
 			<LayoutHome />
 			<div className="queryuser__content">
 				<div className="users--title">
-					<h1>Consultar AFT</h1>
+					<h1>Ver Diagnosticos</h1>
 				</div>
 				
-				 <Card title={"Beneficiarios : " }>
-					<Table dataSource={atf} rowKey="id">
-						<Column title="NIT" dataIndex="nit" key="nit" />
-						<Column title="Organizacion." dataIndex="idOrganizacion2.nombre" key="organizacion" />
-						<Column title="Representante" dataIndex="idProductor" key="dni" />
-						<Column title="Banco" dataIndex="banco" key="banco" />
-						<Column title="Cuenta bancarea" dataIndex="cuenta" key="cuenta" />
-						<Column title="Matricula" dataIndex="matricula" key="matricula" />
+				 <Card title={"Diagnosticos : " }>
+					<Table dataSource={organizations} rowKey="id">
+						<Column title="DNI beneficiario" dataIndex="dniProductor" key="dni" />
+						<Column title="Hectareas" dataIndex="hectareas" key="hectareas" />
+						<Column title="Pocision Diagnostico" dataIndex="diagnosticos.nombre" key="nombre" />
 					</Table>
 				</Card>
 			</div>
