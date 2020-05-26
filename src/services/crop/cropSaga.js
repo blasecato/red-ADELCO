@@ -33,7 +33,7 @@ function* getLineProductive() {
 }
 
 function* createCrop({ payload }) {
-  const response = yield Api.post('/crops', payload.crop)
+  const response = yield Api.post('/crops/create', payload.crop)
   if (response.ok) {
     yield put(crop.createCropResponse());
   } else {

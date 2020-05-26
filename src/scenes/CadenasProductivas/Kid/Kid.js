@@ -39,6 +39,7 @@ const FormKid = ({ form }) => {
 		})
 	}
 
+	console.log('genderDate',genderDate)
 
 	return (
 		<section >

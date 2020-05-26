@@ -29,6 +29,7 @@ const FormRegisterCultivos = ({ form }) => {
 					...results,
 					fechaInicio: moment(fechaInicio, "DD-MM-YYYY").format("YYYY-MM-DD")
 				}))
+				form.resetFields()
 			}
 		})
 	}
@@ -68,7 +69,7 @@ const FormRegisterCultivos = ({ form }) => {
 										})(
 											<Select className="select">
 												{cropsDate && cropsDate.productores.map((productor) => (
-													<Option key={productor.dni} value={productor.dni}>{productor.nombres}</Option>
+													<Option key={productor.dni} value={productor.dni}>{productor.nombres} {productor.apellidos}</Option>
 												))}
 											</Select>
 										)}
@@ -130,7 +131,7 @@ const FormRegisterCultivos = ({ form }) => {
 								</Form.Item>
 								 <Form.Item className="item">
 									<label>posicion del acepta</label>
-									{getFieldDecorator('posicion del acepta', {
+									{getFieldDecorator('posicionAcepta', {
 										rules: [{ required: true, message: 'Porfavor ingrese la posicion', whitespace: true }],
 									})
 										(<Input className="item--input" placeholder="posicion" />)}
