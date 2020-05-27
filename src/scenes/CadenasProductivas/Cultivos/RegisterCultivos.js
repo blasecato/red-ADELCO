@@ -67,7 +67,18 @@ const FormRegisterCultivos = ({ form }) => {
 										{getFieldDecorator('dniProductor', {
 											rules: [{ required: true, message: 'Porfavor seleccione el Encargado' }],
 										})(
-											<Select className="select">
+											<Select 
+												className="select"
+												className="select"
+												placeholder="usuario"
+												filterOption={(inputValue, option) =>
+													option.props.children
+														.toString()
+														.toLowerCase()
+														.includes(inputValue.toLowerCase())
+												}
+												showSearch
+											>
 												{cropsDate && cropsDate.productores.map((productor) => (
 													<Option key={productor.dni} value={productor.dni}>{productor.nombres} {productor.apellidos}</Option>
 												))}
