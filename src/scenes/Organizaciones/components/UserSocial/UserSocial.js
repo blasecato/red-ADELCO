@@ -115,7 +115,10 @@ const UserSocial = ({ form }) => {
                     )}
                   </div>
                 </Form.Item>
-                <Form.Item className="item">
+
+
+
+                {/* <Form.Item className="item">
                   <label>Seleccione Parentesco Familiar</label>
                   <div className="select-content">
                     {getFieldDecorator('idParentesco2', {
@@ -137,7 +140,10 @@ const UserSocial = ({ form }) => {
                       </Select>
                     )}
                   </div>
-                </Form.Item>
+                </Form.Item> */}
+
+
+                
                 <Form.Item className="item">
                   <label>Seleccione Discapacidad</label>
                   <div className="select-content">
@@ -161,29 +167,7 @@ const UserSocial = ({ form }) => {
                     )}
                   </div>
                 </Form.Item>
-                <Form.Item className="item">
-                  <label>Seleccione si es victima del Conflicto</label>
-                  <div className="select-content">
-                    {getFieldDecorator('idConflicto2', {
-                      rules: [{ required: true, message: 'Porfavor seleccione una Opcion' }],
-                    })(
-                      <Select
-                        className="item--input"
-                        placeholder="Victima del conflicto armado"
-                        filterOption={(inputValue, option) =>
-                          option.props.children
-                            .toString()
-                            .toLowerCase()
-                            .includes(inputValue.toLowerCase())
-                        }
-                        showSearch
-                      >
-                        {getProducerUpdateDate &&
-                          getProducerUpdateDate.conflicto.map((date, index) => <Option key={index} value={date.id} >{date.nombre}</Option>)}
-                      </Select>
-                    )}
-                  </div>
-                </Form.Item>
+               
                 <Form.Item className="item">
                   <label>Seleccione si es victima del Organizacion</label>
                   <div className="select-content">

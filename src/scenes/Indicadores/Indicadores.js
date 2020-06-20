@@ -76,15 +76,6 @@ export  const Indicadores = () => {
                                         <p>{data.fuenteVerificacion}</p>
                                     </div>
                                     <div className="content-card">
-                                        <h1 className="content-title">Cargar Fuentes</h1>
-                                        <div className="content-pdf">
-                                            <Upload className="btn-group" {...props}>
-                                                <Button className="btn-pdf"><img src={pdf} /></Button>
-                                            </Upload>
-                                            <p>Subir PDF</p>
-                                        </div>
-                                    </div>
-                                    <div className="content-card">
                                         <h1 className="content-title">Actualizar Fuentes</h1>
                                         <div className="content-pdf">
                                             <Button className="btn-actualizar">Actualizar</Button>

@@ -39,6 +39,11 @@ const menu = (
       </Link>
     </Menu.Item>
     <Menu.Item>
+      <Link className="layout-home__nav__index" to="/afts-avances">
+        Avances AFT
+      </Link>
+    </Menu.Item>
+    <Menu.Item>
       <Link className="layout-home__nav__index" to="/diagnosticos">
         Registrar Diagnosticos
       </Link>

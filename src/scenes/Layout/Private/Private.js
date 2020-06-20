@@ -34,6 +34,7 @@ import { Kid } from "../../CadenasProductivas/Kid/Kid";
 import { Diagnostico } from "../../CadenasProductivas/Diagnostico/Diagnostico";
 import { Diagnosticos } from "../../CadenasProductivas/VerDiagnosticos/VerDiagnosticos";
 import { Aft } from "../../CadenasProductivas/Aft/Aft";
+import { AvancesAft } from "../../CadenasProductivas/Aft/AvancesAtf";
 import { Afts } from "../../CadenasProductivas/Afts/Afts";
 import { KitUser } from "../../CadenasProductivas/kitUser/kitUser";
 import { Reincorporacion } from "../../Reincorporacion/Reincorporacion";
@@ -89,6 +90,7 @@ export const Private = () => {
         <Route path="/kit/" component={Kid} />
         <Route path="/Aft/" component={Aft} />
         <Route path="/Afts/" component={Afts} />
+        <Route path="/afts-avances/" component={AvancesAft} />
         <Route path="/kituser/" component={KitUser} />
         <Route path="/diagnosticos/" component={Diagnostico} />
         <Route path="/ver-diagnosticos/" component={Diagnosticos} />

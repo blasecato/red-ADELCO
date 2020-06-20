@@ -38,7 +38,7 @@ export const Diagnosticos = (props) => {
 					<Table dataSource={organizations} rowKey="id">
 						<Column title="DNI beneficiario" dataIndex="dniProductor" key="dni" />
 						<Column title="Hectareas" dataIndex="hectareas" key="hectareas" />
-						<Column title="Pocision Diagnostico" dataIndex="diagnosticos.nombre" key="nombre" />
+						<Column title="Pocision Diagnostico" dataIndex="diagnosticos[0].nombre" key="diagnosticos.nombre" />
 					</Table>
 				</Card>
 			</div>

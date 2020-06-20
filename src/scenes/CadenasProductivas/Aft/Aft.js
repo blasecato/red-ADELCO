@@ -13,7 +13,7 @@ import { atf as atfActions } from "../../../services/atf/AtfActions";
 
 const { Option } = Select;
 
-const FormAft = ({ form }) => {
+const FormAft = ({ form,history }) => {
 
 	const { getFieldDecorator, validateFields, resetFields } = form
 	const { dateInfra } = useSelector(state => state.cade)
@@ -46,6 +46,7 @@ const FormAft = ({ form }) => {
 				console.log('Received values of form: ', values);
 				dispatch(atfActions.createAtf(values));
 				resetFields()
+				history.push("/home")
 			}
 		})
 	}
@@ -95,7 +96,7 @@ const FormAft = ({ form }) => {
 									</div>
 								</Form.Item>
 								<Form.Item className="item">
-									<label>Municipio del cultivo</label>
+									<label>Municipio</label>
 									<div className="select-content">
 										{getFieldDecorator('idMunicipio', {
 											rules: [{ required: true, message: 'Porfavor seleccione un municipio' }],
@@ -187,6 +188,12 @@ const FormAft = ({ form }) => {
 											placeholder="Username"
 										/>,
 									)}
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Estado de AFT</label>
+									{getFieldDecorator('estado', {
+										rules: [{ required: true, message: 'Porfavor ingrese el estado', whitespace: true }],
+									})(<Input placeholder="Estado" className="item--input" />)}
 								</Form.Item>
 							</div>
 						</div>

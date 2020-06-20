@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Upload, message, Avatar, Form, Icon, Input, Button, Select, Radio, DatePicker } from 'antd';
+import { producer as producerActions } from '../../services/Producer/ProducerActions'
+import { useDispatch, useSelector } from "react-redux";
 
 import LayoutHome from "../LayoutHome/LayoutHome";
 
@@ -9,12 +11,19 @@ const { Option } = Select;
 
 export const SelectComponente = (props) => {
 
+    const { genderDate, getProducerUpdateDate } = useSelector(state => state.producer)
     const { validateFields, getFieldDecorator } = props.form
     const [state, setstate] = useState({
         value: 1,
         desisable: true,
       })
-    
+      const dispatch = useDispatch()
+
+      useEffect(() => {
+        dispatch(producerActions.getProducerDate())
+        dispatch(producerActions.getProducerUpdate())
+      }, [])
+
       const handleSubmit = e => {
         e.preventDefault();
         validateFields((err, values) => {
@@ -32,12 +41,20 @@ export const SelectComponente = (props) => {
           <h1>Actualizar Beneficiario</h1>
         </div>
         <Form layout="inline" className="registeruser--form" onSubmit={handleSubmit}>
-          <div className="registeruser--form__content-1">
+
+
+        <div className="registeruser--form__content-1">
             <div className="registeruser--form__content-1--left">
               <div className="registeruser--form__content-1--rigth--title">
                 Datos Personales
               </div>
               <div className="form">
+              <Form.Item className="item">
+                  <label>Codigo</label>
+                  {getFieldDecorator('id', {
+                    rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+                  })(<Input placeholder="Codigo" className="item--input" />)}
+                </Form.Item>
                 <Form.Item className="item">
                   <label>Nombres</label>
                   {getFieldDecorator('nombres', {
@@ -85,12 +102,72 @@ export const SelectComponente = (props) => {
                   })(
                     <Input type="number" className="item--input" placeholder="Edad" />)}
                 </Form.Item>
+
+
+                <Form.Item className="item">
+                  <label>Seleccione Parentesco Familiar</label>
+                  <div className="select-content">
+                    {getFieldDecorator('idParentesco2', {
+                      rules: [{ required: true, message: 'Porfavor seleccione un parentesco!' }],
+                    })(
+                      <Select
+                        className="item--input"
+                        placeholder="parentesco familiar"
+                        filterOption={(inputValue, option) =>
+                          option.props.children
+                            .toString()
+                            .toLowerCase()
+                            .includes(inputValue.toLowerCase())
+                        }
+                        showSearch
+                      >
+                        {getProducerUpdateDate &&
+                          getProducerUpdateDate.parentesco.map((date, index) => <Option key={index} value={date.id} >{date.nombre}</Option>)}
+                      </Select>
+                    )}
+                  </div>
+                </Form.Item>
+                <Form.Item className="item">
+                  <label>Seleccione si es victima del Conflicto</label>
+                  <div className="select-content">
+                    {getFieldDecorator('idConflicto2', {
+                      rules: [{ required: true, message: 'Porfavor seleccione una Opcion' }],
+                    })(
+                      <Select
+                        className="item--input"
+                        placeholder="Victima del conflicto armado"
+                        filterOption={(inputValue, option) =>
+                          option.props.children
+                            .toString()
+                            .toLowerCase()
+                            .includes(inputValue.toLowerCase())
+                        }
+                        showSearch
+                      >
+                        {getProducerUpdateDate &&
+                          getProducerUpdateDate.conflicto.map((date, index) => <Option key={index} value={date.id} >{date.nombre}</Option>)}
+                      </Select>
+                    )}
+                  </div>
+                </Form.Item>
+                <Form.Item className="item">
+                  <label>Entidad Perteneciente</label>
+                  {getFieldDecorator('entidad', {
+                    rules: [{ required: true, message: 'Porfavor ingrese la entidad', whitespace: true }],
+                  })(<Input placeholder="Codigo" className="item--input" />)}
+                </Form.Item>
+
               </div>
             </div>
           </div>
           <div className="btn">
-            <Button htmlType="submit"><Icon type="form" />Actualizar</Button>
+            <Button htmlType="submit"><Icon type="form" />Registrar</Button>
           </div>
+
+
+
+
+          
         </Form>
       </div>
     </section>

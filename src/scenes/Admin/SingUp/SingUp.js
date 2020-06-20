@@ -6,7 +6,7 @@ import { auth } from "../../../services/Auth/AuthActions"
 
 const { Option } = Select
 
-const FormSingUp = ({ form }) => {
+const FormSingUp = ({ form,history }) => {
 
 	const dispatch = useDispatch()
 	const { getFieldDecorator, validateFields, resetFields } = form
@@ -20,8 +20,10 @@ const FormSingUp = ({ form }) => {
 		e.preventDefault()
 		validateFields((err, values) => {
 			if (!err) {
+				console.log(values)
 				dispatch(auth.signup(values))
 				resetFields()
+				history.push("/home")
 			}
 		})
 	}
@@ -42,7 +44,7 @@ const FormSingUp = ({ form }) => {
 							<div className="form">
 								<Form.Item className="item">
 									<label>Usuario</label>
-									{getFieldDecorator('user', {
+									{getFieldDecorator('email', {
 										rules: [{ type: 'email', required: true, message: 'porfavor registre un correo valido' }],
 									})(
 										<Input className="item--input"
@@ -63,11 +65,18 @@ const FormSingUp = ({ form }) => {
 									)}
 								</Form.Item>
 								<Form.Item className="item">
-									<label>Nombres y Apellidos</label>
-									{getFieldDecorator('nombre', {
+									<label>Nombres</label>
+									{getFieldDecorator('nombres', {
 										rules: [{ required: true, message: 'Porfavor ingrese el usuario', whitespace: true }],
 									})
-										(<Input className="item--input" placeholder="Nombre y Apellido" />)}
+										(<Input className="item--input" placeholder="Nombres" />)}
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Apellidos</label>
+									{getFieldDecorator('apellidos', {
+										rules: [{ required: true, message: 'Porfavor ingrese el usuario', whitespace: true }],
+									})
+										(<Input className="item--input" placeholder="Apellidos" />)}
 								</Form.Item>
 								<Form.Item className="item">
 									<label>Numero de Identidad</label>
@@ -76,10 +85,22 @@ const FormSingUp = ({ form }) => {
 									})(
 										<Input type="number" className="item--input" placeholder="DNI" />)}
 								</Form.Item>
-
+								<Form.Item className="item">
+									<label>Genero</label>
+									<div className="select-content">
+										{getFieldDecorator('idGenero', {
+											rules: [{ required: true, message: 'Please select your country!' }],
+										})(
+											<Select className="item--input" placeholder="Genero">
+												<Option value="1">Mujer</Option>
+												<Option value="2">Hombre</Option>
+											</Select>,
+										)}
+									</div>
+								</Form.Item>
 								<Form.Item className="item">
 									<label>Cargo</label>
-									{getFieldDecorator('cargo', {
+									{getFieldDecorator('rol', {
 										rules: [{ required: true, message: 'Porfavor ingrese su cargo', whitespace: true }],
 									})(
 										<Input className="item--input" placeholder="Cargo Desempeñado" />)}

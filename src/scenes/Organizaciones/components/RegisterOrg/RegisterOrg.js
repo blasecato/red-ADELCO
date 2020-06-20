@@ -13,7 +13,7 @@ const { Option } = Select;
 
 const FormRegisterOrg = (props) => {
 
-	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
+	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched ,resetFields} = props.form;
 
 	const { municipios } = useSelector(state => state.municipio)
 	const { genderDate } = useSelector(state => state.producer)
@@ -35,8 +35,9 @@ const FormRegisterOrg = (props) => {
 		props.form.validateFields((err, values) => {
 			if (!err) {
 				const { idmunicipio, ...result } = values
-				console.log("values form==>", result)
 				dispatch(organizationActions.createOrganization(result))
+				resetFields()
+				props.history.push("/organizaciones")
 			}
 		})
 	}
@@ -143,6 +144,46 @@ const FormRegisterOrg = (props) => {
 									{getFieldDecorator('temaCapacitacion', {
 										rules: [{ required: true, message: 'Porfavor la capacitacion', whitespace: true }],
 									})(<TextArea placeholder="descripcion de la organizacion" allowClear onChange={onChange} />)}
+								</Form.Item>
+
+
+
+
+
+
+
+
+
+
+								<Form.Item className="item">
+									<label>Focalización</label>
+									{getFieldDecorator('focalizacion', {
+										rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+									})(<Input placeholder="Focalización" className="item--input" />)}
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Ubicación de la Firma y  Aplicación ICO</label>
+									{getFieldDecorator('aplicacionICO', {
+										rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+									})(<Input placeholder="Ubicación de la Firma y  Aplicación ICO" className="item--input" />)}
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Ubicación del Diagnóstico ICO</label>
+									{getFieldDecorator('diagnosticoICO', {
+										rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+									})(<Input placeholder="Nombre" className="item--input" />)}
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Tipo de AFT</label>
+									{getFieldDecorator('tipoAft', {
+										rules: [{ required: true, message: 'Porfavor ingrese el tipo de aft', whitespace: true }],
+									})(<Input placeholder="Ubicación del Diagnóstico ICO" className="item--input" />)}
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Participación en la Mesa de Mujer y Género</label>
+									{getFieldDecorator('participacionMesaMujerGenero', {
+										rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
+									})(<Input placeholder="Participación en la Mesa de Mujer y Género" className="item--input" />)}
 								</Form.Item>
 							</div>
 						</div>

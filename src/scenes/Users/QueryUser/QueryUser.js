@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Divider, Tag, Card, Input, Button, Icon } from 'antd';
+import { Table, Divider, Tag, Card, Input, Button, Icon, Select ,Form, } from 'antd';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Highlighter from 'react-highlight-words';
@@ -12,10 +12,12 @@ import exel from "../../../assets/image//excel.png";
 
 const { Search } = Input;
 const { Column, ColumnGroup } = Table;
+const { Option } = Select
 
-export const QueryUser = ({ history }) => {
+const QueryUserF = ({ history,form }) => {
 
 	const dispatch = useDispatch()
+	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched, validateFields } = form
 
 	const { genderDate } = useSelector(state => state.producer)
 	const { genderCount } = useSelector(state => state.producer)
@@ -229,6 +231,7 @@ export const QueryUser = ({ history }) => {
 		});
 	}
 
+	console.log(genderCount)
 	return (
 		<div className="queryuser">
 			<LayoutHome />
@@ -236,6 +239,38 @@ export const QueryUser = ({ history }) => {
 				<div className="users--title">
 					<h1>Consultar Usuarios</h1>
 				</div>
+
+
+				<Form>
+					<Form.Item className="item">
+						<label>Productor a Buscar</label>
+						<div className="select-content">
+							{getFieldDecorator('codigoProductor', {
+								rules: [{ required: true, message: 'Porfavor seleccione el Encargado' }],
+							})(
+								<Select
+									className="select"
+									placeholder="usuario"
+									filterOption={(inputValue, option) =>
+										option.props.children
+											.toString()
+											.toLowerCase()
+											.includes(inputValue.toLowerCase())
+									}
+									showSearch
+								>
+									{genderDate && genderDate.map((productor) => (
+										<Option key={productor.dni} value={productor.id} onClick={()=> {history.push(`/profile/${productor.dni}`)}}>{productor.nombres} {productor.apellidos}</Option>
+									))}
+								</Select>
+							)}
+						</div> 
+					</Form.Item>
+
+				</Form>
+
+
+
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
 						onClick={handleToExel}
@@ -322,3 +357,5 @@ export const QueryUser = ({ history }) => {
 		</div>
 	)
 }
+
+export const QueryUser = Form.create({ name: 'QueryUserF' })(QueryUserF);

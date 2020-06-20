@@ -63,7 +63,7 @@ function* getProducerIncorporacion() {
 }
 
 function* get({ payload }) {
-  const response = yield Api.get(`/producers/get-by-id/${payload.dni}`)
+  const response = yield Api.get(`/producers/get-by?dni=${payload.dni}`)
   if (response.ok) {
     yield put(producer.getResponse(response.payload));
   } else {

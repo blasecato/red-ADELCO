@@ -43,10 +43,10 @@ class Users extends React.Component {
           <Card
             className="users__content-cards--card"
             hoverable
-            cover={<Link to="/deleteupdateuser"><img alt="example" src={updateuser} /></Link>}
+            cover={<Link to="/update"><img alt="example" src={updateuser} /></Link>}
           >
             <Meta title="Actualizar Beneficiarios" description="Actualiza informacion de los usuarios ¡AQUI!" />
-            <Link className="btn" to="/deleteupdateuser" type="primary" shape="circle">
+            <Link className="btn" to="/update" type="primary" shape="circle">
               IR
                             </Link>
           </Card>

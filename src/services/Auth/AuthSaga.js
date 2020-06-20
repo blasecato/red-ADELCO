@@ -4,11 +4,12 @@ import Api from '../../common/api'
 import { auth } from "./AuthActions"
 
 function* login({ payload }) {
-  const { user, password } = payload
-  const response = yield Api.post("/auth/login", { user, password })
+  const { email, password } = payload
+  const response = yield Api.post("/auth/login", { email, password })
   if (response.ok) {
-    localStorage.setItem('token', response.payload.token);
-    yield put(auth.loginResponse(response.payload.token));
+    
+    localStorage.setItem('token', response.payload.payload);
+    yield put(auth.loginResponse(response.payload.payload));
   } else {
     const err = new TypeError('ERROR_LOGIN')
     yield put(auth.loginResponse(err))

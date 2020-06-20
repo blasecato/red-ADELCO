@@ -3,7 +3,7 @@ import Api from "../../common/api";
 import { indicators } from "./IndicadoresActions"
 
 function* Indicators() {
-  const response = yield Api.get('/indicadores')
+  const response = yield Api.get('/indicadores/get-all')
   if (response.ok) {
     yield put(indicators.getIndicatorsResponse(response.payload));
   } else {

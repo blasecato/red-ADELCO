@@ -9,7 +9,7 @@ import { crop } from "../../../services/crop/cropActions";
 import moment from 'moment'
 
 const { Option } = Select
-const FormRegisterCultivos = ({ form }) => {
+const FormRegisterCultivos = ({ form,history }) => {
 
 	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched, validateFields } = form
 	const dispatch = useDispatch()
@@ -30,6 +30,7 @@ const FormRegisterCultivos = ({ form }) => {
 					fechaInicio: moment(fechaInicio, "DD-MM-YYYY").format("YYYY-MM-DD")
 				}))
 				form.resetFields()
+				history.push("/cultivos")
 			}
 		})
 	}
@@ -51,7 +52,7 @@ const FormRegisterCultivos = ({ form }) => {
 			<LayoutHome />
 			<div className="RegisterInfra">
 				<div className="users--title">
-					<h1>Registrar Cultivo</h1>
+					<h1>Registrar Cadena Productiva</h1>
 				</div>
 				<Form layout="inline" className="RegisterInfra--form" onSubmit={handleSubmit}>
 					<div className="RegisterInfra--form__content-1">
@@ -64,7 +65,7 @@ const FormRegisterCultivos = ({ form }) => {
 								<Form.Item className="item">
 									<label>Productor encargado del Cultivo</label>
 									<div className="select-content">
-										{getFieldDecorator('dniProductor', {
+										{getFieldDecorator('codigoProductor', {
 											rules: [{ required: true, message: 'Porfavor seleccione el Encargado' }],
 										})(
 											<Select 
@@ -80,17 +81,11 @@ const FormRegisterCultivos = ({ form }) => {
 												showSearch
 											>
 												{cropsDate && cropsDate.productores.map((productor) => (
-													<Option key={productor.dni} value={productor.dni}>{productor.nombres} {productor.apellidos}</Option>
+													<Option key={productor.dni} value={productor.id}>{productor.nombres} {productor.apellidos}</Option>
 												))}
 											</Select>
 										)}
 									</div>
-								</Form.Item>
-								<Form.Item className="item">
-									<label>Cobertura (Hectareas)</label>
-									{getFieldDecorator('hectareas', {
-										rules: [{ required: true, message: 'Porfavor ingrese la cobertura', whitespace: true }],
-									})(<Input type="number" className="item--input" placeholder="Metros Cuadrados" />)}
 								</Form.Item>
 								<Form.Item className="item" >
 									<label>Fecha de inicio</label>
@@ -99,7 +94,7 @@ const FormRegisterCultivos = ({ form }) => {
 									)}
 								</Form.Item>
 								<Form.Item className="item">
-									<label>linea productiva a sembrar</label>
+									<label>Tipo De Usuario</label>
 									<div className="select-content">
 										{getFieldDecorator('idLineaProductiva', {
 											rules: [{ required: true, message: 'Porfavor seleccione una linea productiva' }],
@@ -113,7 +108,7 @@ const FormRegisterCultivos = ({ form }) => {
 									</div>
 								</Form.Item>
 								<Form.Item className="item">
-									<label>Municipio del cultivo</label>
+									<label>Municipio De Cadena Productiva</label>
 									<div className="select-content">
 										{getFieldDecorator('idMunicipio', {
 											rules: [{ required: true, message: 'Porfavor seleccione un municipio' }],
@@ -127,7 +122,7 @@ const FormRegisterCultivos = ({ form }) => {
 									</div>
 								</Form.Item>
 								<Form.Item className="item">
-									<label>Vereda del cultivo</label>
+									<label>Vereda de Cadena Productiva</label>
 									<div className="select-content">
 										{getFieldDecorator('idVereda', {
 											rules: [{ required: true, message: 'Porfavor seleccione un vereda' }],
@@ -141,11 +136,25 @@ const FormRegisterCultivos = ({ form }) => {
 									</div>
 								</Form.Item>
 								 <Form.Item className="item">
-									<label>posicion del acepta</label>
+									<label>Ubicación Archivo Doc. Acepta</label>
 									{getFieldDecorator('posicionAcepta', {
 										rules: [{ required: true, message: 'Porfavor ingrese la posicion', whitespace: true }],
 									})
-										(<Input className="item--input" placeholder="posicion" />)}
+										(<Input className="item--input" placeholder="Posicion" />)}
+								</Form.Item> 
+								 <Form.Item className="item">
+									<label>Entidad Perteneciente</label>
+									{getFieldDecorator('entidadPerteneciente', {
+										rules: [{ required: true, message: 'Porfavor ingrese la entidad', whitespace: true }],
+									})
+										(<Input className="item--input" placeholder="Entidad" />)}
+								</Form.Item> 
+								 <Form.Item className="item">
+									<label>Principal De Trabajo.</label>
+									{getFieldDecorator('trabajoPrincipal', {
+										rules: [{ required: true, message: 'Porfavor ingrese el/la principal', whitespace: true }],
+									})
+										(<Input className="item--input" placeholder="Principal" />)}
 								</Form.Item> 
 							</div>
 						</div>

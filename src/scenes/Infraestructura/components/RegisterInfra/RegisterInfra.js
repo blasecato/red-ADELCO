@@ -10,7 +10,7 @@ import { cade } from "../../../../services/line-cadena/line-cadenaActions";
 const { TextArea } = Input;
 const { Option } = Select;
 
-const FormRegisterInfra = ({ form }) => {
+const FormRegisterInfra = ({ form,history }) => {
 
 	const dispatch = useDispatch()
 	const { dateInfra } = useSelector(state => state.cade)
@@ -33,6 +33,7 @@ const FormRegisterInfra = ({ form }) => {
 				console.log('Received values of form: ', values);
 				dispatch(cade.createInfra(values))
 				form.resetFields()
+				history.push("/tipo")
 			}
 		});
 	};

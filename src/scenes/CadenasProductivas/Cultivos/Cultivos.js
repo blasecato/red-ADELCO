@@ -13,6 +13,7 @@ const { Column, ColumnGroup } = Table;
  
 export const Cultivo = () => {
 
+
 	
 	const dispatch = useDispatch()
 	const { cropsProducer } = useSelector(state => state.crop)
@@ -42,16 +43,17 @@ export const Cultivo = () => {
 		});
 	}
 
+	console.log("crops", cropsProducer)
 
 	return (
 		<div className="queryuser">
 			<LayoutHome />
 			<div className="queryuser__content">
 				<div className="users--title">
-					<h1>Listado de Cultivos</h1>
+					<h1>IDENTIFICACION DE  BENEFICIARIOS POR CADENAS PRODUCTIVAS</h1>
 				</div>
 				<div className="button">
-					<Link to="/registercultivos" className="btn-register">Registrar Cultivo</Link>
+					<Link to="/registercultivos" className="btn-register">Registrar Cadena Productiva.</Link>
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
@@ -65,12 +67,15 @@ export const Cultivo = () => {
 					/>}
 				>
 					<Table dataSource={cropsProducer} rowKey="id">
-						<Column title="identificacion propietario." dataIndex="dniProductor" Key="dniProductor" />
-						<Column title="nombres propietario" dataIndex="codigoProductor2.nombres" Key="codigoProductor2" />
-						<Column title="hectareas." dataIndex="hectareas" Key="hectareas" />
-						<Column title="vereda." dataIndex="idVereda2.nombre" Key="idVereda2" />
-						<Column title="municipio" dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
-						<Column title="linea productiva" dataIndex="idLineaProductiva2.nombre" Key="idLineaProductiva2" />
+						<Column title="Identificación de Beneficiario." dataIndex="codigoProductor2.dni"  Key="dniProductor" />
+						<Column title="Nombre Beneficiarios" dataIndex="codigoProductor2.nombres" Key="codigoProductor2" />
+						<Column title="Apellidos Beneficiarios" dataIndex="codigoProductor2.apellidos" Key="codigoProductor2" />
+						<Column title="Vereda." dataIndex="idVereda2.nombre" Key="idVereda2" />
+						<Column title="Municipio" dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
+						<Column title="Linea productiva" dataIndex="idLineaProductiva2.nombre" Key="idLineaProductiva2" />
+						<Column title="Ubicación Acepta" dataIndex="posicionAcepta" Key="posicionAcepta" />
+						<Column title="Principal Trabajo" dataIndex="trabajoPrincipal" Key="trabajoPrincipal" />
+						<Column title="Entidad Perteneciente" dataIndex="entidadPerteneciente" Key="entidadPerteneciente" />
 					
 					</Table>
 				</Card>

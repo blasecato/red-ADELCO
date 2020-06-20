@@ -7,17 +7,19 @@ import { Link } from 'react-router-dom';
 import img  from "../../assets/image/img/org3.jpg";
 
 
-const Login = ({ form, }) => {
+const Login = ({ form, history}) => {
 
   const { login } = auth;
   const dispatch = useDispatch()
-  const { getFieldDecorator, validateFields } = form
+  const { getFieldDecorator, validateFields ,resetFields} = form
 
   const handleSubmit = e => {
     e.preventDefault();
     validateFields((err, values) => {
+      console.log(values)
       if (!err) {
-        dispatch(login(values.user.toLowerCase().trim(), values.password))
+        dispatch(login(values.email.toLowerCase().trim(), values.password))
+        
       }
     });
   };
@@ -33,7 +35,7 @@ const Login = ({ form, }) => {
             <div className="title">Iniciar Sesión</div>
             <div>
               <Form.Item label='Usuario'>
-                {getFieldDecorator('user', {
+                {getFieldDecorator('email', {
                   rules: [{ required: true, message: `Por favor ingrese su correo` }],
                 })(
                   <Input />

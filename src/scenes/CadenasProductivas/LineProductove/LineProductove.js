@@ -38,7 +38,7 @@ const LineProductove = (props) => {
 			<LayoutHome />
 			<div className="queryuser__content">
 				<div className="users--title">
-					<h1>Consultar Cultivos por Linea Productiva</h1>
+					<h1>Consultar Cadenas Productivas por Linea Productiva</h1>
 				</div>
 				<Form layout="inline" className="RegisterOrg--form" >
 					<Form.Item className="item">
