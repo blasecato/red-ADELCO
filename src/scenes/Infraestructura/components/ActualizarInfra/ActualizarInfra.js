@@ -10,10 +10,10 @@ import { cade } from "../../../../services/line-cadena/line-cadenaActions";
 const { TextArea } = Input;
 const { Option } = Select;
 
-const FormActualizarInfra = ({ form }) => {
+const FormActualizarInfra = ({ form,history }) => {
 
 
-	const { infra } = useSelector(state => state.cade)
+	const { infra,infraId } = useSelector(state => state.cade)
 	const dispatch = useDispatch()
 	const { dateInfra } = useSelector(state => state.cade)
 
@@ -29,7 +29,6 @@ const FormActualizarInfra = ({ form }) => {
         dispatch(cade.getInfra());
 
     }, [])
-    console.log("infra==>", dateInfra)
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -38,15 +37,35 @@ const FormActualizarInfra = ({ form }) => {
 				console.log('Received values of form: ', values);
 				dispatch(cade.update(values))
 				form.resetFields()
+				history.push("/infraestructura")
 			}
 		});
 	};
+
+	const handleInfra = (item) =>{
+		console.log("hola",item)
+		setFieldsValue({
+			["id"]: item.id,
+			["nombre"]: item.nombre,
+			["covertura"]: item.covertura,
+			["apellidos"]: item.apellidos,
+			["idmunicipio"]: item.idmunicipio,
+			["idVereda"]: item.idVereda,
+			["responsable"]: item.responsable,
+			["planos"]: item.planos,
+			["direccion"]: item.direccion,
+			["descripcion"]: item.descripcion,
+			["idTipoObra"]: item.idTipoObra,
+		})
+	}
+
+	
 
 	const handleVeredas = (value) => {
 		setVeredas(dateInfra && dateInfra.municipio.find((municipio) => municipio.id === value).veredas)
 	}
 
-	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = form;
+	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched, setFieldsValue } = form;
 	const usernameError = isFieldTouched('username') && getFieldError('username');
 	const passwordError = isFieldTouched('password') && getFieldError('password');
 
@@ -75,7 +94,7 @@ const FormActualizarInfra = ({ form }) => {
 											// onChange={handleVeredas}
 											>
 												{infra && infra.map((item) => (
-													<Option key={item.id} value={item.id}>{item.nombre}</Option>
+													<Option key={item.id} value={item.id} onClick={()=> {handleInfra(item)}}>{item.nombre}</Option>
 												))}
 											</Select>
 										)}
@@ -90,9 +109,21 @@ const FormActualizarInfra = ({ form }) => {
 								</Form.Item>
 								<Form.Item className="item">
 									<label>Cobertura (metros)</label>
-									{getFieldDecorator('cobertura', {
+									{getFieldDecorator('covertura', {
 										rules: [{ required: false, message: 'Porfavor ingrese la cobertura', whitespace: true }],
 									})(<Input type="number" className="item--input" placeholder="Metros Cuadrados" />)}
+								</Form.Item>
+								<Form.Item className="item">
+									<label>Municipio la Infraestructura</label>
+									<div className="select-content">
+										
+											<Select className="select" onChange={handleVeredas}>
+												{dateInfra && dateInfra.municipio.map((municipio) => (
+													<Option key={municipio.id} value={municipio.id}>{municipio.nombre}</Option>
+												))}
+											</Select>
+										
+									</div>
 								</Form.Item>
 								<Form.Item className="item">
 									<label>Vereda la Infraestructura</label>
@@ -136,7 +167,7 @@ const FormActualizarInfra = ({ form }) => {
 								<Form.Item className="item">
 									<label>Editar tipo de Infraestructura</label>
 									<div className="select-content">
-										{getFieldDecorator('idTypeInfraestructura', {
+										{getFieldDecorator('idTipoObra', {
 											rules: [{ required: false, message: 'Porfavor seleccione un municipio' }],
 										})(
 											<Select className="select" >

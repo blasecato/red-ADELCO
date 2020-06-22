@@ -93,7 +93,18 @@ function* get({ payload }) {
   }
 }
 
+function* getInfraId({ payload }) {
+  const response = yield Api.get(`/infrastructures/get/by?id=${payload.id}`)
+  if (response.ok) {
+    yield put(cade.getResponse(response.payload));
+  } else {
+    const err = new TypeError('ERROR_GET_PRODUCER')
+    yield put(cade.getResponse(err))
+  }
+}
+
 function* update({ payload }) {
+  console.log("cade",payload.cade)
   const response = yield Api.put(`/infrastructures/update`, payload.cade)
   if (response.ok) {
     yield put(cade.updateResponse());
@@ -106,6 +117,7 @@ function* update({ payload }) {
 function* ActionWatcher() {
   yield takeLatest(cade.getDateInfra, getDateInfra)
   yield takeLatest(cade.getInfra, getInfra)
+  yield takeLatest(cade.getInfraId, getInfraId)
   yield takeLatest(cade.getVeredas, getVeredas)
   yield takeLatest(cade.createInfra, createInfra)
   yield takeLatest(cade.createVereda, createVereda)

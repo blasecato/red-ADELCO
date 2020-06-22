@@ -13,7 +13,7 @@ function* createOrganization({ payload }) {
 }
 
 function* createDiagnostico({ payload }) {
-  const response = yield Api.post('/crops/create-diagnostic', payload.organization)
+  const response = yield Api.post('/crops/create/diagnostic', payload.organization)
   if (response.ok) {
     yield put(organization.createDiagnosticoResponse());
   } else {
@@ -43,7 +43,7 @@ function* getDiagnostico() {
 }
 
 function* get({ payload }) {
-  const response = yield Api.get(`/organization/count/persons-organization?idOrganization=${payload.id}`)
+  const response = yield Api.get(`/organization/count/persons-organization?id=${payload.id}`)
   if (response.ok) {
     yield put(organization.getResponse(response.payload));
   } else {
@@ -54,6 +54,7 @@ function* get({ payload }) {
 
 function* update({ payload }) {
   const response = yield Api.put(`/organization/update`, payload.organization)
+  console.log(payload.organization)
   if (response.ok) {
     yield put(organization.updateResponse());
   } else {

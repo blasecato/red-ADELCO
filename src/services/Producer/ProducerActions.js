@@ -8,6 +8,9 @@ export const { producer } = createActions({
 
     UPDATE_PRODUCER: (producer) => ({ producer }),
     UPDATE_PRODUCER_RESPONSE: () => ({}),
+    
+    UPDATE_PRODUCER_ID: (producer) => ({ producer }),
+    UPDATE_PRODUCER_RESPONSE_ID: () => ({}),
 
     GET_GENDER: () => ({}),
     GET_GENDER_RESPONSE: (genderCount) => ({ genderCount }),

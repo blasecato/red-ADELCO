@@ -12,8 +12,20 @@ function* Indicators() {
   }
 }
 
+function* update({ payload }) {
+  const response = yield Api.put(`/indicadores/update`, payload.indicators)
+  console.log(payload.indicators)
+  if (response.ok) {
+    yield put(indicators.updateResponse());
+  } else {
+    const err = new TypeError('ERROR_GET_PRODUCER')
+    yield put(indicators.getResponse(err))
+  }
+}
+
 function* ActionWatcher() {
   yield takeLatest(indicators.getIndicators, Indicators)
+  yield takeLatest(indicators.update, update)
 }
 
 export default function* rootSaga() {

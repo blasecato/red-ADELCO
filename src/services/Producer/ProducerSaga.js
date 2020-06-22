@@ -13,12 +13,23 @@ function* createProducer({ payload }) {
 }
 
 function* updateProducer({ payload }) {
-  const response = yield Api.put('/producers/update', payload.producer)
+  const response = yield Api.post('/organization/create/producer-organization', payload.producer)
   if (response.ok) {
     yield put(producer.updateProducerResponse());
   } else {
     const err = new TypeError('ERROR_PRODUCER')
     yield put(producer.updateProducerResponse(err))
+  }
+}
+
+function* updateProducerId({ payload }) {
+  const response = yield Api.put('/producers/update', payload.producer)
+  console.log("saga",response)
+  if (response.ok) {
+    yield put(producer.updateProducerIdResponse());
+  } else {
+    const err = new TypeError('ERROR_PRODUCER')
+    yield put(producer.updateProducerIdResponse(err))
   }
 }
 
@@ -75,6 +86,7 @@ function* get({ payload }) {
 function* ActionWatcher() {
   yield takeLatest(producer.createProducer, createProducer)
   yield takeLatest(producer.updateProducer, updateProducer)
+  yield takeLatest(producer.updateProducerId, updateProducerId)
   yield takeLatest(producer.getGender, getGender)
   yield takeLatest(producer.getProducerDate, getProducerDate)
   yield takeLatest(producer.getProducerUpdate, getProducerUpdate)

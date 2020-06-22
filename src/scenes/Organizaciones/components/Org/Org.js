@@ -39,7 +39,7 @@ export const OrgQuery = () => {
       formateDate: 'yyyy/mm/dd'
     });
   }
-  console.log(organizations)
+  console.log("hola",organizations)
   return (
     <div className="queryuser">
       <LayoutHome />
@@ -60,9 +60,12 @@ export const OrgQuery = () => {
         >
           <Table dataSource={organizations} rowKey="id">
             <Column title="Nombre." dataIndex="nombre" Key="nombre" />
-            <Column title="Municipio." dataIndex="idMunicipio2.nombre" Key="idMunicipio2" />
-            <Column title="Vereda." dataIndex="idVereda2.nombres" Key="idVereda2" />
+            <Column title="Municipio." dataIndex="idVereda2.idMunicipio2.nombre" Key="idMunicipio2" />
+            <Column title="Vereda." dataIndex="idVereda2.nombre" Key="idVereda2" />
             <Column title="Descripcion." dataIndex="descripcion" Key="descripcion" />
+            <Column title="Tema de Capacitacion." dataIndex="temaCapacitacion" Key="descripcion" />
+            <Column title="Tema de Empresarial." dataIndex="temaEmpresarial" Key="descripcion" />
+            <Column title="Tipo de AFT." dataIndex="tipoAft" Key="descripcion" />
             <Column
               title="Representante"
               dataIndex="representante2.nombres"

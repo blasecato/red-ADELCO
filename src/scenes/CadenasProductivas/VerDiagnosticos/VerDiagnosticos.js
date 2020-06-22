@@ -36,9 +36,10 @@ export const Diagnosticos = (props) => {
 				
 				 <Card title={"Diagnosticos : " }>
 					<Table dataSource={organizations} rowKey="id">
-						<Column title="DNI beneficiario" dataIndex="dniProductor" key="dni" />
-						<Column title="Hectareas" dataIndex="hectareas" key="hectareas" />
-						<Column title="Pocision Diagnostico" dataIndex="diagnosticos[0].nombre" key="diagnosticos.nombre" />
+						<Column title="DNI beneficiario" dataIndex="cultivos.dniProductor" key="dni" />
+						<Column title="Codigo beneficiario" dataIndex="cultivos.codigoProductor" key="id" />
+						<Column title="Hectareas" dataIndex="cultivos.hectareas" key="hectareas" />
+						<Column title="Posicion Diagnostico" dataIndex="nombre" key="diagnosticos.nombre" />
 					</Table>
 				</Card>
 			</div>

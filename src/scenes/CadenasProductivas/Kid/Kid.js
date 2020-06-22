@@ -11,7 +11,7 @@ import { crop } from '../../../services/crop/cropActions';
 
 const { Option } = Select;
                            
-const FormKid = ({ form }) => {
+const FormKid = ({ form,history }) => {
 
 	const { getFieldDecorator, validateFields, resetFields } = form
 	const { dateInfra } = useSelector(state => state.cade)
@@ -35,6 +35,7 @@ const FormKid = ({ form }) => {
 				console.log('Received values of form: ', values);
 				dispatch(kitActions.createKit(values));
 				resetFields()
+				history.push("/home")
 			}
 		})
 	}

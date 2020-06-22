@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, Divider, Tag, Card, Button, Select, Form } from 'antd';
 import { Input, Icon } from 'antd';
 import { organization as organizationActions } from '../../../services/organization/organizationActions';
@@ -9,6 +9,7 @@ import { cade as cadeActions } from "../../../services/line-cadena/line-cadenaAc
 import { useSelector, useDispatch } from 'react-redux';
 
 import LayoutHome from "../../../components/LayoutHome/LayoutHome";
+import { handleAction } from 'redux-actions';
 
 const { Option } = Select;
 const { Search } = Input;
@@ -19,19 +20,33 @@ export const KitUser = (props) => {
 	// const { dateLine } = useSelector(state => state.cade)
 	const { kit } = useSelector(state => state.kit)
 	const dispatch = useDispatch()
+	const [kitU , isKitU]  = useState(false)
+
 	// const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
 
 	useEffect(() => {
 		dispatch(kitActions.getKitUser())
 	}, [])
-	console.log("asddsfs", kit)
 
-	// const handleOrganization = (value) => {
-	// 	console.log(value)
-	// 	dispatch(cadeActions.get(value))
-	// }
+	console.log("asddsfs", kit && kit.kitUsers)
 
-	// console.log("dateLine==>", dateLine)
+	const cont = kit && kit.length
+
+	// useEffect(() => {
+	// 	const kits = undefined;
+	// 		kit.forEach( kit => {
+	// 			console.log(kit.id)
+	// 			kit.kitUsers.forEach(element => {
+	// 				// console.log("prod",element.id)
+	// 				kits = element
+	// 			});
+	// 		}); 
+	// 		console.log(kits)
+
+		
+	// }, [kit])
+	
+
 
 	return (
 		<div className="deleteupdateuser beneficioarios-org">
@@ -40,13 +55,30 @@ export const KitUser = (props) => {
 				<div className="users--title">
 					<h1>Usuarios con kit de usuarios</h1>
 				</div>
-				
-				 <Card title={"Beneficiarios : " }>
-					<Table >
-						<Column title="Nombre" dataIndex="dniProductor2.nombres" key="nombres" />
-						<Column title="Direccion" dataIndex="dniProductor2.apellidos" key="apellidos" />
-					</Table>
-				</Card>
+
+
+			<div className="tablet">
+				{kit && kit.length > 0 && kit.map((data,index)=>
+				<div>
+					<div className="header_tab" key={index}>
+						<h1><span>Nombre del kit:</span> {data.nombre}</h1>
+					</div>
+					{data.kitUsers.length && data.kitUsers.map((kit,i)=>
+						<div className="tablet__content_tab" key={i}>
+							<h1><span>Codigo de beneficiario:</span>{kit.idProductor.id}</h1>
+							<h1><span>DNI de beneficiario:</span>{kit.idProductor.dni}</h1>
+							<h1><span>Nombres de beneficiario:</span>{kit.idProductor.nombres} {kit.idProductor.apellidos}</h1>
+						</div>
+					)
+					}
+				</div>
+					
+				)
+				}
+			</div> 
+
+			<h1 className="textttt">Si un beneficiario se repite 2 o mas veces!! eso quiere decir que ha recivido este kit en mas de una ocación.</h1>
+
 			</div>
 
 		</div>

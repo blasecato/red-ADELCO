@@ -18,6 +18,16 @@ const reducer = handleActions({
       }
     },
 
+    UPDATE: (state, { payload: { } }) => ({ ...state, loading: true }),
+    UPDATE_RESPONSE: {
+      next(state, { payload: { indicators } }) {
+        return { ...state, indicators }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
   }
 },
   INITIAL_STATE

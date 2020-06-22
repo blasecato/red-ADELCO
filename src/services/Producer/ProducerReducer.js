@@ -30,6 +30,16 @@ const reducer = handleActions({
       }
     },
 
+    UPDATE_PRODUCER_ID: (state, { payload: { } }) => ({ ...state, loading: true }),
+    UPDATE_PRODUCER_ID_RESPONSE: {
+      next(state, { payload: { } }) {
+        return { ...state }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
     GET_GENDER: (state, { payload: { } }) => ({ ...state, loading: true }),
     GET_GENDER_RESPONSE: {
       next(state, { payload: { genderCount } }) {

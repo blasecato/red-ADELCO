@@ -14,9 +14,9 @@ const menu = (
       </Link>
     </Menu.Item>
     <Menu.Item>
-      <Link className="layout-home__nav__index" to="/indicadores">
+      <a className="layout-home__nav__index" href="/indicadores">
         INDICADORES
-      </Link>
+      </a>
     </Menu.Item>
     <Menu.Item>
       <Link className="layout-home__nav__index" to="/vereda">

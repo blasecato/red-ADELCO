@@ -5,36 +5,53 @@ import { producer as producerActions } from '../../services/Producer/ProducerAct
 import { useDispatch, useSelector } from "react-redux";
 
 import LayoutHome from "../LayoutHome/LayoutHome";
+import { handleAction } from "redux-actions";
 
 
 const { Option } = Select;
 
 export const SelectComponente = (props) => {
 
-    const { genderDate, getProducerUpdateDate } = useSelector(state => state.producer)
-    const { validateFields, getFieldDecorator } = props.form
-    const [state, setstate] = useState({
-        value: 1,
-        desisable: true,
-      })
-      const dispatch = useDispatch()
+  const { genderDate, getProducerUpdateDate } = useSelector(state => state.producer)
+  const { validateFields, getFieldDecorator,setFieldsValue } = props.form
+  const [state, setstate] = useState({
+    value: 1,
+    desisable: true,
+  })
+  const dispatch = useDispatch()
 
-      useEffect(() => {
-        dispatch(producerActions.getProducerDate())
-        dispatch(producerActions.getProducerUpdate())
-      }, [])
+  useEffect(() => {
+    dispatch(producerActions.getProducerDate())
+    dispatch(producerActions.getProducerUpdate())
+  }, [])
 
-      const handleSubmit = e => {
-        e.preventDefault();
-        validateFields((err, values) => {
-          if (!err) {
-            console.log('Received register values of form: ', values)
-          }
-        })
+  const handleSubmit = e => {
+    e.preventDefault();
+    validateFields((err, values) => {
+      if (!err) {
+        console.log('Received register values of form: ', values)
+        dispatch(producerActions.updateProducerId(values))
+        props.form.resetFields()
+				props.history.push("/users")
       }
+    })
+  }
 
-    return (
-        <section >
+  const handleSetField = (productor) => {
+    console.log(productor)
+    setFieldsValue({
+      ["nombres"]: productor.nombres,
+      ["apellidos"]: productor.apellidos,
+      ["idGenero"]: productor.idGenero.id,
+      ["telefono"]: productor.telefono,
+      ["edad"]: productor.edad,
+      ["idParentesco"]: productor.idParentesco.id,
+      ["idConflicto"]: productor.idConflicto.id,
+    })
+  }
+
+  return (
+    <section >
       <LayoutHome />
       <div className="registeruser">
         <div className="users--title">
@@ -43,18 +60,41 @@ export const SelectComponente = (props) => {
         <Form layout="inline" className="registeruser--form" onSubmit={handleSubmit}>
 
 
-        <div className="registeruser--form__content-1">
+          <div className="registeruser--form__content-1">
             <div className="registeruser--form__content-1--left">
               <div className="registeruser--form__content-1--rigth--title">
                 Datos Personales
               </div>
               <div className="form">
-              <Form.Item className="item">
-                  <label>Codigo</label>
-                  {getFieldDecorator('id', {
-                    rules: [{ required: true, message: 'Porfavor ingrese el nombre', whitespace: true }],
-                  })(<Input placeholder="Codigo" className="item--input" />)}
+
+
+
+                <Form.Item className="item">
+                  <label>Productor a Actualizar</label>
+                  <div className="select-content">
+                    {getFieldDecorator('id', {
+                      rules: [{ required: true, message: 'Porfavor seleccione el Encargado' }],
+                    })(
+                      <Select
+                        className="select"
+                        placeholder="usuario"
+                        filterOption={(inputValue, option) =>
+                          option.props.children
+                            .toString()
+                            .toLowerCase()
+                            .includes(inputValue.toLowerCase())
+                        }
+                        showSearch
+                      >
+                        {genderDate && genderDate.map((productor) => (
+                          <Option key={productor.dni} value={productor.id} onClick={() => { handleSetField(productor) }}>{productor.nombres} {productor.apellidos}</Option>
+                        ))}
+                      </Select>
+                    )}
+                  </div>
                 </Form.Item>
+
+
                 <Form.Item className="item">
                   <label>Nombres</label>
                   {getFieldDecorator('nombres', {
@@ -107,7 +147,7 @@ export const SelectComponente = (props) => {
                 <Form.Item className="item">
                   <label>Seleccione Parentesco Familiar</label>
                   <div className="select-content">
-                    {getFieldDecorator('idParentesco2', {
+                    {getFieldDecorator('idParentesco', {
                       rules: [{ required: true, message: 'Porfavor seleccione un parentesco!' }],
                     })(
                       <Select
@@ -130,7 +170,7 @@ export const SelectComponente = (props) => {
                 <Form.Item className="item">
                   <label>Seleccione si es victima del Conflicto</label>
                   <div className="select-content">
-                    {getFieldDecorator('idConflicto2', {
+                    {getFieldDecorator('idConflicto', {
                       rules: [{ required: true, message: 'Porfavor seleccione una Opcion' }],
                     })(
                       <Select
@@ -154,23 +194,23 @@ export const SelectComponente = (props) => {
                   <label>Entidad Perteneciente</label>
                   {getFieldDecorator('entidad', {
                     rules: [{ required: true, message: 'Porfavor ingrese la entidad', whitespace: true }],
-                  })(<Input placeholder="Codigo" className="item--input" />)}
+                  })(<Input placeholder="Entidad" className="item--input" />)}
                 </Form.Item>
 
               </div>
             </div>
           </div>
           <div className="btn">
-            <Button htmlType="submit"><Icon type="form" />Registrar</Button>
+            <Button htmlType="submit"><Icon type="form" />Actualizar</Button>
           </div>
 
 
 
 
-          
+
         </Form>
       </div>
     </section>
-    );
+  );
 }
 export const SelectComponent = Form.create({ name: 'FormRegisterUser' })(SelectComponente);

@@ -13,7 +13,7 @@ function* createKit({ payload }) {
 }
 
 function* getKit() {
-  const response = yield Api.get('/producers/get-kit')
+  const response = yield Api.get('/producers/get/kit-all')
   if (response.ok) {
     yield put(kit.getKitResponse(response.payload));
   } else {
@@ -23,7 +23,7 @@ function* getKit() {
 }
 
 function* getKitUser() {
-  const response = yield Api.get('/producers/get/kit-user')
+  const response = yield Api.get('/producers/get/all/kit-producer')
   if (response.ok) {
     yield put(kit.getKitUserResponse(response.payload));
   } else {

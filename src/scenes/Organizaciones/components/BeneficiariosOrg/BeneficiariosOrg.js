@@ -67,42 +67,49 @@ const BeneficiariosOrg = (props) => {
 							{getFieldDecorator('id', {
 								rules: [{ required: true, message: 'Porfavor seleccione una organizacion' }],
 							})(
-								<Select className="select" onChange={handleOrganization} placeholder="Seleccione Una Organizacion">
-									{organizations && organizations.map((organization, index) => <Option key={index} value={organization.id} >{organization.nombre}</Option>)}
+								<Select className="select"  placeholder="Seleccione Una Organizacion">
+									{organizations && organizations.map((organization, index) => <Option key={index} value={organization.id} onClick={()=>{handleOrganization(organization.id)}}>{organization.nombre}</Option>)}
 								</Select>
 							)}
 						</div>
 					</Form.Item>
 				</Form>
-				{organization && <Card title={"Beneficiarios : " + organization.countPersons.countPeople}>
-					<Table dataSource={organization.datePersons[0]}>
-						<Column title="Nombres." dataIndex="nombres" key="firstName" />
-						<Column title="Apellidos." dataIndex="apellidos" key="lastName" />
-						<Column title="DNI" dataIndex="dni" key="dni" />
-						<Column title="Telefono" dataIndex="telefono" key="telefono" />
-						<Column title="Edad" dataIndex="edad" key="age" />
+				 {organization && <Card title={"Beneficiarios : " + organization.countProducers.countProducers}>
+					<Table dataSource={organization.dataProducers}>
+						<Column title="Codigo." dataIndex="dniProductor.id" key="dniProductor.id" />
+						<Column title="DNI." dataIndex="dniProductor.dni" key="dniProductor.dni" />
+						<Column title="Nombres." dataIndex="dniProductor.nombres" key="firstName" />
+						<Column title="Apellidos." dataIndex="dniProductor.apellidos" key="lastName" />
+						<Column title="DNI" dataIndex="dniProductor.state" key="state" />
+						<Column title="Telefono" dataIndex="dniProductor.telefono" key="telefono" />
+						<Column title="Edad" dataIndex="dniProductor.edad" key="age" />
+						<Column title="Genero" dataIndex="dniProductor.idGenero.nombre" key="idGenero2.nombre" />
 					</Table>
-				</Card>}
+				</Card>} 
 
-				{organization && <Card title={"Mujeres : " + organization.countWoman.countWoman}>
-					<Table dataSource={organization.dateWoman[0]}>
-						<Column title="Nombres." dataIndex="nombres" key="firstName" />
-						<Column title="Apellidos." dataIndex="apellidos" key="lastName" />
-						<Column title="DNI" dataIndex="dni" key="dni" />
-						<Column title="Telefono" dataIndex="telefono" key="telefono" />
-						<Column title="Edad" dataIndex="edad" key="age" />
+				 {organization && <Card title={"Mujeres : " + organization.countWoman.countWoman}>
+					<Table dataSource={organization.dataWoman}>
+						<Column title="Codigo." dataIndex="dniProductor.id" key="id" />
+						<Column title="DNI." dataIndex="dniProductor.dni" key="dni" />
+						<Column title="Nombres." dataIndex="dniProductor.nombres" key="firstName" />
+						<Column title="Apellidos." dataIndex="dniProductor.apellidos" key="lastName" />
+						<Column title="Telefono" dataIndex="dniProductor.telefono" key="telefono" />
+						<Column title="Edad" dataIndex="dniProductor.edad" key="age" />
+						<Column title="Genero" dataIndex="dniProductor.idGenero.nombre" key="idGenero2.nombre" />
 					</Table>
 				</Card>}
 
 				{organization && <Card title={"Hombres : " + organization.countMan.countMan}>
-					<Table dataSource={organization.dateMan[0]}>
-						<Column title="Nombres." dataIndex="nombres" key="firstName" />
-						<Column title="Apellidos." dataIndex="apellidos" key="lastName" />
-						<Column title="DNI" dataIndex="dni" key="dni" />
-						<Column title="Telefono" dataIndex="telefono" key="telefono" />
-						<Column title="Edad" dataIndex="edad" key="age" />
+					<Table dataSource={organization.dataMan}>
+					<Column title="Codigo." dataIndex="dniProductor.id" key="id" />
+						<Column title="DNI." dataIndex="dniProductor.dni" key="dni" />
+						<Column title="Nombres." dataIndex="dniProductor.nombres" key="firstName" />
+						<Column title="Apellidos." dataIndex="dniProductor.apellidos" key="lastName" />
+						<Column title="Telefono" dataIndex="dniProductor.telefono" key="telefono" />
+						<Column title="Edad" dataIndex="dniProductor.edad" key="age" />
+						<Column title="Genero" dataIndex="dniProductor.idGenero.nombre" key="idGenero2.nombre" />
 					</Table>
-				</Card>}
+				</Card>} 
 
 			</div>
 

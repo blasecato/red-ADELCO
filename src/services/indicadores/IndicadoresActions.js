@@ -6,6 +6,9 @@ export const { indicators } = createActions({
     GET_INDICATORS: () => ({}),
     GET_INDICATORS_RESPONSE: (indicators) => ({ indicators }),
 
+    UPDATE: (indicators) => ({indicators}),
+    UPDATE_RESPONSE: () => ({}),
+
   }
 
 })

@@ -25,7 +25,7 @@ class Infraestructura extends React.Component {
             className="users__content-cards--card"
             hoverable
             cover={
-              <Link to="/registeruser">
+              <Link to="/tipo">
                 <img alt="example" src={usernew} />
               </Link>
             }

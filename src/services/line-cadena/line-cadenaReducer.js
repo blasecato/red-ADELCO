@@ -4,8 +4,9 @@ export const INITIAL_STATE = {
   loading: false,
   dateInfra: undefined,
   infra: [],
+  infraId: [],
   veredas: [],
-  cade: []
+  cade: [],
 }
 
 const reducer = handleActions({
@@ -100,10 +101,20 @@ const reducer = handleActions({
       }
     },
 
-    UPDATE: (state, { payload: { } }) => ({ ...state, loading: true }),
-    UPDATE_RESPONSE: {
+    GET_INFRA_ID: (state, { payload: { } }) => ({ ...state, loading: true }),
+    GET_INFRA_ID_RESPONSE: {
       next(state, { payload: { infra } }) {
         return { ...state, infra }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
+    UPDATE: (state, { payload: { } }) => ({ ...state, loading: true }),
+    UPDATE_RESPONSE: {
+      next(state, { payload: { cade } }) {
+        return { ...state, cade }
       },
       throw(state, action) {
         return { ...state }

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Collapse, Upload, message, Button, Icon } from 'antd';
+import { Collapse, Upload, message, Button, Icon,Form,Input } from 'antd';
 import LayoutHome from "../../components/LayoutHome/LayoutHome";
 import { useDispatch, useSelector } from 'react-redux';
 
 import pdf from "../../assets/image/pdf3.png";
 import { indicators as indicatorAcctions } from "../../services/indicadores/IndicadoresActions";
 
+const { TextArea } = Input;
 
 const props = {
     name: 'file',
@@ -32,15 +33,47 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-export  const Indicadores = () => {
+
+
+
+const IndicadoresForm = (props) => {
 
     const dispatch = useDispatch()
-
+	const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched,setFieldsValue,resetFields } = props.form;
     const { indicators } = useSelector(state => state.indicator)
-
+    const [id , setId] = useState(0)
+    const [state, setstate] = useState({
+		value: 1,
+		desisable: true,
+	})
     useEffect(() => {
         dispatch(indicatorAcctions.getIndicators())
     }, [])
+
+    const handleSubmit = e => {
+		e.preventDefault();
+		props.form.validateFields((err, values) => {
+			if (!err) {
+                const { idmunicipio, ...result } = values
+                
+                const data = {
+                    id:id,
+                    ...values
+                }
+                console.log(data)
+
+                dispatch(indicatorAcctions.update(data))
+				resetFields()
+				props.history.push("/home")
+			}
+		})
+    }
+    const onChange = e => {
+		setstate({
+			...state, value: e.target.value,
+		})
+    }
+    console.log(id)
 
     return (
         <div className="indicadores">
@@ -51,16 +84,19 @@ export  const Indicadores = () => {
                     {indicators.length > 0 &&
 
                         indicators.map((data, index) =>
-                            <Panel header={<div className="cod">{data.id}<span>{data.descripcion}</span></div>} key={index}>
+                            <Panel header={<div className="cod" onClick={()=>{setId(data.id)}}>{data.id}<span>{data.descripcion}</span></div>} key={index}>
                                 <div className="content">
                                     <div className="content-card">
                                         <h1 className="content-title">Objetivos</h1>
                                         <p>{data.idObjetivo2.nombre}</p>
                                     </div>
                                     <div className="content-card">
-                                        <h1 className="content-title">Resultado</h1>
-                                        <p>Contribuir a la consolidación de una paz estable y duradera en Colombia, a través del fortalecimiento del desarrollo socioeconómico y ambiental de territorios amazónicos en postconflictol</p>
-                                        <input className="actualizar-input" value="" placeholder="Escriba el resultado"/>
+                                        <h1 className="content-title">Avances</h1>
+                                        {data.avances === null || data.avances === "" ?
+                                        <p>Digite nuevos avances.</p>
+                                        :
+                                        <p>{data.avances}</p>
+                                        }
                                     </div>
                                     <div className="content-card">
                                         <h1 className="content-title">Meta</h1>
@@ -76,10 +112,18 @@ export  const Indicadores = () => {
                                         <p>{data.fuenteVerificacion}</p>
                                     </div>
                                     <div className="content-card">
-                                        <h1 className="content-title">Actualizar Fuentes</h1>
-                                        <div className="content-pdf">
-                                            <Button className="btn-actualizar">Actualizar</Button>
-                                        </div>
+                                        <h1 className="content-title">Actualizar Avances</h1>
+                                         
+                                        <Form layout="inline" className="RegisterOrg--form" onSubmit={handleSubmit}>
+                                            <Form.Item className="item">
+                                                {getFieldDecorator('avances', {
+                                                    rules: [{ required: true, message: 'Porfavor ingrese el tema empresarial', whitespace: true }],
+                                                })(<TextArea placeholder="tema empresarial" allowClear onChange={onChange} />)}
+                                            </Form.Item>
+                                            <div className="btn">
+                                                <Button htmlType="submit"><Icon type="form" />Actualizar</Button>
+                                            </div>
+                                        </Form>
                                     </div>
                                 </div>
                             </Panel>
@@ -91,3 +135,5 @@ export  const Indicadores = () => {
         </div>
     );
 }
+
+export const Indicadores = Form.create({ name: 'IndicadoresForm' })(IndicadoresForm);

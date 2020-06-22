@@ -33,7 +33,7 @@ function* get({ payload }) {
 }
 
 function* update({ payload }) {
-  const response = yield Api.put(`/atf/update`, payload.atf)
+  const response = yield Api.put(`/producers/update/aft`, payload.atf)
   if (response.ok) {
     yield put(atf.updateResponse());
   } else {

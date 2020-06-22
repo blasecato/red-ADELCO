@@ -50,7 +50,7 @@ const UserSocial = ({ form }) => {
                 <Form.Item className="item">
                   <label>Seleccione Usuario</label>
                   <div className="select-content">
-                    {getFieldDecorator('dni', {
+                    {getFieldDecorator('dniProductor', {
                       rules: [{ required: true, message: 'Porfavor seleccione un usuario!' }],
                     })(
                       <Select
@@ -69,109 +69,11 @@ const UserSocial = ({ form }) => {
                     )}
                   </div>
                 </Form.Item>
-                <Form.Item className="item">
-                  <label>Seleccione Etnia</label>
-                  <div className="select-content">
-                    {getFieldDecorator('idEtnia2', {
-                      rules: [{ required: true, message: 'Porfavor seleccione una etnia!' }],
-                    })(
-                      <Select
-                        className="item--input"
-                        placeholder="Etnia"
-                        filterOption={(inputValue, option) =>
-                          option.props.children
-                            .toString()
-                            .toLowerCase()
-                            .includes(inputValue.toLowerCase())
-                        }
-                        showSearch
-                      >
-                        {getProducerUpdateDate &&
-                          getProducerUpdateDate.etnia.map((date, index) => <Option key={index} value={date.id} >{date.nombre}</Option>)}
-                      </Select>
-                    )}
-                  </div>
-                </Form.Item>
-                <Form.Item className="item">
-                  <label>Seleccione Cargo</label>
-                  <div className="select-content">
-                    {getFieldDecorator('idCargoOrg2', {
-                      rules: [{ required: true, message: 'Porfavor seleccione un cargo!' }],
-                    })(
-                      <Select
-                        className="item--input"
-                        placeholder="Cargo"
-                        filterOption={(inputValue, option) =>
-                          option.props.children
-                            .toString()
-                            .toLowerCase()
-                            .includes(inputValue.toLowerCase())
-                        }
-                        showSearch
-                      >
-                        {getProducerUpdateDate &&
-                          getProducerUpdateDate.cargo.map((date, index) => <Option key={index} value={date.id} >{date.nombre}</Option>)}
-                      </Select>
-                    )}
-                  </div>
-                </Form.Item>
-
-
-
-                {/* <Form.Item className="item">
-                  <label>Seleccione Parentesco Familiar</label>
-                  <div className="select-content">
-                    {getFieldDecorator('idParentesco2', {
-                      rules: [{ required: true, message: 'Porfavor seleccione un parentesco!' }],
-                    })(
-                      <Select
-                        className="item--input"
-                        placeholder="parentesco familiar"
-                        filterOption={(inputValue, option) =>
-                          option.props.children
-                            .toString()
-                            .toLowerCase()
-                            .includes(inputValue.toLowerCase())
-                        }
-                        showSearch
-                      >
-                        {getProducerUpdateDate &&
-                          getProducerUpdateDate.parentesco.map((date, index) => <Option key={index} value={date.id} >{date.nombre}</Option>)}
-                      </Select>
-                    )}
-                  </div>
-                </Form.Item> */}
-
-
-                
-                <Form.Item className="item">
-                  <label>Seleccione Discapacidad</label>
-                  <div className="select-content">
-                    {getFieldDecorator('idDiscapacitado2', {
-                      rules: [{ required: true, message: 'Porfavor seleccione una Discapacidad!' }],
-                    })(
-                      <Select
-                        className="item--input"
-                        placeholder="Discapacidad fisica"
-                        filterOption={(inputValue, option) =>
-                          option.props.children
-                            .toString()
-                            .toLowerCase()
-                            .includes(inputValue.toLowerCase())
-                        }
-                        showSearch
-                      >
-                        {getProducerUpdateDate &&
-                          getProducerUpdateDate.discapacidad.map((date, index) => <Option key={index} value={date.id} >{date.nombre}</Option>)}
-                      </Select>
-                    )}
-                  </div>
-                </Form.Item>
                
                 <Form.Item className="item">
-                  <label>Seleccione si es victima del Organizacion</label>
+                  <label>Seleccione la Organizacion</label>
                   <div className="select-content">
-                    {getFieldDecorator('idOrganizacion2', {
+                    {getFieldDecorator('idOrganizacion', {
                       rules: [{ required: true, message: 'Porfavor seleccione una Organizacion' }],
                     })(
                       <Select
@@ -191,30 +93,6 @@ const UserSocial = ({ form }) => {
                     )}
                   </div>
                 </Form.Item>
-                <Form.Item className="item">
-                  <label>Seleccione Jefe de familia</label>
-                  <div className="select-content">
-                    {getFieldDecorator('idProductor2', {
-                      rules: [{ required: true, message: 'Porfavor seleccione una Opcion' }],
-                    })(
-                      <Select
-                        className="item--input"
-                        placeholder="Organizacion perteneciente"
-                        filterOption={(inputValue, option) =>
-                          option.props.children
-                            .toString()
-                            .toLowerCase()
-                            .includes(inputValue.toLowerCase())
-                        }
-                        showSearch
-                      >
-                        {getProducerUpdateDate &&
-                          getProducerUpdateDate.jefeFamily.map((date, index) => <Option key={index} value={date.dni} >{date.nombres}</Option>)}
-                      </Select>
-                    )}
-                  </div>
-                </Form.Item>
-
               </div>
             </div>
           </div>

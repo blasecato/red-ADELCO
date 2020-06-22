@@ -91,8 +91,20 @@ const QueryUserF = ({ history,form }) => {
 			key: 'edad',
 		},
 		{
-			title: 'Organizacion',
-			dataIndex: 'idOrganizacion2.nombre',
+			title: 'Conflicto',
+			dataIndex: 'idConflicto.nombre',
+			key: 'idOrganizacion2',
+			//...getColumnSearchProps('idOrganizacion2.nombre'),
+		},
+		{
+			title: 'Discapacidad',
+			dataIndex: 'idDiscapacitado.nombre',
+			key: 'idOrganizacion2',
+			//...getColumnSearchProps('idOrganizacion2.nombre'),
+		},
+		{
+			title: 'Etnia',
+			dataIndex: 'idEtnia.nombre',
 			key: 'idOrganizacion2',
 			//...getColumnSearchProps('idOrganizacion2.nombre'),
 		},
@@ -231,7 +243,9 @@ const QueryUserF = ({ history,form }) => {
 		});
 	}
 
-	console.log(genderCount)
+	console.log("sdfdsgfds",genderDate && genderDate.length)
+
+	const cant = genderDate && genderDate.length
 	return (
 		<div className="queryuser">
 			<LayoutHome />
@@ -276,7 +290,7 @@ const QueryUserF = ({ history,form }) => {
 						onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
-				<Card title="Listado de Beneficiarios"
+				<Card title={<label>Listado de Beneficiarios: {cant}</label>}
 					extra={<Search
 						placeholder="Buscar Usuario"
 						onSearch={value => console.log(value)}
