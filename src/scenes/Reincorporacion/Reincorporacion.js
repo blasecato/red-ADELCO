@@ -54,11 +54,8 @@ export const Reincorporacion = () => {
 					// onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
-				<Card title={<p>Victimas</p>}
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
+				<Card title={<p>Victimas: {incorporacionDate && incorporacionDate.victimsProducurs.length}</p>}
+					
 				>
 					{incorporacionDate && <Table rowKey="dni" dataSource={incorporacionDate.victimsProducurs}>
 						<Column title="Nombre." dataIndex="nombres" Key="nombres" />
@@ -78,11 +75,8 @@ export const Reincorporacion = () => {
 					//onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
-				<Card title={<p>EX Combatientes</p>}
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
+				<Card title={<p>EX Combatientes: {incorporacionDate && incorporacionDate.excombatantsProducurs.length}</p>}
+					
 				>
 					{incorporacionDate && <Table rowKey="id" dataSource={incorporacionDate.excombatantsProducurs}>
 						<Column title="Nombre." dataIndex="nombres" Key="nombres" />

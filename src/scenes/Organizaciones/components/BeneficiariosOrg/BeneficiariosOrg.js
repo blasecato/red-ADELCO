@@ -87,7 +87,7 @@ const BeneficiariosOrg = (props) => {
 					</Table>
 				</Card>} 
 
-				 {organization && <Card title={"Mujeres : " + organization.countWoman.countWoman}>
+				 {organization && <Card title={"Mujeres : " + organization.countWoman[0].countWoman}>
 					<Table dataSource={organization.dataWoman}>
 						<Column title="Codigo." dataIndex="dniProductor.id" key="id" />
 						<Column title="DNI." dataIndex="dniProductor.dni" key="dni" />
