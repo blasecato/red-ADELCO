@@ -24,12 +24,22 @@ export const OrgQuery = () => {
     const jsonConvert = []
     organizations.forEach(item => {
       jsonConvert.push({
-        codigo: item.id,
-        nombres: item.nombre,
-        descripcion: item.descripcion,
+        Codigo: item.id,
+        Nombre: item.nombre,
+        Aplicacion_ICO: item.aplicacionICO,
+        Descripcion: item.descripcion,
         Contacto: item.contacto,
-        temaCapacitacion: item.temaCapacitacion,
-        temaEmpresarial: item.temaEmpresarial
+        Tema_Capacitacion: item.temaCapacitacion,
+        Tema_Empresarial: item.temaEmpresarial,
+        Focalizacion: item.focalizacion,
+        DNI_Representante: item.representante2 && item.representante2.dni,
+        Nombres_Representante: item.representante2 && item.representante2.nombres,
+        Apellidos_Representante: item.representante2 && item.representante2.apellidos,
+        Tipo_Aft: item.tipoAft,
+        Diagnostico_ICO: item.diagnosticoICO,
+        Vereda: item.idVereda2 && item.idVereda2.nombre,
+        Municipio: item.idVereda2 && item.idVereda2.idMunicipio2.nombre,
+        Participacion_Mesa_MujerGenero: item.participacionMesaMujerGenero
       })
     })
     console.log(jsonConvert)
@@ -53,10 +63,7 @@ export const OrgQuery = () => {
           ><img className="img-excel" src={exel} /> Descargar</button>
         </div>
         <Card title="Listado de Beneficiarios"
-          extra={<Search
-            placeholder="Buscar Usuario"
-            onSearch={organizations => console.log(organizations)}
-          />}
+          
         >
           <Table dataSource={organizations} rowKey="id">
             <Column title="Nombre." dataIndex="nombre" Key="nombre" />

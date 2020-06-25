@@ -20,26 +20,46 @@ export const Reincorporacion = () => {
 		dispatch(producer.getProducerIncorporacion());
 	}, [])
 
-	// const handleToExel = () => {
-	// 	const jsonConvert = []
-	// 	cropsProducer.forEach(item => {
-	// 		jsonConvert.push({
-	// 			codigo: item.id,
-	// 			Municipio: item.idMunicipio2.nombre,
-	// 			Vereda: item.idVereda2.nombre,
-	// 			CodigoProductor: item.codigoProductor2.nombres + ' ' + item.codigoProductor2.apellidos,
-	// 			LineaProductiva: item.idLineaProductiva2.nombre,
-	// 			dniProductor: item.dniProductor,
-	// 			hectareas: item.hectareas
-	// 		})
-	// 	})
-	// 	console.log(jsonConvert)
-	// 	json2excel({
-	// 		data: jsonConvert,
-	// 		name: 'user-info-data',
-	// 		formateDate: 'yyyy/mm/dd'
-	// 	});
-	// }
+	const handleToExelVictimas = () => {
+		const jsonConvert = []
+		incorporacionDate.victimsProducurs.forEach(item => {
+			jsonConvert.push({
+				Nombres: item.nombres,
+				Apellidos: item.apellidos,
+				DNI: item.dni,
+				Telefono: item.telefono,
+				Sexo: item.idGenero && item.idGenero.nombre,
+				Conflicto: item.idConflicto && item.idConflicto.nombre
+				
+			})
+		})
+		console.log(jsonConvert)
+		json2excel({
+			data: jsonConvert,
+			name: 'user-info-data',
+			formateDate: 'yyyy/mm/dd'
+		});
+	}
+	const handleToExelEXCombatientes = () => {
+		const jsonConvert = []
+		incorporacionDate.excombatantsProducurs.forEach(item => {
+			jsonConvert.push({
+				Nombres: item.nombres,
+				Apellidos: item.apellidos,
+				DNI: item.dni,
+				Telefono: item.telefono,
+				Sexo: item.idGenero && item.idGenero.nombre,
+				Conflicto: item.idConflicto && item.idConflicto.nombre
+				
+			})
+		})
+		console.log(jsonConvert)
+		json2excel({
+			data: jsonConvert,
+			name: 'user-info-data',
+			formateDate: 'yyyy/mm/dd'
+		});
+	}
 
 
 	return (
@@ -51,7 +71,7 @@ export const Reincorporacion = () => {
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
-					// onClick={handleToExel}
+					onClick={handleToExelVictimas}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title={<p>Victimas: {incorporacionDate && incorporacionDate.victimsProducurs.length}</p>}
@@ -72,7 +92,7 @@ export const Reincorporacion = () => {
 				</div>
 				<div className="btn-exel">
 					<button className="btn-exel--exel"
-					//onClick={handleToExel}
+					onClick={handleToExelEXCombatientes}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title={<p>EX Combatientes: {incorporacionDate && incorporacionDate.excombatantsProducurs.length}</p>}

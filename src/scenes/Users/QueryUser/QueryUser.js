@@ -185,16 +185,35 @@ const QueryUserF = ({ history,form }) => {
 		const jsonConvert = []
 		genderDate.forEach(item => {
 			jsonConvert.push({
-				cosido: item.id,
+				codido: item.id,
 				nombre: item.nombres,
 				apellidos: item.apellidos,
 				identificacion: item.dni,
 				edad: item.edad,
 				telefono: item.telefono,
-				genero: item.idGenero2.nombre,
-				etnia: item.idEtnia2.nombre,
-				conflicto: item.idConflicto2.nombre,
-				parentesco: item.idParentesco2.nombre
+				genero: item.idGenero && item.idGenero.nombre,
+				etnia: item.idEtnia && item.idEtnia.nombre,
+				conflicto: item.idConflicto && item.idConflicto.nombre,
+				giraPNMB: item.giraPNMB,
+				cacaoPlanadas: item.cacaoPlanadas,
+				certificadoOrganica: item.certificadoOrganica,
+				escuelaAgroforesteria: item.escuelaAgroforesteria,
+				escuelaAgrosilvopastoril: item.escuelaAgrosilvopastoril,
+				escuelaAromaticas: item.escuelaAromaticas,
+				escuelaPermacultura: item.escuelaPermacultura,
+				escuelaSRCacao: item.escuelaSRCacao,
+				escuelaSRPNMB: item.escuelaSRPNMB,
+				fitosanitarioCultivos: item.fitosanitarioCultivos,
+				giraCacao: item.giraCacao,
+				intercambioHuitora: item.intercambioHuitora,
+				manejoEcosistemico: item.manejoEcosistemico,
+				parcelaDemostrativa: item.parcelaDemostrativa,
+				poscosechaCacao: item.poscosechaCacao,
+				transformacionChocolate: item.transformacionChocolate,
+				transformacionPNMB: item.transformacionPNMB,
+				transformacionPulpas: item.transformacionPulpas
+
+
 			})
 		})
 		console.log(jsonConvert)
@@ -210,12 +229,33 @@ const QueryUserF = ({ history,form }) => {
 		const jsonConvert = []
 		genderCount.woman.arraywoman.forEach(item => {
 			jsonConvert.push({
-				codigo: item.id,
-				nombres: item.nombres,
+				codido: item.id,
+				nombre: item.nombres,
 				apellidos: item.apellidos,
-				dni: item.dni,
+				identificacion: item.dni,
 				edad: item.edad,
-				telefono: item.telefono
+				telefono: item.telefono,
+				genero: item.idGenero && item.idGenero.nombre,
+				etnia: item.idEtnia && item.idEtnia.nombre,
+				conflicto: item.idConflicto && item.idConflicto.nombre,
+				giraPNMB: item.giraPNMB,
+				cacaoPlanadas: item.cacaoPlanadas,
+				certificadoOrganica: item.certificadoOrganica,
+				escuelaAgroforesteria: item.escuelaAgroforesteria,
+				escuelaAgrosilvopastoril: item.escuelaAgrosilvopastoril,
+				escuelaAromaticas: item.escuelaAromaticas,
+				escuelaPermacultura: item.escuelaPermacultura,
+				escuelaSRCacao: item.escuelaSRCacao,
+				escuelaSRPNMB: item.escuelaSRPNMB,
+				fitosanitarioCultivos: item.fitosanitarioCultivos,
+				giraCacao: item.giraCacao,
+				intercambioHuitora: item.intercambioHuitora,
+				manejoEcosistemico: item.manejoEcosistemico,
+				parcelaDemostrativa: item.parcelaDemostrativa,
+				poscosechaCacao: item.poscosechaCacao,
+				transformacionChocolate: item.transformacionChocolate,
+				transformacionPNMB: item.transformacionPNMB,
+				transformacionPulpas: item.transformacionPulpas
 			})
 		})
 		json2excel({
@@ -228,12 +268,33 @@ const QueryUserF = ({ history,form }) => {
 		const jsonConvert = []
 		genderCount.men.arraymen.forEach(item => {
 			jsonConvert.push({
-				codigo: item.id,
-				nombres: item.nombres,
+				codido: item.id,
+				nombre: item.nombres,
 				apellidos: item.apellidos,
-				dni: item.dni,
+				identificacion: item.dni,
 				edad: item.edad,
-				telefono: item.telefono
+				telefono: item.telefono,
+				genero: item.idGenero && item.idGenero.nombre,
+				etnia: item.idEtnia && item.idEtnia.nombre,
+				conflicto: item.idConflicto && item.idConflicto.nombre,
+				giraPNMB: item.giraPNMB,
+				cacaoPlanadas: item.cacaoPlanadas,
+				certificadoOrganica: item.certificadoOrganica,
+				escuelaAgroforesteria: item.escuelaAgroforesteria,
+				escuelaAgrosilvopastoril: item.escuelaAgrosilvopastoril,
+				escuelaAromaticas: item.escuelaAromaticas,
+				escuelaPermacultura: item.escuelaPermacultura,
+				escuelaSRCacao: item.escuelaSRCacao,
+				escuelaSRPNMB: item.escuelaSRPNMB,
+				fitosanitarioCultivos: item.fitosanitarioCultivos,
+				giraCacao: item.giraCacao,
+				intercambioHuitora: item.intercambioHuitora,
+				manejoEcosistemico: item.manejoEcosistemico,
+				parcelaDemostrativa: item.parcelaDemostrativa,
+				poscosechaCacao: item.poscosechaCacao,
+				transformacionChocolate: item.transformacionChocolate,
+				transformacionPNMB: item.transformacionPNMB,
+				transformacionPulpas: item.transformacionPulpas
 			})
 		})
 		json2excel({
@@ -291,10 +352,10 @@ const QueryUserF = ({ history,form }) => {
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title={<label>Listado de Beneficiarios: {cant}</label>}
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
+					// extra={<Search
+					// 	placeholder="Buscar Usuario"
+					// 	onSearch={value => console.log(value)}
+					// />}
 				>
 					<Table
 						onRow={(record) => ({ onClick: (e) => history.push(`/profile/${record.dni}`) })}
@@ -315,10 +376,7 @@ const QueryUserF = ({ history,form }) => {
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				{genderCount && <Card title={<p>Total de mujeres {genderCount.woman.count.sum}</p>}
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
+				
 				>
 					<Table
 						onRow={(record) => ({ onClick: (e) => history.push(`/profile/${record.dni}`) })}
@@ -345,10 +403,7 @@ const QueryUserF = ({ history,form }) => {
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				{genderCount && <Card title={<p>Total de Hombres {genderCount.men.count.count}</p>}
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
+					
 				>
 					<Table
 						onRow={(record) => ({ onClick: (e) => history.push(`/profile/${record.dni}`) })}

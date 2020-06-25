@@ -87,10 +87,7 @@ export const CadenasProductivas = () => {
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title="Listado de Beneficiarios"
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
+					
 				>
 					<Table dataSource={lineProductives} rowKey="id">
 						<Column title="Numero." dataIndex="id" Key="id" />

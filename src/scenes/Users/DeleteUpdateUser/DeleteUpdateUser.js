@@ -54,10 +54,7 @@ export const DeleteUpdateUser = () => {
                         <h1>Consultar Usuarios</h1> 
                     </div>
                 <Card title="Listado de Beneficiarios" 
-                    extra={<Search
-                    placeholder="Buscar Usuario"
-                    onSearch={value => console.log(value)}
-                    />}
+                   
                 >
                     <Table dataSource={genderDate}>
                         <Column title="Identificacion." dataIndex="dni" key="dni" />

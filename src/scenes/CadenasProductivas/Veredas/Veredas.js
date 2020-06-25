@@ -33,9 +33,7 @@ export const Vereda = () => {
 						dateInfra && dateInfra.municipio.map((municipio) => (
 						<div className="card">					
 							<Card title={<p>{municipio.nombre}</p>}
-								extra={<Search
-									placeholder="Buscar Usuario"
-								/>}
+								
 							>
 								<Table dataSource={municipio.veredas} rowKey="id">
 									<Column title="Codigo" dataIndex="id" Key="id" />

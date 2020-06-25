@@ -28,10 +28,7 @@ export const InfraQuery = () => {
 					<h1>Consultar Infraestructura</h1>
 				</div>
 				<Card title="Listado de Infraestructuras"
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
+					
 				>
 					<Table dataSource={infra} rowKey="id">
 						<Column title="Nombre." dataIndex="nombre" Key="nombre" />

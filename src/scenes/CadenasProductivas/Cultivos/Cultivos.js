@@ -26,12 +26,13 @@ export const Cultivo = () => {
 		const jsonConvert = []
 		cropsProducer.forEach(item => {
 			jsonConvert.push({
-				codigo: item.id,
-				Municipio: item.idMunicipio2.nombre,
-				Vereda: item.idVereda2.nombre,
-				CodigoProductor: item.codigoProductor2.nombres + ' ' + item.codigoProductor2.apellidos,
-				LineaProductiva: item.idLineaProductiva2.nombre,
+				codigo_Cultivo: item.id,
 				dniProductor: item.dniProductor,
+				codigo_Productor: item.codigoProductor,
+				Nombre_Productor:item.codigoProductor2 && item.codigoProductor2.nombres + ' ' + item.codigoProductor2.apellidos,
+				Municipio: item.idMunicipio2 && item.idMunicipio2.nombre,
+				Vereda: item.idVereda2 && item.idVereda2.nombre,
+				LineaProductiva: item.idLineaProductiva2 && item.idLineaProductiva2.nombre,
 				hectareas: item.hectareas
 			})
 		})
@@ -61,10 +62,7 @@ export const Cultivo = () => {
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
 				<Card title={<p>Cultivos</p>}
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
+					
 				>
 					<Table dataSource={cropsProducer} rowKey="id">
 						<Column title="Identificación de Beneficiario." dataIndex="codigoProductor2.dni"  Key="dniProductor" />

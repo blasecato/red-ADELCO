@@ -80,10 +80,7 @@ export const QueryAdmin = () => {
 					<button className="btn-exel--exel" onClick={handleToExel}><img className="img-excel" src={exel}/> Descargar</button>
 				</div>
 				<Card title={<p>Cultivos</p>}
-					extra={<Search
-						placeholder="Buscar Usuario"
-						onSearch={value => console.log(value)}
-					/>}
+					
 				>
 					<Table dataSource={cropsProducer} rowKey="id">
 						<Column title="identificacion propietario." dataIndex="dniProductor" Key="dniProductor" />
