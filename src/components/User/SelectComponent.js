@@ -40,15 +40,19 @@ export const SelectComponente = (props) => {
   const handleSetField = (productor) => {
     console.log(productor)
     setFieldsValue({
-      ["nombres"]: productor.nombres,
-      ["apellidos"]: productor.apellidos,
-      ["idGenero"]: productor.idGenero.id,
-      ["telefono"]: productor.telefono,
-      ["edad"]: productor.edad,
-      ["idParentesco"]: productor.idParentesco.id,
-      ["idConflicto"]: productor.idConflicto.id,
+      ["nombres"]: productor.nombres && productor.nombres,
+      ["apellidos"]: productor.apellidos && productor.apellidos,
+      ["dni"]: productor.dni && productor.dni,
+      ["idGenero"]: productor.idGenero.id && productor.idGenero.id,
+      ["telefono"]: productor.telefono && productor.telefono,
+      ["edad"]: productor.edad && productor.edad,
+      ["idParentesco"]: productor.idParentesco && productor.idParentesco.id,
+      ["idConflicto"]: productor.idConflicto && productor.idConflicto.id,
+      ["tipoUsuario"]: productor.tipoUsuario && productor.tipoUsuario,
     })
   }
+
+  
 
   return (
     <section >
@@ -86,8 +90,8 @@ export const SelectComponente = (props) => {
                         }
                         showSearch
                       >
-                        {genderDate && genderDate.map((productor) => (
-                          <Option key={productor.dni} value={productor.id} onClick={() => { handleSetField(productor) }}>{productor.nombres} {productor.apellidos}</Option>
+                        {genderDate && genderDate.map((productor,index) => (
+                          <Option key={index} value={productor.id} onClick={() => { handleSetField(productor) }}>{productor.nombres} {productor.apellidos}</Option>
                         ))}
                       </Select>
                     )}
@@ -195,6 +199,13 @@ export const SelectComponente = (props) => {
                   {getFieldDecorator('entidad', {
                     rules: [{ required: true, message: 'Porfavor ingrese la entidad', whitespace: true }],
                   })(<Input placeholder="Entidad" className="item--input" />)}
+                </Form.Item>
+
+                <Form.Item className="item">
+                  <label>Tipo de beneficiario</label>
+                  {getFieldDecorator('tipoUsuario', {
+                    rules: [{ required: true, message: 'Porfavor ingrese el Tipo de beneficiario', whitespace: true }],
+                  })(<Input placeholder="Tipo de beneficiario" className="item--input" />)}
                 </Form.Item>
 
               </div>

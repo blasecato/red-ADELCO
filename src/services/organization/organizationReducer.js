@@ -2,13 +2,24 @@ import { handleActions } from 'redux-actions';
 
 export const INITIAL_STATE = {
   loading: false,
-  organizations: []
+  organizations: [],
+  users:[]
 }
 
 const reducer = handleActions({
   organization: {
     CREATE_ORGANIZATION: (state, { payload: { } }) => ({ ...state, loading: true }),
     CREATE_ORGANIZATION_RESPONSE: {
+      next(state, { payload: { } }) {
+        return { ...state }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
+    UPDATE_USER: (state, { payload: { } }) => ({ ...state, loading: true }),
+    UPDATE_USER_RESPONSE: {
       next(state, { payload: { } }) {
         return { ...state }
       },
@@ -51,6 +62,16 @@ const reducer = handleActions({
     GET_RESPONSE: {
       next(state, { payload: { organization } }) {
         return { ...state, organization }
+      },
+      throw(state, action) {
+        return { ...state }
+      }
+    },
+
+    GET_USER: (state, { payload: { } }) => ({ ...state, loading: true }),
+    GET_USER_RESPONSE: {
+      next(state, { payload: { users } }) {
+        return { ...state, users }
       },
       throw(state, action) {
         return { ...state }

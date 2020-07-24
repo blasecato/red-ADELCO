@@ -62,7 +62,7 @@ export const OrgQuery = () => {
             onClick={handleToExel}
           ><img className="img-excel" src={exel} /> Descargar</button>
         </div>
-        <Card title="Listado de Beneficiarios"
+        <Card title={`Listado de Organizaciones: ${organizations && organizations.length}`}
           
         >
           <Table dataSource={organizations} rowKey="id">

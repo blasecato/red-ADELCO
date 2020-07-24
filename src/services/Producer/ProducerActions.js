@@ -10,7 +10,7 @@ export const { producer } = createActions({
     UPDATE_PRODUCER_RESPONSE: () => ({}),
     
     UPDATE_PRODUCER_ID: (producer) => ({ producer }),
-    UPDATE_PRODUCER_RESPONSE_ID: () => ({}),
+    UPDATE_PRODUCER_ID_RESPONSE: () => ({}),
 
     GET_GENDER: () => ({}),
     GET_GENDER_RESPONSE: (genderCount) => ({ genderCount }),

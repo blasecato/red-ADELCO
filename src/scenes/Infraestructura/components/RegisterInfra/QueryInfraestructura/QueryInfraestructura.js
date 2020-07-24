@@ -27,7 +27,7 @@ export const InfraQuery = () => {
 				<div className="users--title">
 					<h1>Consultar Infraestructura</h1>
 				</div>
-				<Card title="Listado de Infraestructuras"
+				<Card title={<div>Listado de Infraestructuras: {infra.length} </div>}
 					
 				>
 					<Table dataSource={infra} rowKey="id">

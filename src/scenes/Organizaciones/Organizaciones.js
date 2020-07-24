@@ -64,6 +64,9 @@ class Organizaciones extends React.Component{
                             </Link>
                         </Card>
                     </div>
+                    <div className="button">
+                        <Link to="/form-update-user-social" className="btn-aut">Eliminar usuario de una Organizacion</Link>
+                    </div>
                     <div className="mesage"><span>¡</span>Aqui puedes gestionar Organizaciones, puedes Consultarlas, Registrarlas, Actualizarlas, Y Eliminarlas con tan solo dar click sobre la opcion que desees<span>!</span></div>
 
             </div>

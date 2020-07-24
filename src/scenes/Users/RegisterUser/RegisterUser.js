@@ -174,7 +174,13 @@ const FormRegisterUser = ({ form,history }) => {
                   <label>Entidad Perteneciente</label>
                   {getFieldDecorator('entidad', {
                     rules: [{ required: true, message: 'Porfavor ingrese la entidad', whitespace: true }],
-                  })(<Input placeholder="Codigo" className="item--input" />)}
+                  })(<Input placeholder="Entidad" className="item--input" />)}
+                </Form.Item>
+                <Form.Item className="item">
+                  <label>Tipo de usuario</label>
+                  {getFieldDecorator('tipoUsuario', {
+                    rules: [{ required: true, message: 'Porfavor ingrese el tipo de usuario', whitespace: true }],
+                  })(<Input placeholder="tipo de usuario" className="item--input" />)}
                 </Form.Item>
 
               </div>

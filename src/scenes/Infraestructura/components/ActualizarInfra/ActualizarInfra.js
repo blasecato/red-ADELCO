@@ -49,7 +49,7 @@ const FormActualizarInfra = ({ form,history }) => {
 			["nombre"]: item.nombre,
 			["covertura"]: item.covertura,
 			["apellidos"]: item.apellidos,
-			["idmunicipio"]: item.idmunicipio,
+			["idmunicipio"]: item.idVereda2 && item.idVereda2.idMunicipio,
 			["idVereda"]: item.idVereda,
 			["responsable"]: item.responsable,
 			["planos"]: item.planos,

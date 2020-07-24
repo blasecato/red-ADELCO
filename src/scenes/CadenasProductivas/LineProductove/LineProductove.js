@@ -56,11 +56,16 @@ const LineProductove = (props) => {
 				</Form>
 				{dateLine && <Card title={"Beneficiarios : " + dateLine.countCrop.countCrops}>
 					<Table dataSource={dateLine.dataCrops} rowKey="dniProductor2.dni">
+						<Column title="DNI productor." dataIndex="dniProductor2.dni" key="dni" />
 						<Column title="Nombres." dataIndex="dniProductor2.nombres" key="nombres" />
 						<Column title="Apellidos." dataIndex="dniProductor2.apellidos" key="apellidos" />
+						<Column title="Sexo." dataIndex="dniProductor2.idGenero.nombre" key="genero" />
+						<Column title="Etnia." dataIndex="dniProductor2.idEtnia.nombre" key="etnia" />
 						<Column title="Edad" dataIndex="dniProductor2.edad" key="edad" />
 						<Column title="Hectareas" dataIndex="hectareas" key="hectareas" />
 						<Column title="Municipio" dataIndex="idMunicipio2.nombre" key="municipio" />
+						<Column title="Linea Productiva" dataIndex="idLineaProductiva2.nombre" key="idLineaProductiva2" />
+						
 					</Table>
 				</Card>}
 			</div>

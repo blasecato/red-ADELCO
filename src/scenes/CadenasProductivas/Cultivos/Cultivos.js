@@ -13,8 +13,6 @@ const { Column, ColumnGroup } = Table;
  
 export const Cultivo = () => {
 
-
-	
 	const dispatch = useDispatch()
 	const { cropsProducer } = useSelector(state => state.crop)
 
@@ -44,8 +42,6 @@ export const Cultivo = () => {
 		});
 	}
 
-	console.log("crops", cropsProducer)
-
 	return (
 		<div className="queryuser">
 			<LayoutHome />
@@ -61,9 +57,7 @@ export const Cultivo = () => {
 						onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
-				<Card title={<p>Cultivos</p>}
-					
-				>
+				<Card title={<p>Cultivos {cropsProducer && cropsProducer.length} </p>}>
 					<Table dataSource={cropsProducer} rowKey="id">
 						<Column title="Identificación de Beneficiario." dataIndex="codigoProductor2.dni"  Key="dniProductor" />
 						<Column title="Nombre Beneficiarios" dataIndex="codigoProductor2.nombres" Key="codigoProductor2" />
@@ -74,7 +68,6 @@ export const Cultivo = () => {
 						<Column title="Ubicación Acepta" dataIndex="posicionAcepta" Key="posicionAcepta" />
 						<Column title="Principal Trabajo" dataIndex="trabajoPrincipal" Key="trabajoPrincipal" />
 						<Column title="Entidad Perteneciente" dataIndex="entidadPerteneciente" Key="entidadPerteneciente" />
-					
 					</Table>
 				</Card>
 			</div>

@@ -24,6 +24,7 @@ import { SelectComponent } from "../../../components/User/SelectComponent";
 import { SingUp } from "../../Admin/SingUp/SingUp";
 import { Cultivo } from "../../CadenasProductivas/Cultivos/Cultivos";
 import { RegisterUserSocial } from "../../Organizaciones/components/UserSocial/UserSocial";
+import { FormUpdateUserSocial } from "../../Organizaciones/components/UpdateStateUser/UpdateStateUser";
 import { DeleteUserOrgForm } from "../../Organizaciones/components/DeleteUserOrg/DeleteUserOrg";
 import { RegisterCultivos } from "../../CadenasProductivas/Cultivos/RegisterCultivos";
 import { OrgQuery } from "../../Organizaciones/components/Org/Org";
@@ -77,6 +78,7 @@ export const Private = () => {
         <Route path="/singup/" component={SingUp} />
         <Route path="/cultivos/" component={Cultivo} />
         <Route path="/usersocial/" component={RegisterUserSocial} />
+        <Route path="/form-update-user-social/" component={FormUpdateUserSocial} />
         <Route path="/deleteuserorg/" component={DeleteUserOrgForm} />
         <Route path="/registercultivos/" component={RegisterCultivos} />
         <Route path="/orgquery/" component={OrgQuery} />

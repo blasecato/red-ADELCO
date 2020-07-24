@@ -136,10 +136,20 @@ export const Profile = ({ match }) => {
                   <div className="component">
                     {producer.productoresOrganizaciones.map((data,index)=>
                       <div key={index}>
-                        {index+1}:  {data.idOrganizacion.nombre}
+                        {index+1}:  {data.idOrganizacion.nombre} - {data.estado}
                       </div>
                     )
                     }
+                  </div>
+                </div>
+              }
+               {producer.tipoUsuario.length > 0  &&
+                <div className="item">
+                  <div className="title">
+                    Tipo de beneficiario
+                  </div>
+                  <div className="component">
+                    {producer.tipoUsuario}
                   </div>
                 </div>
               }

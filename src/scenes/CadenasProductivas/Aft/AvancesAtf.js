@@ -13,9 +13,9 @@ import { atf as atfActions } from "../../../services/atf/AtfActions";
 
 const { Option } = Select;
 
-const FromAvancesAft = ({ form,history }) => {
+const FromAvancesAft = ({ form, history }) => {
 
-	const { getFieldDecorator, validateFields, resetFields,setFieldsValue } = form
+	const { getFieldDecorator, validateFields, resetFields, setFieldsValue } = form
 	const { dateInfra } = useSelector(state => state.cade)
 	const { genderDate, getProducerUpdateDate } = useSelector(state => state.producer)
 	const { cropsDate } = useSelector(state => state.crop)
@@ -73,6 +73,8 @@ const FromAvancesAft = ({ form,history }) => {
 		})
 	}
 
+
+
 	return (
 		<section >
 			<LayoutHome />
@@ -89,29 +91,38 @@ const FromAvancesAft = ({ form,history }) => {
 							</div>
 							<div className="form">
 
-							<Form.Item className="item">
-									<label>Seleccione Usuario</label>
-									<div className="select-content">
-										{getFieldDecorator('id', {
-											rules: [{ required: true, message: 'Porfavor seleccione un usuario!' }],
-										})(
-											<Select
-												
-												className="select"
-												placeholder="usuario"
-												filterOption={(inputValue, option) =>
-													option.props.children
-														.toString()
-														.toLowerCase()
-														.includes(inputValue.toLowerCase())
-												}
-												showSearch
-											>
-												{atf && atf.map((date, index) => <Option key={index} value={date.id}  onClick={()=>{handleId(date)}}>{date.email} </Option>)}
-											</Select>
-										)}
-									</div>
+								<Form.Item className="item">
+
+									{atf && atf.length ?
+										<>
+											<label>Seleccione Usuario</label>
+											<div className="select-content">
+												{getFieldDecorator('id', {
+													rules: [{ required: true, message: 'Porfavor seleccione un usuario!' }],
+												})(
+													<Select
+
+														className="select"
+														placeholder="usuario"
+														filterOption={(inputValue, option) =>
+															option.props.children
+																.toString()
+																.toLowerCase()
+																.includes(inputValue.toLowerCase())
+														}
+														showSearch
+													>
+														{atf && atf.map((date, index) => <Option key={index} value={date.id} onClick={() => { handleId(date) }}>{date.email} </Option>)}
+													</Select>
+												)}
+											</div>
+
+										</>
+										:
+										<label>No se encontraron AFT para registrar avances</label>
+									}
 								</Form.Item>
+
 								<Form.Item className="item">
 									<label>Ubicacion de los Avances del AFT</label>
 									{getFieldDecorator('avances', {
@@ -257,7 +268,14 @@ const FromAvancesAft = ({ form,history }) => {
 						</div>
 					</div>
 					<div className="btn">
-						<Button htmlType="submit"><Icon type="form" />Registrar Avances</Button>
+
+						{atf && atf.length ?
+							<Button htmlType="submit"><Icon type="form" />Registrar Avances</Button>
+							:
+							<>
+							</>
+						}
+
 					</div>
 				</Form>
 			</div>

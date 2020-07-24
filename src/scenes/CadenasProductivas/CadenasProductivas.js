@@ -86,9 +86,7 @@ export const CadenasProductivas = () => {
 						onClick={handleToExel}
 					><img className="img-excel" src={exel} /> Descargar</button>
 				</div>
-				<Card title="Listado de Beneficiarios"
-					
-				>
+				<Card title={<>lineas y cadenas productivas: {lineProductives && lineProductives.length} </>}>
 					<Table dataSource={lineProductives} rowKey="id">
 						<Column title="Numero." dataIndex="id" Key="id" />
 						<Column title="Linea Productiva." dataIndex="nombre" Key="nombre" />

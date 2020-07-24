@@ -14,33 +14,9 @@ const { Column, ColumnGroup } = Table;
 
 export const QueryAdmin = () => {
 
-
-
-	const data = [
-		{
-			"userId": 1,
-			"userPhoneNumber": 1888888888,
-			"userAddress": 'xxxx',
-			"date": '2013/09/10 09:10'  // string
-		},
-		{
-			"userId": 2,
-			"userPhoneNumber": 1888888888,
-			"userAddress": 'xxxx',
-			"date": new Date()
-		},
-		{
-			"userId": 3,
-			"userPhoneNumber": 1888888888,
-			"userAddress": 'xxxx',
-			"date": new Date()
-		}
-	];
-
-
 	const dispatch = useDispatch()
 	const { cropsProducer } = useSelector(state => state.crop)
-
+ 
 	useEffect(() => {
 		dispatch(crop.getCropsProducer())
 	}, [])
@@ -79,9 +55,7 @@ export const QueryAdmin = () => {
 				<div className="btn-exel">
 					<button className="btn-exel--exel" onClick={handleToExel}><img className="img-excel" src={exel}/> Descargar</button>
 				</div>
-				<Card title={<p>Cultivos</p>}
-					
-				>
+				<Card title={<p>Cultivos {cropsProducer && cropsProducer.length} </p>}>
 					<Table dataSource={cropsProducer} rowKey="id">
 						<Column title="identificacion propietario." dataIndex="dniProductor" Key="dniProductor" />
 						<Column title="nombres propietario" dataIndex="codigoProductor2.nombres" Key="codigoProductor2" />

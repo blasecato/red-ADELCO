@@ -5,6 +5,12 @@ export const { organization } = createActions({
     CREATE_ORGANIZATION: (organization) => ({ organization }),
     CREATE_ORGANIZATION_RESPONSE: () => ({}),
 
+    UPDATE_USER: (user) => ({ user }),
+    UPDATE_USER_RESPONSE: () => ({}),
+
+    GET_USER: (user) => ({ user }),
+    GET_USER_RESPONSE: (users) => ({users}),
+
     CREATE_DIAGNOSTICO: (organization) => ({ organization }),
     CREATE_DIAGNOSTICO_RESPONSE: () => ({}),
 
